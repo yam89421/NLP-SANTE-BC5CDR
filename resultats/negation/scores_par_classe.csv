@@ -1,0 +1,4 @@
+reference_provisoire,classe,VP,FP,FN,precision,rappel,F1,support,denominateur_nul
+True,nie,4.0,1.0,1.0,0.8,0.8,0.8,5.0,False
+True,non_nie,4.0,1.0,1.0,0.8,0.8,0.8,5.0,False
+True,moyenne des deux F1,,,,,,0.8,,

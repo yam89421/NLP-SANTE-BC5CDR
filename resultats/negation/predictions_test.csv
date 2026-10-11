@@ -1,0 +1,11 @@
+phrase_id,family_id,phrase,mention,reference,predit,regle,declencheur
+NEG005,F03,She experienced neither nausea nor vomiting during the treatment.,vomiting,nie,nie,pre,neither
+NEG006,F03,She experienced nausea and vomiting during the treatment.,vomiting,non_nie,non_nie,,
+NEG009,F05,Acute hepatitis was ruled out by liver biopsy.,Acute hepatitis,nie,nie,post,was ruled out
+NEG010,F05,Acute hepatitis was confirmed by liver biopsy.,Acute hepatitis,non_nie,non_nie,,
+NEG013,F07,There was no increase in seizure frequency after the dose change.,seizure,non_nie,non_nie,,
+NEG014,F07,No seizures occurred after the dose change.,seizures,nie,nie,pre,no
+NEG015,F08,The normal ECG did not exclude myocardial ischemia.,myocardial ischemia,non_nie,nie,pre,not
+NEG016,F08,Myocardial ischemia was absent on the stress test.,Myocardial ischemia,nie,nie,post,was absent
+NEG019,F10,"The patient did not, despite the high cumulative dose of doxorubicin, develop cardiomyopathy.",cardiomyopathy,nie,non_nie,,
+NEG020,F10,Cardiomyopathy developed despite the low cumulative dose of doxorubicin.,Cardiomyopathy,non_nie,non_nie,,

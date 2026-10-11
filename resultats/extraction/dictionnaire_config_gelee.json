@@ -1,0 +1,18 @@
+{
+  "config": {
+    "casse": "insensible",
+    "seuil_annotation": 0.3,
+    "regex": true
+  },
+  "entrees": 2348,
+  "regex": {
+    "Chemical": "\\b[A-Za-z][a-z]{2,}(?:mycin|micin|cillin|cycline|azole|olol|pril|sartan|platin|statin|tidine|azepam|azolam|caine|profen|oxacin|vudine|navir|parin|semide|thiazide|triptyline|pramine|peridol|zodone|xetine|barbital)\\b",
+    "Disease": "\\b[A-Za-z][a-z]{2,}(?:itis|emia|aemia|pathy|toxicity|algia|plegia|penia|cytosis|trophy|oma|uria)\\b"
+  },
+  "temps_s": {
+    "construction_train": 1.4,
+    "extraction_validation": 1.39,
+    "extraction_test": 1.52
+  },
+  "predictions_test": 7019
+}

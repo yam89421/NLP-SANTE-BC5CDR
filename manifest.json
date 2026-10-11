@@ -1,0 +1,120 @@
+{
+  "corpus_extraction": {
+    "nom": "BC5CDR (BioCreative V CDR)",
+    "version": "CDR.Corpus.v010516 (PubTator)",
+    "source_url": "https://ftp.ncbi.nlm.nih.gov/pub/lu/BC5CDR/",
+    "licence": "Domaine public (US Government Work, NCBI/NLM), citation demandée",
+    "date_recuperation": null,
+    "categories": [
+      "Chemical",
+      "Disease"
+    ],
+    "unite_positions": "caracteres, base 0, [debut, fin[, sur titre + ' ' + resume",
+    "mentions_composites": "gardees comme une seule mention continue (253 au total), identique pour les deux methodes",
+    "partitions": {
+      "type": "officielles",
+      "train": "CDR_TrainingSet",
+      "validation": "CDR_DevelopmentSet",
+      "test": "CDR_TestSet",
+      "seed": 42,
+      "ratio": "500/500/500 documents",
+      "identifiants_sauvegardes_dans": "data/partitions_extraction.csv"
+    }
+  },
+  "methode_dictionnaire": {
+    "description": "dictionnaire des formes annotées de TRAIN (src/dictionnaire.py, adapté de tals.regles.ExtracteurDictionnaire), réglé sur VALIDATION parmi 16 configurations",
+    "config_retenue": {
+      "casse": "insensible",
+      "seuil_annotation": 0.3,
+      "regex": true
+    },
+    "nb_entrees": 2348,
+    "gestion_casse_variantes": "clés en minuscules NFC (casse insensible), texte original jamais modifié ; formes découpées avec le même tokeniseur que le texte ; type majoritaire pour une forme ambiguë",
+    "priorite": "plus longue correspondance à un même point de départ, rejet des recouvrements ; regex de priorité inférieure",
+    "filtre": "forme gardée si son taux d'annotation dans TRAIN >= 0.3",
+    "regles_regex": {
+      "Chemical": "\\b[A-Za-z][a-z]{2,}(?:mycin|micin|cillin|cycline|azole|olol|pril|sartan|platin|statin|tidine|azepam|azolam|caine|profen|oxacin|vudine|navir|parin|semide|thiazide|triptyline|pramine|peridol|zodone|xetine|barbital)\\b",
+      "Disease": "\\b[A-Za-z][a-z]{2,}(?:itis|emia|aemia|pathy|toxicity|algia|plegia|penia|cytosis|trophy|oma|uria)\\b"
+    },
+    "fichiers": [
+      "resultats/extraction/dictionnaire.tsv",
+      "resultats/extraction/dictionnaire_config_gelee.json",
+      "resultats/extraction/dictionnaire_reglage_validation.csv"
+    ],
+    "statut": "gelé le 2026-10-07"
+  },
+  "methode_apprise": {
+    "type_modele": null,
+    "checkpoint_preentraine": null,
+    "hyperparametres": {
+      "learning_rate": null,
+      "batch_size": null,
+      "epochs": null,
+      "seed": null
+    },
+    "config_retenue_sur_validation": null
+  },
+  "negation": {
+    "regles_version": "v0 (src/negation.py, démarche NegEx du cours), retenue sans modification après le développement",
+    "date_gel_regles": "2026-10-07T16:40:40",
+    "sha256_regles": "db7664571ad01ced551b384f2d9781caad7d8e2d49f791ce90e35785d1d4a575",
+    "nb_phrases_fictives": 20,
+    "langue": "anglais",
+    "date_generation": "2026-10-07T16:41:27",
+    "generation": "IA générative (Claude), après le gel des règles",
+    "partition": "10 dev / 10 test par familles de formulation (5 niées / 5 non niées chacun)",
+    "reference": "provisoire tant que la double annotation (annotation_AMARA.csv, annotation_TOMAS.csv) n'est pas faite"
+  },
+  "corpus_qa": {
+    "theme": null,
+    "public": null,
+    "nb_documents": null,
+    "sources": [],
+    "decoupage_passages": "paragraphes/sections",
+    "nb_questions_dev": 20,
+    "nb_questions_test": 10
+  },
+  "recherche_lexicale": {
+    "methode": "BM25",
+    "bibliotheque": null,
+    "version": null,
+    "parametres": {
+      "k1": null,
+      "b": null
+    },
+    "k_retenu": 5
+  },
+  "llm_qa": {
+    "modele": null,
+    "revision_ou_date": null,
+    "acces": "local | api",
+    "parametres": {
+      "temperature": null,
+      "max_tokens": null,
+      "seed": null
+    },
+    "generation_deterministe": null
+  },
+  "prompts": {
+    "q1_version": "v1",
+    "q2_version": "v1",
+    "fichier": "notebooks/4.2_llm_q1_q2.ipynb"
+  },
+  "evaluation": {
+    "bleu": {
+      "outil": "sacrebleu",
+      "version": null,
+      "options": "lissage exponentiel, tokenisation externe commune, ordre effectif désactivé"
+    },
+    "rouge": {
+      "outil": null,
+      "version": null
+    }
+  },
+  "gel": {
+    "date_gel_qa": "2026-11-06",
+    "statut": "non_gele",
+    "commit_ou_version_code": null
+  },
+  "dernier_maj": "2026-10-07"
+}

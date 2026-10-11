@@ -1,0 +1,79 @@
+{
+  "corpus_extraction": {
+    "nom": "BC5CDR",
+    "version": "BioCreative V CDR, distribution NCBI",
+    "source_url": "https://ftp.ncbi.nlm.nih.gov/pub/lu/BC5CDR/",
+    "licence": "usage academique",
+    "date_recuperation": "2026-09-20",
+    "categories": ["Chemical", "Disease"],
+    "partitions": {
+      "type": "officielles",
+      "seed": null,
+      "ratio": "train/dev/test fournis par le corpus",
+      "identifiants_sauvegardes_dans": "data/predictions_extraction.jsonl"
+    }
+  },
+  "methode_dictionnaire": {
+    "description": "dictionnaire des formes annotees dans TRAIN, recherche exacte + variantes de casse",
+    "regles_regex": "aucune (formes plates uniquement)",
+    "gestion_casse_variantes": "insensible a la casse, priorite a la mention la plus longue"
+  },
+  "methode_apprise": {
+    "type_modele": "encodeur BERT + tete de classification token-level",
+    "checkpoint_preentraine": "bert-base-uncased",
+    "hyperparametres": {
+      "learning_rate": 3e-5,
+      "batch_size": 16,
+      "epochs": 4,
+      "seed": 42
+    },
+    "config_retenue_sur_validation": "learning_rate=3e-5, epochs=4 (meilleur F1 micro sur VALIDATION)"
+  },
+  "negation": {
+    "regles_version": "v1 (indices lexicaux + portee de phrase + exceptions 'impossible d'exclure')",
+    "nb_phrases_fictives": 20,
+    "date_generation": "2026-10-02"
+  },
+  "corpus_qa": {
+    "theme": "exemple fictif : preparation aux examens",
+    "public": "patients avant un examen",
+    "nb_documents": 10,
+    "sources": ["https://exemple.org/doc001", "https://exemple.org/doc002"],
+    "decoupage_passages": "paragraphes/sections",
+    "nb_questions_dev": 20,
+    "nb_questions_test": 10
+  },
+  "recherche_lexicale": {
+    "methode": "BM25",
+    "bibliotheque": "rank_bm25",
+    "version": "0.2.2",
+    "parametres": {"k1": 1.5, "b": 0.75},
+    "k_retenu": 5
+  },
+  "llm_qa": {
+    "modele": "a completer (ex. modele local ou API utilisee)",
+    "revision_ou_date": "a completer",
+    "acces": "api",
+    "parametres": {"temperature": 0.0, "max_tokens": 300, "seed": null},
+    "generation_deterministe": "temperature=0 ; variabilite residuelle notee si observee"
+  },
+  "prompts": {
+    "q1_version": "v1",
+    "q2_version": "v1",
+    "fichier": "notebooks/07_llm_q1_q2.ipynb"
+  },
+  "evaluation": {
+    "bleu": {
+      "outil": "sacrebleu",
+      "version": "2.4.x",
+      "options": "lissage exponentiel, tokenisation externe commune, ordre effectif desactive"
+    },
+    "rouge": {"outil": "rouge-score", "version": "0.1.2"}
+  },
+  "gel": {
+    "date_gel_qa": "2026-11-06",
+    "statut": "gele",
+    "commit_ou_version_code": "exemple: git commit abc1234"
+  },
+  "dernier_maj": "2026-11-06"
+}

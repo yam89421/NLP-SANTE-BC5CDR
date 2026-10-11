@@ -1,0 +1,19 @@
+# Environnement virtuel créé à la racine du projet
+/bin/
+/lib/
+/lib64
+/include/
+/share/
+/etc/
+/pyvenv.cfg
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Secrets
+.env
+
+# Archives de rendu
+*.zip

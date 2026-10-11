@@ -1,0 +1,4 @@
+{"methode": "dictionnaire", "document_id": "DOC_TEST_001", "categorie": "Disease", "segments": [{"texte": "diabete de type 2", "debut": 12, "fin": 29}], "unite_positions": "caracteres"}
+{"methode": "apprise", "document_id": "DOC_TEST_001", "categorie": "Disease", "segments": [{"texte": "diabete de type 2", "debut": 12, "fin": 29}], "unite_positions": "caracteres"}
+{"methode": "dictionnaire", "document_id": "DOC_TEST_002", "categorie": "Chemical", "segments": [], "unite_positions": "caracteres"}
+{"methode": "apprise", "document_id": "DOC_TEST_002", "categorie": "Chemical", "segments": [{"texte": "metformine", "debut": 5, "fin": 15}], "unite_positions": "caracteres"}

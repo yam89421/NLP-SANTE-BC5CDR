@@ -1,0 +1,4 @@
+partition,documents,docs sans mention,Chemical,Disease,total mentions,formes distinctes,composites,sans id MeSH (-1),phrases,phrases sans mention
+train,500,0,5203,4182,9385,2391,107,76,4580,773
+validation,500,0,5347,4244,9591,2239,89,59,4592,787
+test,500,0,5385,4424,9809,2355,57,91,4821,837
