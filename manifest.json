@@ -66,39 +66,52 @@
     "reference": "provisoire tant que la double annotation (annotation_AMARA.csv, annotation_TOMAS.csv) n'est pas faite"
   },
   "corpus_qa": {
-    "theme": null,
-    "public": null,
-    "nb_documents": null,
-    "sources": [],
-    "decoupage_passages": "paragraphes/sections",
+    "theme": "Effets indésirables de la chimiothérapie et soins de support",
+    "public": "Patients traités par chimiothérapie et leurs proches",
+    "nb_documents": 10,
+    "sources": [
+      "Institut national du cancer (INCa) : 2 PDF (DOC001, DOC002) et 8 pages cancer.fr (DOC003-DOC010) ; catalogue data/corpus.csv ; DOC004-DOC010 récupérés le 2026-10-23 via la Wayback Machine (cancer.fr en maintenance)"
+    ],
+    "decoupage_passages": "paragraphes regroupés par section jusqu'à 800 caractères, sans franchir une frontière de section ; paragraphe plus long coupé aux frontières de phrases (src/qa_corpus.py, notebook 3)",
     "nb_questions_dev": 20,
-    "nb_questions_test": 10
+    "nb_questions_test": 10,
+    "langue": "français",
+    "taille_max_passage_caracteres": 800,
+    "nb_passages": 413,
+    "extraction_texte": "PyMuPDF (PDF en planches de deux pages, ordre de lecture reconstitué) ; BeautifulSoup (chapô et blocs wysiwyg des pages cancer.fr)",
+    "preuves": "annotées par extrait verbatim (preuves_extraits), identifiants recalculés à chaque découpage ; passages équivalents dans equivalents_by_element, hors du calcul du rappel",
+    "questions": "DEV 20 (16 avec réponse dont 7 à deux passages ou plus, 4 sans réponse) ; TEST 10 (8 avec réponse dont 6 à deux passages ou plus, 2 sans réponse) ; familles disjointes",
+    "aide_llm_questions": "Q006-Q030 rédigées avec l'aide de Claude (Anthropic) le 2026-10-23, preuves vérifiées par extrait verbatim, relecture du binôme à faire (champ statut_relecture)"
   },
   "recherche_lexicale": {
     "methode": "BM25",
-    "bibliotheque": null,
-    "version": null,
+    "bibliotheque": "implémentation du TD RAG du cours (src/qa_recherche.py), sans bibliothèque externe",
+    "version": "REC-v2 (2026-10-29)",
     "parametres": {
-      "k1": null,
-      "b": null
+      "k1": 1.5,
+      "b": 0.75,
+      "tokenisation": "\\w+ en minuscules puis racinisation Snowball français (snowballstemmer), nombres non racinisés, aucun mot vide retiré",
+      "texte_indexe": "texte du passage seul",
+      "choix": "8 variantes (texte indexé × mots vides × racinisation) et grille k1/b comparées sur DEV ; k1/b du TD conservés (aucun gain dans la grille)"
     },
     "k_retenu": 5
   },
   "llm_qa": {
-    "modele": null,
-    "revision_ou_date": null,
-    "acces": "local | api",
+    "modele": "gpt-4.1-mini-2025-04-14 (OpenAI)",
+    "revision_ou_date": "version datée 2025-04-14 ; system_fingerprint fp_58b0258a33 observé le 2026-10-28",
+    "acces": "api (OpenAI Chat Completions, clé dans .env)",
     "parametres": {
-      "temperature": null,
-      "max_tokens": null,
-      "seed": null
+      "temperature": 0.0,
+      "max_tokens": 300,
+      "seed": 42
     },
-    "generation_deterministe": null
+    "generation_deterministe": "température 0 + graine fixe + cache des requêtes (resultats/qa/cache_llm.json)"
   },
   "prompts": {
-    "q1_version": "v1",
-    "q2_version": "v1",
-    "fichier": "notebooks/4.2_llm_q1_q2.ipynb"
+    "q1_version": "v1 (guide, annexe C)",
+    "q2_version": "v1 et v2 testées sur DEV (contexte c2 avec titres) ; choix au gel",
+    "fichier": "notebooks/4.2_llm_q1_q2.ipynb",
+    "contexte": "c2 : identifiant + titre du document + section, puis texte du passage"
   },
   "evaluation": {
     "bleu": {
@@ -116,5 +129,15 @@
     "statut": "non_gele",
     "commit_ou_version_code": null
   },
-  "dernier_maj": "2026-10-07"
+  "dernier_maj": "2026-10-23",
+  "approfondissement_recherche": {
+    "statut": "approfondissement C.1, DEV seulement (notebook 4.3)",
+    "modele_dense": "intfloat/multilingual-e5-small (sentence-transformers 5.1.2, CPU)",
+    "methodes": [
+      "dense texte",
+      "dense section + texte",
+      "hybride RRF (top-20 BM25 REC-v2 + top-20 dense, constante 60)"
+    ],
+    "resultat_dev": "dense section + texte : Hit@5 0.938, Rappel@5 0.875, couverture 0.979 (BM25 REC-v2 : 0.875 / 0.781 / 0.823) ; RRF sans gain"
+  }
 }

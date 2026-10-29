@@ -1,0 +1,17 @@
+question_id,question,nb_preuves,hit@5,rappel@5,hit@5_equiv,rappel@5_equiv,couverture_elements@5,rang_premiere_preuve
+Q001,"Quand la chute des cheveux commence-t-elle après une chimiothérapie, et quand les cheveux repoussent-ils ?",2,1,1.0,1,1.0,1.0,1
+Q002,Combien de temps durent en général les nausées et les vomissements après une séance de chimiothérapie ?,2,1,0.5,1,1.0,1.0,3
+Q003,"Que faire si l'on perd ou prend rapidement du poids pendant une chimiothérapie, et l'accompagnement diététique proposé fait-il partie des soins de support remboursés ?",2,1,1.0,1,1.0,1.0,1
+Q004,"Après un cancer, jusqu'à quand et dans quelle limite les bilans et consultations de soins de support peuvent-ils être prescrits ?",2,1,1.0,1,1.0,1.0,1
+Q006,J'ai des aphtes depuis que je suis sous chimio : quels aliments vaut-il mieux laisser de côté ?,1,1,1.0,1,1.0,1.0,1
+Q007,À partir de quelle perte de poids considère-t-on qu'une personne traitée pour un cancer est dénutrie ?,1,1,1.0,1,1.0,1.0,1
+Q008,Ma mère a beaucoup maigri depuis le début de son traitement : combien de kilos faut-il avoir perdu pour qu'on parle de dénutrition ?,1,1,1.0,1,1.0,1.0,5
+Q009,Mes plaquettes ont baissé à cause de la chimiothérapie : quelles précautions prendre pour limiter les saignements ?,1,1,1.0,1,1.0,1.0,1
+Q010,"Que manger et que boire en cas de diarrhée pendant la chimiothérapie, et quand faut-il alerter son médecin ?",2,1,0.5,1,0.5,0.6666666666666666,2
+Q011,"Quelles chimiothérapies risquent d'abîmer les nerfs, et quel type de douleur cela entraîne-t-il ?",1,1,1.0,1,1.0,1.0,1
+Q012,"Mon conjoint va être nourri par sonde à la maison : comment doit-il être installé, combien de temps dure le passage et qui s'occupe du matériel ?",2,0,0.0,0,0.0,0.0,22
+Q013,Est-ce risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux ?,1,1,1.0,1,1.0,1.0,1
+Q014,"Après combien de temps de chimiothérapie des douleurs peuvent-elles apparaître, et persistent-elles une fois le traitement fini ?",1,1,1.0,1,1.0,1.0,5
+Q015,Comment évaluer soi-même sa fatigue au jour le jour pour en parler à l'équipe soignante ?,2,1,0.5,1,0.5,0.5,1
+Q016,"Quand les globules blancs sont bas après une chimiothérapie, quels signes doivent faire penser à une infection et que faut-il faire ?",1,0,0.0,0,0.0,0.0,140
+Q017,La perruque est-elle prise en charge quand on perd ses cheveux à cause de la chimiothérapie ?,1,1,1.0,1,1.0,1.0,2

@@ -1,10 +1,15 @@
 pandas>=2.0
 numpy>=1.24
 scikit-learn>=1.3
-rank_bm25>=0.2.2
 sacrebleu>=2.4
 rouge-score>=0.1.2
 transformers>=4.40
 torch>=2.2
 seqeval>=1.2
 jupyter>=1.0
+pymupdf>=1.24
+beautifulsoup4>=4.12
+openai>=1.0
+python-dotenv>=1.0
+snowballstemmer>=2.2
+sentence-transformers>=5,<5.2   # transformers reste en 4.57.1 (BioBERT)

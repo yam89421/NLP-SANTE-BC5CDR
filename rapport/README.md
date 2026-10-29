@@ -10,3 +10,9 @@ Plan attendu (barème, section 7.2 du livret) :
 5. Clarté, références et reproductibilité
 
 Les corpus complets et sorties détaillées restent dans les fichiers zip joints, pas dans le rapport.
+
+Autres documents :
+
+- `fiche_cadrage.md`, `cadrage_qa.md` — cadrage (jalon E).
+- `guide_redaction_qa.md` — guide de rédaction des questions QA et désaccords de relecture.
+- `synthese_QA1.md` — synthèse du jalon QA1 (documents, questions, recherche sur DEV).

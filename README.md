@@ -17,11 +17,11 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 |---|---|---|
 | Corpus d'extraction | BC5CDR (`CDR.Corpus.v010516`, PubTator) | Partitions officielles, positions en caractères vérifiées, domaine public |
 | Catégories retenues | Chemical, Disease | Deux catégories annotées du même corpus, ~5 000 et ~4 200 mentions en TRAIN |
-| Thème QA | *(à compléter, ex. cancer / INCa)* | *(à compléter)* |
-| Public visé (QA) | *(à compléter)* | *(à compléter)* |
+| Thème QA | Effets indésirables de la chimiothérapie et soins de support ; 10 documents INCa | Sources publiques, fiables, en français, sous licence ouverte |
+| Public visé (QA) | Patients traités par chimiothérapie et leurs proches | Documents INCa écrits pour ce public |
 | Modèle méthode apprise | *(à compléter)* | *(à compléter)* |
-| LLM utilisé pour Q1/Q2 | *(à compléter)* | *(à compléter)* |
-| Recherche lexicale | *(ex. BM25 / rank_bm25)* | *(à compléter)* |
+| LLM utilisé pour Q1/Q2 | `gpt-4.1-mini-2025-04-14` (API OpenAI), température 0, graine 42 | Version datée, génération déterministe, coût faible ; clé dans `.env` (non versionné) |
+| Recherche lexicale | BM25 du TD RAG (k1 = 1,5, b = 0,75) avec racinisation Snowball français, texte du passage indexé, top-5 | Méthode du cours ; prétraitement choisi sur DEV (REC-v2) |
 
 ## 3. Arborescence du dépôt
 
@@ -31,7 +31,7 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 ├── manifest.json                      # versions, modèle, prompts, paramètres, date du gel
 ├── requirements.txt                   # dépendances Python
 ├── CDR_Data/                          # corpus BC5CDR d'origine (PubTator, BioC), domaine public
-├── src/                               # code du projet (lecteur BC5CDR, dictionnaire, scoreur)
+├── src/                               # code du projet (lecteur BC5CDR, dictionnaire, scoreur, corpus QA)
 ├── tals/                              # paquet du cours, copié sans modification
 ├── data/
 │   ├── partitions_extraction.csv      # PMID -> partition (2.2)
@@ -54,6 +54,7 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 │   ├── 3_corpus_qa.ipynb
 │   ├── 4.1_recherche_lexicale_q0.ipynb
 │   ├── 4.2_llm_q1_q2.ipynb
+│   ├── 4.3_recherche_hybride.ipynb      # approfondissement : recherche dense / hybride
 │   └── 5_evaluation.ipynb
 ├── resultats/
 │   ├── extraction/                    # tableaux VP/FP/FN, P/R/F1, erreurs commentées

@@ -1,0 +1,11 @@
+passage_id,choix,ordre_du_texte_conforme,nombres_unites_conformes,negations_conservees,commentaire
+DOC001_P029,le plus court (74 car.),oui,"oui (3 mois, un an)",—,Phrase complète. Passage court : reste de la section après regroupement glouton à 800 car. (le passage précédent DOC001_P028 est plein).
+DOC008_P001,le plus long (800 car.),oui,—,—,"Chapô + premier paragraphe. La phrase « Le cancer, ses traitements et leurs effets indésirables peuvent avoir des conséquences sur votre alimentation » est répétée, comme dans la source."
+DOC005_P004,tirage,oui,—,oui (« avant que la douleur n’empire »),"Conforme. Le renvoi final « Pour en savoir plus… article Problèmes de bouche » est un lien de la page, conservé."
+DOC001_P059,tirage,oui,—,—,Conforme ; passage d’un seul paragraphe (sous-section « L’acheminement »).
+DOC001_P013,tirage,oui,—,oui (« n’ont pas pu identifier »),"Conforme, à cheval sur les p. 11-12. Commence par « plusieurs d’entre eux » : l’antécédent (les traitements) est dans DOC001_P012, contexte partiel."
+DOC008_P016,tirage,oui,—,—,Conforme. Les puces de la liste n’ont pas de ponctuation finale dans la source (HTML).
+DOC001_P142,tirage,oui,oui (deux kilos),oui (« ne sont pas eux-mêmes responsables »),Conforme ; même texte que DOC003_P008 (preuve équivalente de Q003).
+DOC001_P127,tirage,oui,—,—,"Liste à puces recollée sur une colonne ; ordre conforme au PDF. Les astérisques renvoient au glossaire, conservés."
+DOC001_P116,tirage,oui,—,"oui (« Il ne faut pas éviter de sortir », double négation conservée)","Commence par une puce : la liste « Il est déconseillé… » commence dans DOC001_P115 (coupure du regroupement). Phrase sur deux pages (52-53), recollée correctement ; pdftotext la coupe et colle des mots (« d’autrespersonnes »)."
+DOC001_P073,tirage,oui,—,—,Conforme.

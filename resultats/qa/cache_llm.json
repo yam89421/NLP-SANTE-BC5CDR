@@ -1,0 +1,2202 @@
+{
+ "008bba1435275d49fdd837f4baef684164d1993b291628b61dbace236bf894d7": {
+  "texte": "La chute des cheveux commence généralement entre 15 jours et 3 semaines après la première séance ou perfusion de chimiothérapie, parfois dès la première séance, et peut être progressive ou brutale selon les médicaments utilisés ([DOC001_P105], [DOC004_P003]). Les cheveux repoussent environ 6 à 8 semaines après la fin du traitement, retrouvant progressivement leur aspect initial ([DOC001_P105]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8239ee564f",
+  "fin": "stop",
+  "tokens_prompt": 864,
+  "tokens_reponse": 83,
+  "duree_secondes": 2.571
+ },
+ "1fd5a371c12c2b64afb405d46d325ecd5b5462516ac32a4deef79da7949f4908": {
+  "texte": "Les nausées après une séance de chimiothérapie débutent souvent le soir ou le lendemain et durent généralement jusqu'à 3 jours, tandis que les vomissements, moins fréquents, ne persistent en général pas plus de 48 heures après le traitement ([DOC007_P004], [DOC001_P084], [DOC001_P085]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_802f1283f8",
+  "fin": "stop",
+  "tokens_prompt": 755,
+  "tokens_reponse": 69,
+  "duree_secondes": 1.952
+ },
+ "ff360bf962634cbcc936ce150ec4ce3f5d29ead4498b9d9e634dcd7f6c6ecc68": {
+  "texte": "En cas de perte ou prise rapide de poids (deux kilos ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d'en informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement alimentaire adapté (DOC003_P008, DOC001_P142). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie (DOC002_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_802f1283f8",
+  "fin": "stop",
+  "tokens_prompt": 686,
+  "tokens_reponse": 91,
+  "duree_secondes": 2.116
+ },
+ "f54454be9f2be9a22912a577c7f7bf5bfebeeea398be2c3414986dfdf3ef6995": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an (DOC002_P010). Ces consultations, au nombre maximal de six, sont individualisées selon les besoins identifiés par le médecin prescripteur (DOC002_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_29c32828f7",
+  "fin": "stop",
+  "tokens_prompt": 770,
+  "tokens_reponse": 76,
+  "duree_secondes": 2.746
+ },
+ "e87667f71d913411335a4a872e2956159751e6719e0d5e3aeace291d4db04875": {
+  "texte": "Les passages fournis ne contiennent pas d'information spécifique sur le dépistage du déficit en enzyme DPD avant une chimiothérapie à base de 5-fluorouracile. Aucun document ne mentionne la méthode de dépistage de ce déficit.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_2648a71878",
+  "fin": "stop",
+  "tokens_prompt": 694,
+  "tokens_reponse": 53,
+  "duree_secondes": 1.66
+ },
+ "f3362a775e7dc22e16d450bc01cb580d0c7f16aa4776711706b6ed0e9fdd7e53": {
+  "texte": "Il vaut mieux éviter les aliments qui favorisent l'apparition d'aphtes comme les noix, le gruyère, l'ananas, ainsi que les aliments trop épicés, acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs, et privilégier des aliments moelleux ou mixés à texture douce (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3f810e81ea",
+  "fin": "stop",
+  "tokens_prompt": 646,
+  "tokens_reponse": 81,
+  "duree_secondes": 1.437
+ },
+ "218db87433eb3621bcb1d54ef354eaae1ad8fa5aacef4bd21dc47c0464d55d01": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de poids de plus de 5 % en 1 mois ou de plus de 10 % en 6 mois par rapport à son poids habituel. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, la dénutrition est dite sévère ([DOC008_P014]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4fe83ac02c",
+  "fin": "stop",
+  "tokens_prompt": 758,
+  "tokens_reponse": 82,
+  "duree_secondes": 1.598
+ },
+ "c845d2bdad18ea38236ffd1078e3a240bbea4d821df95833bdce71c09912c23a": {
+  "texte": "On parle de dénutrition lorsqu'une personne perd plus de 5 % de son poids en 1 mois ou plus de 10 % en 6 mois, et de dénutrition sévère au-delà de 10 % en 1 mois ou 15 % en 6 mois (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_69782dd4d5",
+  "fin": "stop",
+  "tokens_prompt": 766,
+  "tokens_reponse": 62,
+  "duree_secondes": 1.446
+ },
+ "c85ae4b8178333c411ac2f3a859fb88f11a20ad720ca7cbb4a76bfaa8667952a": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d'utiliser un rasoir électrique, une brosse à dents souple ou un coton-tige pour éviter les saignements des gencives, d'éviter l'aspirine et de signaler tout traitement anticoagulant au médecin ([DOC001_P124]). Il faut également surveiller et signaler tout saignement anormal, comme des saignements de nez ou des bleus inhabituels ([DOC001_P123]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_f26cc340c5",
+  "fin": "stop",
+  "tokens_prompt": 776,
+  "tokens_reponse": 112,
+  "duree_secondes": 1.554
+ },
+ "a7dfe00e405af9cade10eb2f7964f1902e49f99b85e6f713a0738a9c1b0a2448": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il est conseillé de fractionner les repas en privilégiant des plats faciles à avaler comme des purées ou viandes hachées, et de boire beaucoup d'eau, notamment des boissons pétillantes sans sucre (type cola) pour éviter la déshydratation (DOC005_P016). Il faut alerter rapidement un médecin si la diarrhée persiste plus d’une journée ou s’accompagne de fièvre ou de vomissements, car cela peut entraîner une déshydratation nécessitant un traitement spécifique (DOC001_P092).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4b4457b5e2",
+  "fin": "stop",
+  "tokens_prompt": 693,
+  "tokens_reponse": 125,
+  "duree_secondes": 1.45
+ },
+ "5413ca34c4c0f666132c396d5a5a5dc0373e86ba513b2e308b426e70495d9eca": {
+  "texte": "Les chimiothérapies à base de médicaments dérivés du platine ou des taxanes peuvent abîmer les nerfs et entraîner des douleurs de type neuropathique (DOC005_P006). Ces douleurs sont imprévisibles et nécessitent souvent un traitement à long terme (DOC005_P012).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_96f94d62d4",
+  "fin": "stop",
+  "tokens_prompt": 588,
+  "tokens_reponse": 63,
+  "duree_secondes": 1.417
+ },
+ "5ce3e46d879b030cc5684fc410abc2bb8652240b9c8a684e79c73a5cb8ba44bd": {
+  "texte": "Pour une nutrition par sonde à domicile, votre conjoint sera installé avec une sonde nasogastrique, introduite par le nez jusqu’à l’estomac, généralement bien tolérée et pouvant être manipulée par vous-même après formation (DOC008_P025). Si la nutrition doit durer longtemps, une gastrostomie peut être posée par intervention sous anesthésie, avec une sonde directement dans l’estomac via l’abdomen (DOC008_P026). Vous pouvez être formé à la gestion et à la manipulation du matériel nécessaire (DOC008_P025).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_a93940b23f",
+  "fin": "stop",
+  "tokens_prompt": 683,
+  "tokens_reponse": 116,
+  "duree_secondes": 1.649
+ },
+ "d70304a1fd678b29e09fd8ac728017ec671b29b760ee8165fb29a1fb4ff9191e": {
+  "texte": "Oui, il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces produits peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées. Il est donc déconseillé d’en consommer sans indication médicale (DOC008_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_96f94d62d4",
+  "fin": "stop",
+  "tokens_prompt": 796,
+  "tokens_reponse": 76,
+  "duree_secondes": 1.237
+ },
+ "f35b7c9c10ee1ee214cce99e4ad993964a04e2fe2218eee35d6fc308e0e357a4": {
+  "texte": "Les douleurs liées à la chimiothérapie peuvent apparaître des semaines, voire des mois après le traitement, et risquent de devenir chroniques si elles persistent, ce qui les rend plus difficiles à traiter ([DOC005_P010]). Ces douleurs peuvent également persister longtemps après la fin du traitement, comme c’est le cas pour les douleurs neuropathiques considérées comme des séquelles ([DOC005_P012]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_622e44cde8",
+  "fin": "stop",
+  "tokens_prompt": 645,
+  "tokens_reponse": 82,
+  "duree_secondes": 1.469
+ },
+ "602c8d201133723fb4b853df356582b8aafccbce5fcf32cb11cd8e0f361cab10": {
+  "texte": "Pour évaluer soi-même sa fatigue au jour le jour, il est recommandé de noter quotidiennement son niveau d’énergie, son aptitude aux activités habituelles et sa qualité de vie sur une échelle de 0 à 20, ou d’évaluer la fréquence des symptômes (0 = pas du tout à 3 = très souvent) dans un tableau de suivi. Ces données pourront ensuite être partagées avec l’équipe soignante pour adapter la prise en charge (DOC006_P002, DOC001_P173).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4fe83ac02c",
+  "fin": "stop",
+  "tokens_prompt": 768,
+  "tokens_reponse": 104,
+  "duree_secondes": 1.679
+ },
+ "d3f647a7a9e90a121aed117f9efdbe27da49637fa34591a376c633ccf08bea69": {
+  "texte": "Après une chimiothérapie, une baisse des globules blancs expose à un risque d'infection, et la présence de fièvre doit faire penser à une infection qu'il faut signaler rapidement à l'équipe médicale ([DOC001_P065]). Pour limiter ce risque, des facteurs de croissance peuvent être prescrits pour stimuler la production de globules blancs ([DOC001_P113]). Il est également important de respecter une bonne hygiène, notamment dentaire, pour éviter les infections ([DOC001_P100]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_802f1283f8",
+  "fin": "stop",
+  "tokens_prompt": 755,
+  "tokens_reponse": 100,
+  "duree_secondes": 1.638
+ },
+ "2f5c7f603cd32ab1c7d3af2a7ad57a4eaaef6a7a3da6c84fe8ec7b51e0943ed6": {
+  "texte": "Oui, la perruque est partiellement prise en charge par l’Assurance maladie sur présentation d’un certificat médical, avec un remboursement d’environ 125 euros, et certaines mutuelles peuvent compléter ce remboursement (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_802f1283f8",
+  "fin": "stop",
+  "tokens_prompt": 633,
+  "tokens_reponse": 49,
+  "duree_secondes": 1.229
+ },
+ "b7bea32ea20cd29adda31a49dd1b3bed70411bef944caebac77d472e36e38b64": {
+  "texte": "Le casque réfrigérant utilisé pendant la chimiothérapie n'est pas mentionné comme étant remboursé par l'Assurance maladie, contrairement à la perruque dont une partie du prix est prise en charge (DOC001_P109). Les passages indiquent seulement que le casque peut être proposé par l’équipe soignante pour limiter l’alopécie (DOC001_P174, DOC001_P177).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_678b85ce7d",
+  "fin": "stop",
+  "tokens_prompt": 531,
+  "tokens_reponse": 83,
+  "duree_secondes": 1.84
+ },
+ "1b0766e379bdd1541eac1b5e97db2f1213e2037d9e10ef74231fa98f2a62031f": {
+  "texte": "Il est conseillé de faire attention en se coupant les ongles et de protéger les ongles fragilisés par la chimiothérapie, notamment en portant des gants ou des chaussons réfrigérants pour limiter leur fragilité et leur chute (DOC001_P117, DOC001_P141). Le passage ne mentionne pas explicitement l'usage du vernis à ongles, mais la prudence est de mise en raison de la sensibilité accrue de la peau et des ongles (DOC001_P154).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_5fa2d5cae1",
+  "fin": "stop",
+  "tokens_prompt": 667,
+  "tokens_reponse": 106,
+  "duree_secondes": 1.43
+ },
+ "d2cd89dc459cba1db675d1581e759ccbdd4d6ec5dfb302121d291d4595eb6b84": {
+  "texte": "Les passages fournis ne mentionnent pas explicitement s'il est déconseillé de prendre le volant juste après une séance de chimiothérapie. Cependant, étant donné les effets secondaires possibles comme les nausées, les douleurs ou la fatigue (indirectement évoqués dans [DOC005_P016] et [DOC005_P005]), il serait prudent d'éviter de conduire immédiatement après la séance.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_96f94d62d4",
+  "fin": "stop",
+  "tokens_prompt": 723,
+  "tokens_reponse": 80,
+  "duree_secondes": 1.846
+ },
+ "9b12bb340c5cd57260eaf29cea01c7165c1700e361d1b3eb2cffaee21cd4391c": {
+  "texte": "La chute des cheveux commence généralement 15 jours à 3 semaines après la première perfusion de chimiothérapie, parfois dès la première séance, et elle est souvent progressive mais toujours temporaire. Les cheveux recommencent à pousser environ 6 à 8 semaines après la fin du traitement, retrouvant petit à petit leur aspect initial. (DOC001_P105, DOC004_P003)",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 948,
+  "tokens_reponse": 77,
+  "duree_secondes": 1.512
+ },
+ "8965b5252296456ecda855ed06005beced9890ab471d38c84fc900546d45d3c8": {
+  "texte": "Les nausées débutent souvent le soir ou le lendemain de la perfusion de chimiothérapie et ne persistent généralement pas plus de 3 jours après le traitement. Les vomissements, qui ne sont pas systématiques, ne durent en général pas plus de 48 heures après le traitement (DOC007_P004, DOC001_P084, DOC001_P085).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 839,
+  "tokens_reponse": 74,
+  "duree_secondes": 1.244
+ },
+ "102e0b160c4d07ed50b129860e991b87ac1a8b90e95a651287f6cffa5bac9909": {
+  "texte": "En cas de perte ou prise rapide de poids (deux kilos ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d’informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement diététique visant à trouver un équilibre alimentaire (DOC003_P008, DOC001_P142). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie (DOC002_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 770,
+  "tokens_reponse": 98,
+  "duree_secondes": 1.738
+ },
+ "155d713d4e9fd58c81281839ac534ae48943ffea2b7603e949f2021e53963b11": {
+  "texte": "Les bilans et consultations de soins de support peuvent être prescrits jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an (DOC002_P010). Au maximum, six consultations peuvent être prescrites dans le cadre du parcours de soins global après un cancer (DOC002_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 854,
+  "tokens_reponse": 69,
+  "duree_secondes": 1.108
+ },
+ "3dc44e9bb9790efbb086f1508ac96e48bd0659e54895c33e9342d7083cf3231d": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 778,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.937
+ },
+ "f5f8981c37e164435025dd4f11e9a09ae15d576f65aa085d8e78b4f49ed2743b": {
+  "texte": "Il vaut mieux éviter les aliments qui favorisent l'apparition d'aphtes, comme les noix, le gruyère ou l'ananas, ainsi que les aliments trop épicés ou acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs. Privilégiez des aliments moelleux ou mixés, à la texture douce pour ne pas irriter l'intérieur de la bouche (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 730,
+  "tokens_reponse": 95,
+  "duree_secondes": 1.432
+ },
+ "9368f5cdc2ac79b5847ab50642e717a4fe236535e6c45e848a427b54ced566f1": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids habituel en 1 mois ou de plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, on parle de dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 842,
+  "tokens_reponse": 78,
+  "duree_secondes": 1.505
+ },
+ "b41d08e135f3b625e6dbed7237fdc9b351eaac1f61d9e5946c2b3257ef30b40b": {
+  "texte": "On parle de dénutrition en cas de perte de plus de 5 % du poids habituel en 1 mois ou de plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, il s'agit d'une dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 850,
+  "tokens_reponse": 70,
+  "duree_secondes": 1.152
+ },
+ "cf6c95102439bbad08f30d87700ff339d05c4bf52d69f1efea11806c276da88f": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d'utiliser un rasoir électrique, d'éviter une brosse à dents dure (préférer un coton-tige si la thrombopénie est importante), d'éviter impérativement l'aspirine ou les produits qui en contiennent, et de signaler tout traitement anticoagulant pris par ailleurs. Il faut également éviter de prendre la température par l'anus [DOC001_P124].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 860,
+  "tokens_reponse": 104,
+  "duree_secondes": 1.947
+ },
+ "3ac2e3dc2e48d2b44d9533fe7d718cf194e94bc49e129c8d38115b0a6f2a69a8": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il faut boire beaucoup d’eau (au moins 1,5 litre par jour), notamment des boissons pétillantes sans sucre comme le cola, et fractionner les repas en choisissant des plats faciles à avaler (purées, viandes hachées) (DOC005_P016). Il est nécessaire de contacter rapidement un médecin si la diarrhée persiste plus d’une journée ou s’accompagne de fièvre ou de vomissements, car une diarrhée prolongée risque d’entraîner une déshydratation (DOC001_P092).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 777,
+  "tokens_reponse": 126,
+  "duree_secondes": 2.427
+ },
+ "e085098d3e38f04221b0ee4066ba2f9b1b1a48dd80b423abef17097630bc6dd0": {
+  "texte": "Les chimiothérapies à base de médicaments dérivés du platine ou les taxanes risquent d'abîmer les nerfs et peuvent entraîner des douleurs de type neuropathique. Ces douleurs sont liées à un effet toxique sur les nerfs. (DOC005_P006)",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 672,
+  "tokens_reponse": 59,
+  "duree_secondes": 1.855
+ },
+ "28d9a850bfe2e993a56e68b22373202050a1a1fd49378c8544fc3fb21d689c88": {
+  "texte": "Le passage en sonde nasogastrique à domicile implique que le patient soit installé avec une sonde nasogastrique, qui est de très faible diamètre, souple, introduite par le nez jusqu'à l'estomac, et généralement bien tolérée (DOC008_P025). La durée du passage n'est pas précisée dans les documents fournis. Le patient ou son entourage peut être formé pour manipuler la sonde eux-mêmes (autosondage) (DOC008_P025).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 767,
+  "tokens_reponse": 101,
+  "duree_secondes": 2.164
+ },
+ "ad6738a861d40a7c2d07fa7658c44eefffc63f692ccf3681c3b82cb34ae4c3b1": {
+  "texte": "Oui, il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces produits peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées, ou entraîner un risque accru d’effets indésirables. Il est donc déconseillé d’en consommer sans indication médicale et il faut en parler à son médecin ou pharmacien [DOC008_P009].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 880,
+  "tokens_reponse": 100,
+  "duree_secondes": 2.147
+ },
+ "8c392bc6fdbde25cde4fe88e3a744aa2e2c056ce9a4fd9ee11506765278aa648": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 729,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.822
+ },
+ "723cb35e420bb40df11704f400ad06c0980ce68ae0167e605fc314fc8150c369": {
+  "texte": "Pour évaluer soi-même sa fatigue au jour le jour, il est conseillé de noter quotidiennement son niveau d’énergie, son aptitude aux activités habituelles et sa qualité de vie sur une échelle analogique de 0 à 20. Il est aussi possible de noter chaque jour l’intensité des symptômes liés à la fatigue en attribuant un chiffre de 0 (pas du tout) à 3 (très souvent) selon leur fréquence, puis d’en discuter avec l’équipe soignante lors des consultations (DOC006_P002, DOC001_P173).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 852,
+  "tokens_reponse": 115,
+  "duree_secondes": 2.18
+ },
+ "633054baac81ae8524bc24d15fe8d120b16d9d87efb5ec66eddfa4d114105d28": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 839,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.985
+ },
+ "ae1f7e708f49d40aa42ada9c0c330e4a8fb28c55993b7115bfa1eac9dfdc5754": {
+  "texte": "La perruque est prise en charge partiellement par l’Assurance maladie sur présentation d’un certificat médical, avec un forfait de 125 euros remboursé, et certaines mutuelles peuvent rembourser le complément (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 717,
+  "tokens_reponse": 50,
+  "duree_secondes": 1.387
+ },
+ "f1fc33551ba6f50c8cf5f4e2608f7c108c9296bab03a91f9ac35f8337f6dcdfe": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 615,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.685
+ },
+ "35c4d161eb045524e9c69d91fb4abda4d980adb05cf21343aabfa3795bd8227c": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 751,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.875
+ },
+ "8793141d6ced60d5924c812ff90c0a182923b42534353b22f22772873776ce40": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 807,
+  "tokens_reponse": 10,
+  "duree_secondes": 1.197
+ },
+ "20334be62d91dd63195ecabfdf20e16b66c587d737b156580d2cf41c4fb60afd": {
+  "texte": "La chute des cheveux commence généralement entre 15 jours et 3 semaines après la première séance de chimiothérapie, parfois dès la première séance, et elle est souvent progressive mais temporaire. Les cheveux recommencent à repousser environ 6 à 8 semaines après la fin du traitement, bien que leur texture ou couleur puisse être temporairement modifiée (DOC001_P105, DOC004_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_29c32828f7",
+  "fin": "stop",
+  "tokens_prompt": 1016,
+  "tokens_reponse": 80,
+  "duree_secondes": 3.041
+ },
+ "16c770afe4795bca40a92aac17708ea8892429d7c3ea75c51ea95785c2ab4133": {
+  "texte": "Les nausées après une séance de chimiothérapie débutent souvent le soir ou le lendemain et durent généralement jusqu'à 3 jours, tandis que les vomissements, lorsqu'ils surviennent, persistent en général moins de 48 heures après le traitement (DOC007_P004, DOC001_P084, DOC001_P085).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_5fa2d5cae1",
+  "fin": "stop",
+  "tokens_prompt": 906,
+  "tokens_reponse": 66,
+  "duree_secondes": 1.459
+ },
+ "98513694c17f105efd11c366a24218f49f948fae3ed795516c29d57e5b1266c1": {
+  "texte": "En cas de perte ou prise rapide de poids (deux kilos ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d’en informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement visant à retrouver un équilibre alimentaire (DOC003_P008, DOC001_P142). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie (DOC002_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_a39d4f1b74",
+  "fin": "stop",
+  "tokens_prompt": 799,
+  "tokens_reponse": 95,
+  "duree_secondes": 1.432
+ },
+ "1398c945b0d415f3989a55570dd3e91e0a18cf01de6f80546262f74e19ff342d": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits par le médecin traitant, le cancérologue ou le pédiatre jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an (DOC002_P010). Au maximum, six consultations peuvent être prescrites, individualisées selon les besoins du patient (DOC002_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_70a2959726",
+  "fin": "stop",
+  "tokens_prompt": 908,
+  "tokens_reponse": 86,
+  "duree_secondes": 1.389
+ },
+ "e2b2763b0c68de4101674194b479a538ce24b9812adf4e4aa46ce11df589ba40": {
+  "texte": "Le dépistage d’un déficit en enzyme DPD avant une chimiothérapie à base de 5-fluorouracile se fait généralement par un test biologique spécifique, bien que les passages fournis ne détaillent pas cette procédure. Aucun des documents cités ne mentionne explicitement ce dépistage.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_98a8cc63cd",
+  "fin": "stop",
+  "tokens_prompt": 850,
+  "tokens_reponse": 63,
+  "duree_secondes": 1.472
+ },
+ "841315d53210457793b66f41d5d1aa58eb45697ab4b5e9952aec1b9b5e752bd2": {
+  "texte": "Il est conseillé d'éviter les aliments qui favorisent l'apparition d'aphtes, comme les noix, le gruyère ou l'ananas, ainsi que les aliments trop épicés, acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs, afin de ne pas irriter l'intérieur de la bouche (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4b4457b5e2",
+  "fin": "stop",
+  "tokens_prompt": 753,
+  "tokens_reponse": 81,
+  "duree_secondes": 1.179
+ },
+ "90d49e6459794d910a9106f191ced4e594064905627cfac6f2ed5d01fbca8121": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids en 1 mois ou de plus de 10 % en 6 mois par rapport à son poids habituel (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_2648a71878",
+  "fin": "stop",
+  "tokens_prompt": 892,
+  "tokens_reponse": 55,
+  "duree_secondes": 1.134
+ },
+ "52323e82cddb5933970d80566749fe0c43fe3867326a0cd97228d84616057317": {
+  "texte": "On parle de dénutrition lorsqu'une personne a perdu plus de 5 % de son poids en 1 mois ou plus de 10 % en 6 mois ; au-delà de 10 % en 1 mois ou 15 % en 6 mois, il s'agit d'une dénutrition sévère (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4b4457b5e2",
+  "fin": "stop",
+  "tokens_prompt": 908,
+  "tokens_reponse": 67,
+  "duree_secondes": 1.104
+ },
+ "5410dbabb9bc519f09bab099cf6d576022626ad199e55434eb07497f261fd908": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d’utiliser un rasoir électrique, une brosse à dents souple ou un coton-tige si la thrombopénie est importante, d’éviter l’aspirine et de signaler tout traitement anticoagulant au médecin, ainsi que d’éviter de prendre la température par l’anus [DOC001_P124]. Il est également important de surveiller et signaler tout saignement anormal ou apparition de bleus [DOC001_P123].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_0e7b5db390",
+  "fin": "stop",
+  "tokens_prompt": 920,
+  "tokens_reponse": 114,
+  "duree_secondes": 1.92
+ },
+ "0a949826f502287095af9d63bccc8676c2d578fb69cbfbf79b226493c5109939": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il est important de boire beaucoup d'eau, notamment des boissons pétillantes sans sucre comme le cola, et de suivre un régime alimentaire antidiarrhéique prescrit par le médecin (DOC001_P092, DOC005_P016). Il faut alerter son médecin si la diarrhée persiste plus d'une journée ou s'accompagne de fièvre ou de vomissements, afin d'éviter une déshydratation (DOC001_P092).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4b4457b5e2",
+  "fin": "stop",
+  "tokens_prompt": 828,
+  "tokens_reponse": 106,
+  "duree_secondes": 1.617
+ },
+ "a476a9e97160ca5b1d08fe1c3b6cc5e6d4a2c7e54a4edb84c840cede3f070d92": {
+  "texte": "Les chimiothérapies contenant des médicaments dérivés du platine ou des taxanes peuvent abîmer les nerfs et entraîner des douleurs neuropathiques, caractérisées par des sensations douloureuses liées à une atteinte nerveuse (DOC005_P006).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_f26cc340c5",
+  "fin": "stop",
+  "tokens_prompt": 755,
+  "tokens_reponse": 54,
+  "duree_secondes": 1.022
+ },
+ "e438e9aa93bda852e123d18385cd2e4fbe7bc7304bb343ba59ea5a43fe2848ba": {
+  "texte": "Pour une nutrition entérale à domicile, le patient est généralement installé avec une sonde nasogastrique ou une gastrostomie selon la durée prévue ; la sonde nasogastrique est introduite par le nez jusqu’à l’estomac et peut être manipulée par le patient lui-même après formation (DOC008_P025), tandis que la gastrostomie est posée par intervention sous anesthésie (DOC008_P026). Le passage de la sonde nasogastrique est rapide et peut être renouvelé facilement, alors que la gastrostomie nécessite une procédure en service spécialisé. Le matériel est généralement pris en charge par le patient ou son entourage formé à la manipulation (DOC008_P025).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_e36a6a7c98",
+  "fin": "stop",
+  "tokens_prompt": 830,
+  "tokens_reponse": 144,
+  "duree_secondes": 1.843
+ },
+ "1df0c41c960f2177bca6f908786e02fb1cda8c477826df5dc6e36f2918bc5537": {
+  "texte": "Oui, il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces aliments et compléments peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées. Il est donc déconseillé d’en consommer sans indication médicale (DOC008_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_610f3b86f7",
+  "fin": "stop",
+  "tokens_prompt": 927,
+  "tokens_reponse": 79,
+  "duree_secondes": 1.429
+ },
+ "320c34704407acf02c5f31a4c92623b1b28bdd5b11ecb200ee62d2ddee7a9aac": {
+  "texte": "Les passages fournis ne mentionnent pas explicitement l'apparition ou la persistance des douleurs liées à la chimiothérapie. Cependant, ils indiquent que des douleurs chroniques peuvent apparaître après des traitements comme la radiothérapie, parfois des mois ou années après, et qu'elles persistent après la fin du traitement ([DOC005_P017]). Pour la chimiothérapie, seul l'apparition de nausées et vomissements est décrite, sans mention de douleurs ([DOC007_P004]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_9d881fade5",
+  "fin": "stop",
+  "tokens_prompt": 759,
+  "tokens_reponse": 98,
+  "duree_secondes": 1.639
+ },
+ "60050645024c3a5c8d71cddf6c8e85a896b3f77fd8fd62fa3d69cbfa9e64c1c0": {
+  "texte": "Pour évaluer soi-même sa fatigue au quotidien, il est recommandé de noter chaque jour son niveau d’énergie, son aptitude aux activités habituelles et sa qualité de vie sur une échelle analogique de 0 à 20, ce qui facilite la description précise de la fatigue à l’équipe soignante ([DOC006_P002]). Par ailleurs, il est possible d’utiliser un questionnaire quotidien où l’on évalue la fréquence des symptômes liés à la fatigue (0 = pas du tout à 3 = très souvent) pour mieux suivre les effets secondaires et en discuter avec l’équipe ([DOC001_P173]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_2738b29278",
+  "fin": "stop",
+  "tokens_prompt": 898,
+  "tokens_reponse": 122,
+  "duree_secondes": 1.639
+ },
+ "4b43a13f8a55b7bd74eb7a029accdb2af7587c8bdb6682cb71358ed4bedf217f": {
+  "texte": "Après une chimiothérapie, une baisse des globules blancs expose à un risque d'infection ; les signes d'infection à surveiller incluent notamment la fièvre, et il est crucial d'informer rapidement le médecin pour une prise en charge adaptée (DOC001_P113, DOC001_P065). Le médecin peut prescrire des facteurs de croissance pour stimuler la production de globules blancs et limiter ce risque (DOC001_P113).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_2648a71878",
+  "fin": "stop",
+  "tokens_prompt": 914,
+  "tokens_reponse": 88,
+  "duree_secondes": 1.43
+ },
+ "37079d29b1527f34ecdb3bd6cdf198cdffa538c65702f2e61cb4e6de3e055ab9": {
+  "texte": "Oui, la perruque est partiellement prise en charge lors d'une chute de cheveux due à la chimiothérapie : le médecin fournit un certificat médical permettant le remboursement d’une partie du prix de la perruque par l’Assurance maladie, avec un forfait d’environ 125 euros, et certaines mutuelles peuvent rembourser le complément (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_f26cc340c5",
+  "fin": "stop",
+  "tokens_prompt": 749,
+  "tokens_reponse": 76,
+  "duree_secondes": 1.118
+ },
+ "71d26db8ac5294e3edd9ac557863f53a0822890721a7e0a8dde0f50db1b57f7d": {
+  "texte": "Le casque réfrigérant utilisé pendant la chimiothérapie n'est pas mentionné comme étant remboursé par l'Assurance maladie dans les passages fournis. En revanche, un certificat médical est nécessaire pour le remboursement partiel d’une perruque, mais rien n'indique un remboursement pour le casque réfrigérant (voir [DOC001_P109]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_9f99b25194",
+  "fin": "stop",
+  "tokens_prompt": 694,
+  "tokens_reponse": 72,
+  "duree_secondes": 1.551
+ },
+ "afdf56895730475b835cf56377e7bcb6a46eac4afabfa225ad7f3651b31be074": {
+  "texte": "Il est conseillé de protéger les ongles pendant la chimiothérapie, notamment en portant des gants réfrigérants pour limiter leur fragilité et leur chute, ce qui suggère qu'il vaut mieux éviter de mettre du vernis à ongles qui pourrait aggraver cette fragilité ([DOC001_P141]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_b00c9abe04",
+  "fin": "stop",
+  "tokens_prompt": 846,
+  "tokens_reponse": 63,
+  "duree_secondes": 1.007
+ },
+ "8d01dbdca6181f334d7041f91bf6d37e22ee6cb45c7406daad64fad54162ac29": {
+  "texte": "Les documents fournis ne mentionnent pas explicitement s'il est déconseillé de prendre le volant juste après une séance de chimiothérapie. Cependant, étant donné les effets secondaires possibles comme les nausées, les douleurs ou la fatigue (impliqués indirectement dans les passages sur les effets secondaires et les soins), il serait prudent de ne pas conduire immédiatement après la séance, même si cela n'est pas spécifiquement indiqué dans les extraits fournis ([DOC005_P005], [DOC001_P101]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3a1604a676",
+  "fin": "stop",
+  "tokens_prompt": 862,
+  "tokens_reponse": 103,
+  "duree_secondes": 1.432
+ },
+ "e33d0ed84e60f1638acb95a80d8a0d87fbba7ed6a1c339426e3ae09e29b454ce": {
+  "texte": "La chute des cheveux commence généralement 15 jours à 3 semaines après la première perfusion ou séance de chimiothérapie, parfois dès la première séance, et peut être progressive ou brutale. Les cheveux recommencent à repousser environ 6 à 8 semaines après la fin du traitement, bien que la repousse puisse être différente au début avant de retrouver leur aspect initial (DOC001_P105, DOC004_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 1100,
+  "tokens_reponse": 85,
+  "duree_secondes": 1.685
+ },
+ "1aaec76ac54af308eaff09fa401d535d96f339a6eebae9901b8eca511bd289ee": {
+  "texte": "Les nausées débutent souvent le soir ou le lendemain de la chimiothérapie et durent rarement plus de 72 heures (3 jours) après le traitement. Les vomissements, qui ne sont pas systématiques, ne persistent en général pas plus de 48 heures après la séance (DOC007_P004, DOC001_P084, DOC001_P085).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 990,
+  "tokens_reponse": 73,
+  "duree_secondes": 1.847
+ },
+ "cfeb0f5b83ffbe258e03d74c841970bbc7c4d0d3c5ae97fd7de65b4bd2050582": {
+  "texte": "En cas de perte ou prise rapide de poids (deux kilos ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d’informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement visant à trouver un équilibre alimentaire (DOC003_P008, DOC001_P142). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie (DOC002_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 883,
+  "tokens_reponse": 95,
+  "duree_secondes": 1.58
+ },
+ "329fa1ff63b29e55bc9bc82e23e39efb2aa0b16508bf687238c0bb62f3c7109f": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits par le médecin traitant, le cancérologue ou le pédiatre jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an [DOC002_P010].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 992,
+  "tokens_reponse": 63,
+  "duree_secondes": 1.328
+ },
+ "f42d3e6ba8c19fa289c3501a1a3d1389e9dcbf222dbebe149570c2bf4a76215f": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 934,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.707
+ },
+ "8c2843777871d69eb94ebc773645f7d3214621dd30597e85f1783e9b119129f7": {
+  "texte": "Il vaut mieux éviter les aliments qui favorisent l'apparition d'aphtes, comme les noix, le gruyère ou l'ananas, ainsi que les aliments trop épicés ou acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 837,
+  "tokens_reponse": 67,
+  "duree_secondes": 1.438
+ },
+ "0f8c14568b71434ab69057351e98a79b334ed532d5c0b6d43f14a58c09f93316": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % en 1 mois ou de plus de 10 % en 6 mois de son poids habituel. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, on parle de dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 976,
+  "tokens_reponse": 78,
+  "duree_secondes": 2.241
+ },
+ "db619dede937112fbc2f28914af42859448e578ad2279f81a8e8991cda85a147": {
+  "texte": "On parle de dénutrition lorsqu'une personne a perdu plus de 5 % de son poids habituel en 1 mois ou plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, il s'agit de dénutrition sévère (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 992,
+  "tokens_reponse": 69,
+  "duree_secondes": 1.441
+ },
+ "a63718f50e12bd85146cc5cdd0dca037748cbda2659b7262c76d0428061017e8": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d'utiliser un rasoir électrique, d'employer une brosse à dents souple ou un coton-tige si la thrombopénie est importante, d'éviter impérativement l'aspirine ou les produits qui en contiennent, de signaler tout traitement anticoagulant pris par ailleurs, et d'éviter de prendre la température par l'anus [DOC001_P124]. Il est également important de surveiller et signaler au médecin tout saignement de nez, saignement anormal des gencives, apparition de bleus ou de petites taches rouges ou mauves sur la peau [DOC001_P123].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 1004,
+  "tokens_reponse": 152,
+  "duree_secondes": 2.66
+ },
+ "3ce617e90c78b62e14188e50ff50cd5c2420226a891648e652fbd143ad753afd": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il faut contacter rapidement un médecin si la diarrhée persiste plus d’une journée ou s’accompagne de fièvre ou de vomissements, car une diarrhée prolongée peut entraîner une déshydratation. Le médecin peut prescrire un régime alimentaire antidiarrhéique, des médicaments ou une perfusion pour éviter la déshydratation [DOC001_P092]. Il est conseillé de boire beaucoup d’eau (au moins 1,5 litre par jour), notamment des boissons pétillantes sans sucre comme le cola, pour éviter la déshydratation [DOC005_P016].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 912,
+  "tokens_reponse": 136,
+  "duree_secondes": 1.841
+ },
+ "9fde6cdf9254f89f2b530336f514df17d0b4bf36c8984b80798a4c5b8239df15": {
+  "texte": "Les chimiothérapies contenant des médicaments dérivés du platine ou des taxanes risquent d'abîmer les nerfs et entraînent des douleurs de type neuropathique. (DOC005_P006)",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 839,
+  "tokens_reponse": 44,
+  "duree_secondes": 1.242
+ },
+ "60044e8b92e8738f665749a55f08eba516f617a0a11bfb3d93106a43fef1ae9b": {
+  "texte": "Le passage en sonde à domicile peut se faire par une sonde nasogastrique, qui est introduite par le nez jusqu’à l’estomac et peut être manipulée par le patient lui-même après formation (autosondage) [DOC008_P025]. Si la nutrition entérale est prévue pour une longue durée, une sonde de gastrostomie peut être posée par intervention sous anesthésie, directement dans l’estomac via un orifice abdominal [DOC008_P026]. Les documents ne précisent pas comment le patient doit être installé ni qui s’occupe du matériel ni la durée du passage.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 914,
+  "tokens_reponse": 125,
+  "duree_secondes": 2.032
+ },
+ "603aaf96fa36bb8a5465644ac39eff0423330be454b84d0aaf70f3c0f8bb4dd3": {
+  "texte": "Oui, il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces aliments et compléments peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées. Il est donc déconseillé d’en consommer sans indication médicale (DOC008_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 1011,
+  "tokens_reponse": 79,
+  "duree_secondes": 1.326
+ },
+ "bc132cbcd559cde264e1e33100628b607977c301471ecb280f29042bd2ab51ce": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 843,
+  "tokens_reponse": 10,
+  "duree_secondes": 1.01
+ },
+ "8c15b6fc07166cb0ace5fe846ddfc1d24491cf99c35af31e8b05db4e92212c65": {
+  "texte": "Pour évaluer soi-même sa fatigue au jour le jour, il est conseillé de noter quotidiennement son niveau d’énergie, son aptitude aux activités habituelles et sa qualité de vie sur une échelle analogique de 0 à 20. Il est aussi possible de consigner l’intensité des symptômes liés à la fatigue (par exemple, de 0 = pas du tout à 3 = très souvent) dans un tableau, afin d’en discuter ensuite avec l’équipe soignante. Ces outils aident à décrire précisément la fatigue ressentie pour une meilleure prise en charge (DOC006_P002, DOC001_P173).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 982,
+  "tokens_reponse": 128,
+  "duree_secondes": 2.057
+ },
+ "fa0156ca4c6075b70bc28432166c36300d289629e2ba619fd77f503191e6f444": {
+  "texte": "Les signes qui doivent faire penser à une infection lorsque les globules blancs sont bas après une chimiothérapie ne sont pas précisés dans les passages fournis. Il est cependant indiqué que, pour limiter un risque d’infection lié à la baisse des globules blancs, le médecin peut prescrire des facteurs de croissance pour stimuler la production de globules blancs (DOC001_P113). Aucune autre information sur les signes d’infection ou les actions à entreprendre n’est donnée dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 998,
+  "tokens_reponse": 101,
+  "duree_secondes": 2.656
+ },
+ "7423b3ac86f9b7c411a865b8567cc855c11e78d386f48a7b3a8452ed4ee92a83": {
+  "texte": "Oui, la perruque est prise en charge partiellement par l’Assurance maladie sur présentation d’un certificat médical, avec un forfait de 125 euros remboursé, et certaines mutuelles peuvent rembourser le complément (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 833,
+  "tokens_reponse": 52,
+  "duree_secondes": 1.33
+ },
+ "cc4436cd9b90947668009417688c8527d27c08d61856b60b58df179310633ddb": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 778,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.832
+ },
+ "0c7261b9b2dfec9e6656dc8acc3155d46ca0aba13a262e745e32056e1bac376d": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 930,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.766
+ },
+ "4a3da1081484a1d35aa7fd3f3ec2dcb1b944cd25abd8a4c4157d59073a75ab27": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6cab07b253",
+  "fin": "stop",
+  "tokens_prompt": 946,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.75
+ },
+ "7c6b5a3e4b8b24f5d18f713114a94af2f60760bf88359fd9389755e1c399cf3c": {
+  "texte": "La chute des cheveux commence généralement 15 jours à 3 semaines après la première perfusion ou séance de chimiothérapie, parfois dès la première séance, et peut être progressive ou brutale selon les molécules utilisées [DOC001_P105], [DOC004_P003]. Les cheveux recommencent à repousser environ 6 à 8 semaines après la fin du traitement, avec une repousse pouvant être temporairement différente en texture ou couleur avant de retrouver leur aspect initial [DOC001_P105].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1242,
+  "tokens_reponse": 99,
+  "duree_secondes": 1.329
+ },
+ "f8bc727a8bb6a61beb11c48a8016f2c4c3fb788198247ee450ac46c5933be5ea": {
+  "texte": "Les nausées débutent souvent le soir ou le lendemain de la perfusion de chimiothérapie et durent rarement plus de 72 heures (3 jours) après le traitement. Les vomissements, qui ne sont pas systématiques, ne persistent en général pas plus de 48 heures après le traitement (DOC007_P004, DOC001_P084, DOC001_P085).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1132,
+  "tokens_reponse": 76,
+  "duree_secondes": 1.239
+ },
+ "8a7d0f06dcf286ad9cb5c9d90203d814e33e073ecef7fe6186a998dab62e8778": {
+  "texte": "En cas de perte ou prise rapide de poids (2 kg ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids, d’en informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement visant à trouver un équilibre alimentaire (DOC003_P008, DOC001_P142). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie (DOC002_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1025,
+  "tokens_reponse": 94,
+  "duree_secondes": 1.415
+ },
+ "fb9119aec6aefc9ce304cd38dd71854f058eae4e38c4b841ade710413bf4980b": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits par le médecin traitant, le cancérologue ou le pédiatre jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an [DOC002_P010]. Jusqu’à six consultations peuvent être prescrites dans ce cadre, individualisées selon les besoins [DOC002_P009].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1134,
+  "tokens_reponse": 86,
+  "duree_secondes": 1.411
+ },
+ "218399ab27ad3276e9ba4a33692d4228170de9aa1f94f9431ffa3c6fd80a67fa": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1076,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.734
+ },
+ "0fc771ff46a3862a7194e637e1f8a72ab41d6ddfa1a5ecbfd3b00c361e630282": {
+  "texte": "Il vaut mieux éviter les aliments qui favorisent l'apparition d'aphtes comme les noix, le gruyère ou l'ananas, ainsi que les aliments trop épicés ou acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs. Privilégiez des aliments moelleux ou mixés, à texture douce, et buvez beaucoup (au moins deux litres par jour) sous forme d'eaux minérales, thé, tisanes ou boissons à base de cola (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 979,
+  "tokens_reponse": 115,
+  "duree_secondes": 2.046
+ },
+ "57ed0987d5b5839d16a8d0b23cf5bbb7a61e8b05fe9686987ceb1dc0630c31c1": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids en 1 mois ou de plus de 10 % en 6 mois par rapport à son poids habituel [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1118,
+  "tokens_reponse": 55,
+  "duree_secondes": 1.034
+ },
+ "f0196b60e892e0ebb0b8deac38d0047b7e3355e60a56a391881e3b5fc3c66fd5": {
+  "texte": "On parle de dénutrition en cas de perte de plus de 5 % du poids habituel en 1 mois ou de plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, il s'agit d'une dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1134,
+  "tokens_reponse": 70,
+  "duree_secondes": 1.071
+ },
+ "f8683e200aaf4cbccb1ba331e33e2ce8ccb6cd91eb63971f125136aaf4558bf5": {
+  "texte": "Pour limiter les saignements liés à une baisse des plaquettes due à la chimiothérapie, il est conseillé d’utiliser un rasoir électrique, une brosse à dents souple ou un coton-tige si la thrombopénie est importante, d’éviter l’aspirine ou les produits qui en contiennent, de signaler tout traitement anticoagulant, et d’éviter de prendre la température par l’anus [DOC001_P124]. Il faut également surveiller et signaler au médecin tout saignement de nez, saignement anormal des gencives, apparition de bleus ou de petites taches rouges sur la peau, ou autres signes de saignement [DOC001_P123].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1146,
+  "tokens_reponse": 145,
+  "duree_secondes": 1.482
+ },
+ "3c905c275d9c28f52aebea699c0fa4862f97120143c449fa30cb7ce65335ea6e": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il faut contacter rapidement un médecin si la diarrhée persiste plus d’une journée ou s’accompagne de fièvre ou de vomissements, car une diarrhée prolongée risque d’entraîner une déshydratation ; le médecin pourra prescrire un régime alimentaire antidiarrhéique, des médicaments ou une perfusion (DOC001_P092). Il est conseillé de boire beaucoup d’eau pour éviter la déshydratation, notamment des boissons pétillantes sans sucre (type cola) (DOC005_P016). Les documents ne précisent pas précisément quels aliments manger en cas de diarrhée, mais recommandent en général une alimentation équilibrée (DOC003_P009) et, pour les troubles digestifs, d’éviter les aliments lourds, gras ou épicés (DOC001_P088).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1054,
+  "tokens_reponse": 179,
+  "duree_secondes": 2.033
+ },
+ "8f0669cde337177a633bf1fc68415f9e2584b37d70f5ec904e69963949b45ca1": {
+  "texte": "Les chimiothérapies contenant des médicaments dérivés du platine ou des taxanes peuvent abîmer les nerfs et entraîner des douleurs de type neuropathique [DOC005_P006].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 981,
+  "tokens_reponse": 40,
+  "duree_secondes": 0.943
+ },
+ "4634df458c7f850732598482dec92b30dc59fa5ab60757bdc46b6aacb69a9c10": {
+  "texte": "Pour la nutrition par sonde à domicile, la sonde nasogastrique est généralement utilisée, elle est introduite par le nez jusqu'à l'estomac, est de très faible diamètre, souple, bien tolérée et peut être manipulée par le patient lui-même après formation (autosondage) [DOC008_P025]. Si la nutrition entérale est prévue pour une longue durée, une gastrostomie peut être mise en place par intervention sous anesthésie, avec une sonde introduite directement dans l’estomac via un orifice abdominal [DOC008_P026]. Les documents ne précisent pas la durée du passage ni qui s’occupe du matériel à domicile.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1056,
+  "tokens_reponse": 138,
+  "duree_secondes": 1.503
+ },
+ "ddb4e65173a40d5f32e3a278d2a5f1768ce6121e229d01673744e1618559c5a2": {
+  "texte": "Oui, il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux car ces aliments et plantes peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées. Il est donc déconseillé d’en consommer sans indication médicale (DOC008_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1153,
+  "tokens_reponse": 77,
+  "duree_secondes": 1.202
+ },
+ "ddb7530a56e3686621bdd794b26dfdd019d5d4b61fdc79b7661d5697b823751c": {
+  "texte": "Information insuffisante dans les documents fournis. Aucun passage ne traite spécifiquement de l'apparition et de la persistance des douleurs liées à la chimiothérapie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 985,
+  "tokens_reponse": 33,
+  "duree_secondes": 0.855
+ },
+ "83332d252d1accc38950c573ee9621a6aff8dfc5cc3d63174b97b673952eaeee": {
+  "texte": "Pour évaluer soi-même sa fatigue au jour le jour, il est conseillé de noter quotidiennement son niveau d’énergie, son aptitude aux activités habituelles et sa qualité de vie sur une échelle analogique de 0 à 20. Par ailleurs, il est possible de noter chaque jour l’intensité des effets secondaires, y compris la fatigue, en attribuant un score de 0 (pas du tout) à 3 (très souvent) pour en discuter ensuite avec l’équipe soignante (DOC006_P002, DOC001_P173).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1124,
+  "tokens_reponse": 113,
+  "duree_secondes": 1.374
+ },
+ "c1c7c51dea9460c1d8dfe34c65e8efd03f261f2965dc0d74a003f0c3666c6efd": {
+  "texte": "Les passages fournis ne donnent pas d'information précise sur les signes d'infection à surveiller en cas de baisse des globules blancs après une chimiothérapie, ni sur les actions à entreprendre dans ce contexte.  \nInformation insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1140,
+  "tokens_reponse": 54,
+  "duree_secondes": 1.162
+ },
+ "4a44b13f8f50f3602a2fed16e265a8401d5ac1475ab19ada077e775530941c57": {
+  "texte": "Oui, la perruque est prise en charge partiellement par la caisse d’Assurance maladie sur présentation d’un certificat médical fourni par le médecin, avec un forfait de 125 euros remboursé ; certaines mutuelles peuvent rembourser le complément (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 975,
+  "tokens_reponse": 57,
+  "duree_secondes": 1.035
+ },
+ "99de1966473eb58f3f8031b986288be3fb7e3422923ad2a14a88b5f9351d9888": {
+  "texte": "Les passages fournis ne contiennent aucune information sur le remboursement par l'Assurance maladie du casque réfrigérant utilisé pendant la chimiothérapie. Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 920,
+  "tokens_reponse": 39,
+  "duree_secondes": 1.024
+ },
+ "8260d7543e35627fccd60619cbe698269df52f324ba59fd559399b0fc35b9bfb": {
+  "texte": "Les documents indiquent que la chimiothérapie peut entraîner des modifications de la peau ou des ongles, avec une fragilité et un risque de chute des ongles, et recommandent de porter des gants réfrigérants pour limiter ces effets (DOC001_P141). Cependant, aucun passage ne précise si l'on peut mettre du vernis à ongles pendant la chimiothérapie. \n\nInformation insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1072,
+  "tokens_reponse": 88,
+  "duree_secondes": 1.515
+ },
+ "9e4c8d605fa650ed7be7e427be3eec8063239cc5105334dcc45617d952fcd27e": {
+  "texte": "Information insuffisante dans les documents fournis. Aucun passage ne mentionne spécifiquement s'il est déconseillé de prendre le volant juste après une séance de chimiothérapie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1088,
+  "tokens_reponse": 35,
+  "duree_secondes": 0.751
+ },
+ "3fdd375095063b857fc1b39129f3ce03651281b27f660aff7fdc95e1e42a7b59": {
+  "texte": "La chute des cheveux commence généralement entre 15 jours et 3 semaines après la première séance de chimiothérapie, parfois dès la première séance, et elle est souvent progressive mais temporaire. Les cheveux repoussent environ 6 à 8 semaines après la fin du traitement, bien que la repousse complète et le retour à l'aspect initial puissent prendre plusieurs mois (DOC001_P105, DOC004_P003, DOC004_P002).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8239ee564f",
+  "fin": "stop",
+  "tokens_prompt": 754,
+  "tokens_reponse": 88,
+  "duree_secondes": 5.103
+ },
+ "aa262acc86eb0a7dfbf556ff9ca4a005f735663d6f3473e41389565035f1a208": {
+  "texte": "Les nausées après une séance de chimiothérapie débutent souvent le soir ou le lendemain et durent généralement jusqu'à 3 jours, tandis que les vomissements, moins fréquents, persistent en général moins de 48 heures (DOC007_P004, DOC001_P084). Ces troubles ne sont pas systématiques et leur intensité a diminué grâce aux traitements antiémétiques (DOC001_P083).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_802f1283f8",
+  "fin": "stop",
+  "tokens_prompt": 734,
+  "tokens_reponse": 83,
+  "duree_secondes": 1.52
+ },
+ "228de78180e3ce9af5e3bc3cb35632b956a04405c025569853e7779cfa7cd8a3": {
+  "texte": "En cas de perte ou prise rapide de poids (deux kilos ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d’en informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement alimentaire adapté (DOC001_P142, DOC003_P008). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie et doit être proposé si besoin dans le cadre du parcours de soins (DOC002_P003, DOC002_P006).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_c29994a85c",
+  "fin": "stop",
+  "tokens_prompt": 776,
+  "tokens_reponse": 109,
+  "duree_secondes": 1.738
+ },
+ "0d1a92f9dd774c10c018d96b4dbf2850945f97b97ec5b262b13e5286ee810424": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an (DOC002_P010). Ces consultations, au maximum six, sont individualisées selon les besoins identifiés par le médecin prescripteur dans le cadre du parcours de soins global (DOC002_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_29c32828f7",
+  "fin": "stop",
+  "tokens_prompt": 689,
+  "tokens_reponse": 82,
+  "duree_secondes": 2.219
+ },
+ "803f1f34174d2a17d066473f98962259f4a9dede66f91b0c3abac11844c3aaec": {
+  "texte": "Aucun passage fourni ne décrit explicitement la méthode de dépistage d'un déficit en enzyme DPD avant une chimiothérapie à base de 5-fluorouracile.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_600e26b6f7",
+  "fin": "stop",
+  "tokens_prompt": 837,
+  "tokens_reponse": 37,
+  "duree_secondes": 1.196
+ },
+ "5482659e1f00e730c3f9e9a362295993e3b691394dba549a1e414d112fba12c9": {
+  "texte": "Il est conseillé d'éviter les aliments qui favorisent l'apparition d'aphtes, comme les noix, le gruyère, l'ananas, ainsi que les aliments trop épicés, acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs, et de privilégier des aliments moelleux ou mixés à texture douce (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6679aaf36a",
+  "fin": "stop",
+  "tokens_prompt": 677,
+  "tokens_reponse": 85,
+  "duree_secondes": 2.203
+ },
+ "10b90ff8b27cc4ab802b760c9967b9ca605f06752d18cdc2086178e7d7473179": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids en 1 mois ou de plus de 10 % en 6 mois par rapport à son poids habituel (DOC008_P014). Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, la dénutrition est qualifiée de sévère (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4fe83ac02c",
+  "fin": "stop",
+  "tokens_prompt": 837,
+  "tokens_reponse": 90,
+  "duree_secondes": 1.963
+ },
+ "bfb1d7535e5a73d858ea1b94d0eb64ed16b4f7ffd8814f23cf0d5cb4ca437bb2": {
+  "texte": "On parle de dénutrition lorsqu'une personne a perdu plus de 5 % de son poids en 1 mois ou plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, il s'agit d'une dénutrition sévère (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6d6e47cc7e",
+  "fin": "stop",
+  "tokens_prompt": 779,
+  "tokens_reponse": 68,
+  "duree_secondes": 1.954
+ },
+ "fc91101875ee49772eb5971da1a40e6882d75194a4056833c379d47a1efb24a0": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d’utiliser un rasoir électrique, une brosse à dents souple ou un coton-tige si la thrombopénie est importante, d’éviter l’aspirine et les produits qui en contiennent, et de signaler tout traitement anticoagulant (DOC001_P124). De plus, il faut se brosser les dents avec précaution, voire éviter le brossage si le nombre de plaquettes est trop bas pour ne pas provoquer de saignements (DOC001_P100).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_f26cc340c5",
+  "fin": "stop",
+  "tokens_prompt": 756,
+  "tokens_reponse": 123,
+  "duree_secondes": 2.519
+ },
+ "1d0e193b8c3030273a282a4d2b6d0f3ce4f78c3173d470f2292ecc596ff1c11e": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il est conseillé de boire au moins deux litres de liquides tels que eau, thé, tisane, bouillon de légumes, eau de riz, jus de carottes ou sodas à température ambiante pour éviter la déshydratation, et des solutions de réhydratation orale peuvent être utilisées (DOC007_P009). Il faut éviter les aliments lourds, gras ou épicés, privilégier plusieurs petits repas légers et manger lentement (DOC001_P088). Il est important d’alerter son médecin si les diarrhées persistent ou s’accompagnent de fièvre ou de vomissements (DOC007_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_678b85ce7d",
+  "fin": "stop",
+  "tokens_prompt": 626,
+  "tokens_reponse": 143,
+  "duree_secondes": 1.84
+ },
+ "03dfd7a07274d1df61596146d3563151b676a7088699919b4ec2badfc25d9aeb": {
+  "texte": "Les chimiothérapies dérivées du platine et les taxanes risquent d'abîmer les nerfs, entraînant des douleurs de type neuropathique (DOC005_P006). Ces douleurs neuropathiques se manifestent par des sensations d'engourdissement, de fourmillements ou d'autres « sensations étranges », souvent lancinantes ou continues (DOC005_P011).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_295d13ce69",
+  "fin": "stop",
+  "tokens_prompt": 635,
+  "tokens_reponse": 81,
+  "duree_secondes": 1.251
+ },
+ "2ed6ff986e74863d2dc7bef082a9b64d12930a1a0f1fe8d1384882a458cf5601": {
+  "texte": "Votre conjoint doit être installé de manière à permettre le passage de la nutrition, qui se fait le plus souvent de nuit et est surveillée par les infirmiers à domicile en coordination avec le prestataire de soins (DOC008_P031). La durée du passage dépend du type de nutrition, qui peut être momentanée, totale ou partielle (DOC008_P031). Le matériel est installé et géré par le prestataire de soins à domicile, qui coordonne également avec l’infirmier libéral (DOC008_P031).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 807,
+  "tokens_reponse": 106,
+  "duree_secondes": 2.051
+ },
+ "9d518b66c153d775e06ead6925b0d0357b12609e90f0684e8f3778301dcbaeb3": {
+  "texte": "Oui, il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces produits peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées (DOC008_P009). Il est donc déconseillé d’en consommer sans indication médicale et il faut en parler à son médecin ou pharmacien.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_e822df0ea4",
+  "fin": "stop",
+  "tokens_prompt": 782,
+  "tokens_reponse": 87,
+  "duree_secondes": 1.603
+ },
+ "ddf54783baabdafc00b5f3e221419db7de60062b224b57c70834cc6481ccfb37": {
+  "texte": "Les douleurs liées à la chimiothérapie peuvent apparaître après deux ou trois semaines de traitement et sont généralement aiguës, disparaissant une fois la chimiothérapie terminée ([DOC005_P003]). En revanche, des douleurs chroniques, notamment neuropathiques, peuvent survenir des mois ou années après un traitement par radiothérapie et persistent même après l'arrêt du traitement ([DOC005_P017]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_e7fa681843",
+  "fin": "stop",
+  "tokens_prompt": 764,
+  "tokens_reponse": 78,
+  "duree_secondes": 1.299
+ },
+ "4a92b4f5876f2a9aa3be64621d6b24ee829ed02ae03984a31bf426358eac8a49": {
+  "texte": "Pour évaluer soi-même sa fatigue au quotidien, il est recommandé d’utiliser une échelle analogique en notant de 0 à 20 son niveau d’énergie, son aptitude aux activités journalières et sa qualité de vie générale, ce qui facilite la description précise de la fatigue à l’équipe soignante ([DOC006_P002]). Cette auto-évaluation permet ensuite à l’équipe pluridisciplinaire d’identifier les causes et d’adapter la prise en charge ([DOC006_P005]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4fe83ac02c",
+  "fin": "stop",
+  "tokens_prompt": 779,
+  "tokens_reponse": 102,
+  "duree_secondes": 1.903
+ },
+ "ebb50272d5d46d7b5024539754bbc82d810af252f6f50b84d7c342d643734ac5": {
+  "texte": "Après une chimiothérapie, une baisse des globules blancs (neutropénie) expose à un risque d'infection, notamment dans les deux semaines suivant le traitement (DOC001_P112). Les signes d'infection doivent être rapidement signalés au médecin, qui pourra adapter le traitement ; il est aussi important d'éviter les soins dentaires non urgents et de respecter une hygiène bucco-dentaire stricte pour prévenir les infections (DOC001_P100, DOC001_P102).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6d6e47cc7e",
+  "fin": "stop",
+  "tokens_prompt": 680,
+  "tokens_reponse": 101,
+  "duree_secondes": 1.718
+ },
+ "60e93fcf5a237c483441b41b98ad27ecd3d469fc50162a943ac30e54c3b3ed41": {
+  "texte": "Oui, la perruque est prise en charge en partie par l’Assurance maladie sur présentation d’un certificat médical, notamment en cas de chute de cheveux due à la chimiothérapie (DOC001_P109). Cette prise en charge vise à aider les patients à mieux vivre l’alopécie temporaire provoquée par le traitement (DOC004_P001, DOC001_P108).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_802f1283f8",
+  "fin": "stop",
+  "tokens_prompt": 745,
+  "tokens_reponse": 78,
+  "duree_secondes": 1.388
+ },
+ "015f86045e5cc7972ea5cfa0adf08263090fbb3f7ea37cb930bc24c6479e645b": {
+  "texte": "Le casque réfrigérant utilisé pendant la chimiothérapie n'est pas mentionné comme étant remboursé par l'Assurance maladie dans les passages fournis. En revanche, seules les consultations des psychiatres sont explicitement remboursées (DOC006_P014). Les autres documents expliquent son usage et son efficacité, mais ne parlent pas de remboursement (DOC001_P174, DOC001_P110, DOC001_P177, DOC001_P141).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8239ee564f",
+  "fin": "stop",
+  "tokens_prompt": 513,
+  "tokens_reponse": 91,
+  "duree_secondes": 1.522
+ },
+ "cc251efc9f197e0fef5d6defd61ccb375ba3805170dd012f49f311715db21de4": {
+  "texte": "Les passages fournis ne mentionnent pas explicitement l'utilisation du vernis à ongles pendant une chimiothérapie. Cependant, [DOC001_P117] conseille de faire attention en se coupant les ongles, ce qui suggère une vigilance particulière concernant les ongles, sans interdire le vernis. De plus, [DOC001_P154] indique que la chimiothérapie peut entraîner une sensibilité particulière de la peau et des ongles, ce qui pourrait inciter à la prudence avec des produits cosmétiques.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_e7fa681843",
+  "fin": "stop",
+  "tokens_prompt": 473,
+  "tokens_reponse": 106,
+  "duree_secondes": 1.669
+ },
+ "9a3d78e9f4e6545a19ba6a6b39ec7cda2c91e1fe6d1104a6517b4dfcd1803b43": {
+  "texte": "Il est déconseillé de prendre le volant juste après une séance de chimiothérapie en raison des risques de nausées et vomissements qui peuvent survenir rapidement après le traitement et durer jusqu'à 72 heures, ce qui peut altérer la vigilance (DOC001_P084). De plus, une surveillance est parfois nécessaire après la première cure, ce qui suggère une prudence lors du retour à domicile (DOC001_P049).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_70a2959726",
+  "fin": "stop",
+  "tokens_prompt": 724,
+  "tokens_reponse": 87,
+  "duree_secondes": 1.711
+ },
+ "f3d714d681c4645f99cca901983ef95766af01984cadda4c62e568a820be88e6": {
+  "texte": "La chute des cheveux commence en général 15 jours à 3 semaines après la première perfusion de chimiothérapie, parfois dès la première séance, et les cheveux recommencent à pousser environ 6 à 8 semaines après la fin du traitement. En général, la repousse complète intervient dans les 3 à 6 mois suivant l'arrêt du traitement, même si la texture ou la couleur des cheveux peut temporairement changer (DOC001_P105, DOC004_P003, DOC004_P002).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 838,
+  "tokens_reponse": 100,
+  "duree_secondes": 1.656
+ },
+ "dd37300cb5556dd10cab57e5c1eff183ba054699755dc6069be5dc1b27ab2827": {
+  "texte": "Les nausées débutent souvent le soir ou le lendemain de la perfusion et ne persistent généralement pas plus de 3 jours après le traitement. Les vomissements, qui ne sont pas systématiques, durent en général moins de 48 heures après la chimiothérapie (DOC007_P004, DOC001_P084).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 818,
+  "tokens_reponse": 65,
+  "duree_secondes": 1.233
+ },
+ "23f1e06c8416fcda49bc6a9818c232c52a53f0bd9765255a6c67c3f316aebd80": {
+  "texte": "En cas de perte ou prise rapide de poids (de deux kilos ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d'informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement visant à trouver un équilibre alimentaire (DOC001_P142, DOC003_P008). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie et doit être proposé si besoin lors du parcours de soins (DOC002_P003, DOC002_P006).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 860,
+  "tokens_reponse": 111,
+  "duree_secondes": 1.594
+ },
+ "92db6009c4f3ce04aa4e38f86ba3f088694c01659a021c349e57f65003d1c942": {
+  "texte": "Les bilans et consultations de soins de support peuvent être prescrits jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an (DOC002_P010).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 773,
+  "tokens_reponse": 43,
+  "duree_secondes": 1.025
+ },
+ "5975683bf791a86c4e14925810ff53c30b67e6bd6504458d80a67b510ca78663": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 921,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.654
+ },
+ "0534d2b09fa51b52211f087d8d9825ad17f9e968c01ad1930535140d0adf6af3": {
+  "texte": "Il vaut mieux éviter les aliments qui favorisent l'apparition d'aphtes, comme les noix, le gruyère ou l'ananas, ainsi que les aliments trop épicés ou acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs. Il est conseillé de privilégier des aliments moelleux ou mixés, à la texture douce pour ne pas irriter l'intérieur de la bouche (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 761,
+  "tokens_reponse": 97,
+  "duree_secondes": 1.612
+ },
+ "66d9e0fa01d192718e942a66b03fd03a5e2d0a78fdb371329e243838b46b0f2d": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids en 1 mois ou de plus de 10 % en 6 mois par rapport à son poids habituel. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, on parle de dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 921,
+  "tokens_reponse": 83,
+  "duree_secondes": 1.352
+ },
+ "ebbd8df0af5bc479ce480fe9b1b81f1f6cef0876e4603246364dfd14b593a8a0": {
+  "texte": "On parle de dénutrition en cas de perte de plus de 5 % du poids habituel en 1 mois ou de plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, il s'agit de dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 863,
+  "tokens_reponse": 69,
+  "duree_secondes": 1.492
+ },
+ "26478b54ff7a434c723a3ef67c97b7dc73a67d0fc7fdbf3c3f7c91c3117a3711": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d'utiliser un rasoir électrique, d'éviter l'aspirine ou les produits qui en contiennent, et de ne pas utiliser une brosse à dents classique si la thrombopénie est importante, préférant un coton-tige à la place (DOC001_P124). Il faut également éviter de prendre la température par l’anus (DOC001_P124) et se brosser les dents avec précaution, voire éviter le brossage si le nombre de plaquettes est trop bas pour ne pas faire saigner les gencives (DOC001_P100).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 840,
+  "tokens_reponse": 139,
+  "duree_secondes": 1.814
+ },
+ "3a73acd2931b790f9e93d808d35c8d0988d762ffd2e9bf6819406dd5bae81507": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il est conseillé de boire au moins deux litres de liquides tels que eau, thé, tisane, bouillon de légumes, eau de riz, jus de carottes, ou sodas à température ambiante, et éventuellement des solutions de réhydratation orales vendues en pharmacie (DOC007_P009). Il faut alerter son médecin si les diarrhées persistent ou sont associées à de la fièvre ou à des vomissements (DOC007_P009). Information sur les aliments spécifiques à privilégier en cas de diarrhée n’est pas fournie dans les documents.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 710,
+  "tokens_reponse": 131,
+  "duree_secondes": 1.994
+ },
+ "09023f80583feb4cb26b953a754e1a15eff60e19652b2c3343465cf18a87ef6b": {
+  "texte": "Les chimiothérapies dérivées du platine et les taxanes risquent d'abîmer les nerfs et peuvent entraîner des douleurs de type neuropathique [DOC005_P006].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 719,
+  "tokens_reponse": 40,
+  "duree_secondes": 1.633
+ },
+ "b054d2fb66cf35af2d81d4489d611d3b8ee0d682046a5f6d3ab888261c7d12e6": {
+  "texte": "Le passage de la nutrition par sonde se fait le plus souvent de nuit, avec une installation du matériel effectuée par le prestataire de soins à domicile qui coordonne avec l’infirmier libéral et assure le suivi diététique (DOC008_P031). La surveillance est assurée par les infirmiers au domicile et le médecin prescripteur, avec une réévaluation clinique et biologique régulière (DOC008_P031). Le matériel est donc pris en charge par le prestataire de soins à domicile, en lien avec l’équipe soignante (DOC008_P031). Information sur la durée précise du passage n’est pas fournie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 891,
+  "tokens_reponse": 131,
+  "duree_secondes": 1.753
+ },
+ "8c56d11e082cc64cfe6c8bed21598546b6ecf42ec74ab0bca518c7bf69c4dc7b": {
+  "texte": "Oui, il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces produits peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées. Il est donc déconseillé d’en consommer sans indication médicale (DOC008_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 866,
+  "tokens_reponse": 76,
+  "duree_secondes": 1.256
+ },
+ "b9ee46dea13968ec1221d077fc49c15bfa3f872d437839e6d87f9bb47d83384a": {
+  "texte": "Des douleurs aiguës peuvent apparaître après deux ou trois semaines de chimiothérapie et disparaissent lorsque le traitement est fini [DOC005_P003]. Information insuffisante dans les documents fournis concernant la persistance des douleurs après la chimiothérapie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 848,
+  "tokens_reponse": 49,
+  "duree_secondes": 0.966
+ },
+ "5e3b9a2dc71ba6b81772d2678d49e3c47769b85ba4c0703debf8f6ce2e7e2fff": {
+  "texte": "Pour évaluer soi-même sa fatigue au jour le jour, il est conseillé d’utiliser une échelle analogique en notant de 0 à 20 son niveau d’énergie, son aptitude aux activités journalières habituelles et sa qualité de vie en général. Cette auto-évaluation peut ensuite être décrite à l’équipe soignante lors des consultations pour une prise en charge adaptée (DOC006_P002).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 863,
+  "tokens_reponse": 83,
+  "duree_secondes": 1.43
+ },
+ "68533ce444c6a01b11da055786c9977ab13edcfd679d6efb98dab361e6b614c8": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 764,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.881
+ },
+ "77f03f8efc4a15ae2a6d11b107f682992d27b674649a012d5e083410e0e008df": {
+  "texte": "Oui, la perruque est prise en charge partiellement par l’Assurance maladie sur présentation d’un certificat médical, avec un forfait remboursé de 125 euros, et certaines mutuelles peuvent rembourser le complément (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 829,
+  "tokens_reponse": 52,
+  "duree_secondes": 1.126
+ },
+ "cd6385deacadbd78f16c283ca3257f833d40cb4221b9edcd71b6e0ec6e210ac5": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 597,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.798
+ },
+ "db8fe923d05b9e10abafc4799c8ec549c1690b59b3e0a328d53111a05ce8e181": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 557,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.791
+ },
+ "0051aee4ca960537d9e7d44e74440b91fc668cb801bae2c245e659fb51d7bab2": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 808,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.887
+ },
+ "f61e413f546434d9c2577694a23bfdf61f504aff45af93c4b42ce78273ad602d": {
+  "texte": "La chute des cheveux commence généralement entre 15 jours et 3 semaines après la première séance de chimiothérapie, parfois dès la première séance, et les cheveux recommencent à repousser environ 6 à 8 semaines après la fin du traitement, bien que la repousse complète prenne plusieurs mois (DOC001_P105, DOC004_P003, DOC004_P002).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_29c32828f7",
+  "fin": "stop",
+  "tokens_prompt": 890,
+  "tokens_reponse": 75,
+  "duree_secondes": 1.209
+ },
+ "81062e609e8dd9f55f3f482d5b52d7a06e0eeecab0ab4632d4b621d375123a75": {
+  "texte": "Les nausées après une séance de chimiothérapie débutent souvent le soir ou le lendemain et durent généralement jusqu'à 3 jours, tandis que les vomissements, moins fréquents, persistent en général moins de 48 heures après le traitement ([DOC007_P004], [DOC001_P084]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_5fa2d5cae1",
+  "fin": "stop",
+  "tokens_prompt": 880,
+  "tokens_reponse": 61,
+  "duree_secondes": 1.703
+ },
+ "64a7c398f40548aa2e65508a30c2b5562d6f43fd84bba90f3fddc5fefdd6fa79": {
+  "texte": "En cas de perte ou prise rapide de poids (de deux kilos ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d’en informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement alimentaire adapté (DOC001_P142, DOC003_P008). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie et doit être proposé si besoin dans le cadre du parcours de soins (DOC002_P003, DOC002_P006).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_c2de8519c8",
+  "fin": "stop",
+  "tokens_prompt": 891,
+  "tokens_reponse": 109,
+  "duree_secondes": 1.815
+ },
+ "a6781762ed32364c69b7f95c91eb4be0a74ef48f0a7cfe983f857ee7f4af06bd": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits par le médecin traitant, le cancérologue ou le pédiatre jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an (DOC002_P010). Ces consultations sont individualisées en fonction des besoins et peuvent comprendre jusqu’à six consultations (DOC002_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 833,
+  "tokens_reponse": 85,
+  "duree_secondes": 1.187
+ },
+ "2fa075105839faf5956b820d6ffdeeb943224751916730caabe7069b5fc11a95": {
+  "texte": "Aucun des passages fournis ne décrit explicitement la méthode de dépistage d’un déficit en enzyme DPD avant une chimiothérapie à base de 5-fluorouracile.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_a93940b23f",
+  "fin": "stop",
+  "tokens_prompt": 958,
+  "tokens_reponse": 39,
+  "duree_secondes": 0.957
+ },
+ "d9a8dec97954f5f324a22dd280f0ba6145efdd3414acc0f6725238158eb50fc4": {
+  "texte": "Il est conseillé d'éviter les aliments qui favorisent l'apparition d'aphtes, comme les noix, le gruyère, l'ananas, ainsi que les aliments trop épicés, acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs, et de privilégier des aliments moelleux ou mixés à texture douce (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_69782dd4d5",
+  "fin": "stop",
+  "tokens_prompt": 832,
+  "tokens_reponse": 85,
+  "duree_secondes": 1.868
+ },
+ "35c34aa4a7665d945d257b284b6750e02cce89f728b9639891649967b7026a0a": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids en 1 mois ou de plus de 10 % en 6 mois par rapport à son poids habituel (DOC008_P014). Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, la dénutrition est qualifiée de sévère (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4b598befc4",
+  "fin": "stop",
+  "tokens_prompt": 926,
+  "tokens_reponse": 90,
+  "duree_secondes": 1.327
+ },
+ "57fc736b1c1cb98a0574c1bd0a8093330bfb19ace0c5615892220438e2099143": {
+  "texte": "On parle de dénutrition lorsqu'une personne a perdu plus de 5 % de son poids en 1 mois ou plus de 10 % en 6 mois ; au-delà de 10 % en 1 mois ou 15 % en 6 mois, il s'agit d'une dénutrition sévère (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4b598befc4",
+  "fin": "stop",
+  "tokens_prompt": 873,
+  "tokens_reponse": 67,
+  "duree_secondes": 1.46
+ },
+ "f15892d63a5adec00801a9d03b1a41bda8f6aebcffbe9a9913c89888dc26f9ba": {
+  "texte": "Pour limiter les risques de saignements liés à la baisse des plaquettes due à la chimiothérapie, il est conseillé d’utiliser un rasoir électrique, d’éviter l’aspirine et les produits qui en contiennent, et de ne pas utiliser de brosse à dents si la thrombopénie est importante, préférant un coton-tige à la place (DOC001_P124). Il faut également éviter de prendre la température par l’anus (DOC001_P124).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_0e7b5db390",
+  "fin": "stop",
+  "tokens_prompt": 892,
+  "tokens_reponse": 98,
+  "duree_secondes": 1.536
+ },
+ "65668804f97872d9dc878f9fb324d882bcc30e0c8656aba68f79a800429bf4bc": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il est conseillé de boire au moins deux litres de liquides tels que de l'eau, du thé, des tisanes, du bouillon de légumes, de l'eau de riz, du jus de carottes ou des sodas à température ambiante, et éventuellement des solutions de réhydratation orale (DOC007_P009). Il faut alerter son médecin si les diarrhées persistent ou s'accompagnent de fièvre ou de vomissements, car une hospitalisation en urgence peut être nécessaire (DOC007_P009). Par ailleurs, il est recommandé de privilégier une alimentation équilibrée et légère, en évitant les aliments lourds, gras ou épicés, et de boire avant ou après les repas plutôt que pendant (DOC001_P088, DOC001_P143).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_2648a71878",
+  "fin": "stop",
+  "tokens_prompt": 755,
+  "tokens_reponse": 172,
+  "duree_secondes": 2.333
+ },
+ "fe1cdcf026343ee0da044419de7f8a6bf7048c67b39eabb5fe8c39323eca4058": {
+  "texte": "Les chimiothérapies à base de médicaments dérivés du platine et des taxanes risquent d'abîmer les nerfs, entraînant des douleurs neuropathiques caractérisées par des sensations d'engourdissement, de fourmillements ou d'autres « sensations étranges » (DOC005_P006). Ces douleurs sont lancinantes ou continues et résultent d'une atteinte nerveuse toxique (DOC005_P006).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 775,
+  "tokens_reponse": 90,
+  "duree_secondes": 1.415
+ },
+ "f9f3c797928617924d9682866dc6d9c40e1c8bd39f2e90d0674237b6c2b0b481": {
+  "texte": "Votre conjoint sera installé à domicile avec le matériel mis en place par un prestataire de soins qui coordonne avec l’infirmier libéral pour le passage de la nutrition, souvent réalisé de nuit, et assure le suivi (DOC008_P031). La durée du passage dépend du type de nutrition, qui peut être momentanée, totale ou partielle (DOC008_P031). Le prestataire de soins s’occupe également du matériel et informe l’équipe hospitalière, tandis que la surveillance est assurée par les infirmiers et le médecin prescripteur (DOC008_P031).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_29c32828f7",
+  "fin": "stop",
+  "tokens_prompt": 939,
+  "tokens_reponse": 117,
+  "duree_secondes": 1.557
+ },
+ "91aef5891a356674faab262fa7c9e6d9f09ca6843c93f24247eeeba9ac661727": {
+  "texte": "Oui, il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces aliments et compléments peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées (DOC008_P009). Il est donc déconseillé d’en consommer sans indication médicale.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_610f3b86f7",
+  "fin": "stop",
+  "tokens_prompt": 916,
+  "tokens_reponse": 79,
+  "duree_secondes": 1.334
+ },
+ "4cbf5add4d9cc2a65ec81c85dcfc1841e0dd59a804e94083c66f36bba9253aff": {
+  "texte": "Des douleurs aiguës peuvent apparaître après deux ou trois semaines de chimiothérapie et disparaissent généralement à la fin du traitement (DOC005_P003). Le document ne mentionne pas de douleurs persistantes après la chimiothérapie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_9d881fade5",
+  "fin": "stop",
+  "tokens_prompt": 870,
+  "tokens_reponse": 45,
+  "duree_secondes": 1.132
+ },
+ "44822cd2614676c1dabde7634b96e06f7932be2e9780905817ccbb4b495cf018": {
+  "texte": "Pour évaluer soi-même sa fatigue au quotidien, il est recommandé d’utiliser une échelle analogique où l’on note de 0 à 20 son niveau d’énergie, son aptitude aux activités habituelles et sa qualité de vie générale, ce qui facilite la communication avec l’équipe soignante (DOC006_P002). Cette équipe peut ensuite proposer des outils adaptés et des solutions en fonction des symptômes décrits (DOC006_P004).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_2738b29278",
+  "fin": "stop",
+  "tokens_prompt": 888,
+  "tokens_reponse": 88,
+  "duree_secondes": 1.258
+ },
+ "8998ab14e997aa9a769455a37e1644d4696f046bcbe36b9b71d5f9d3ea17b2ff": {
+  "texte": "Après une chimiothérapie, une baisse des globules blancs (neutropénie) expose à un risque d'infection, notamment dans les deux semaines suivant le traitement (DOC001_P112). Il faut être vigilant aux signes d'infection et informer rapidement le médecin, qui pourra adapter le traitement ou prescrire des antibiotiques si nécessaire (DOC001_P102).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_4ffa17cc03",
+  "fin": "stop",
+  "tokens_prompt": 845,
+  "tokens_reponse": 74,
+  "duree_secondes": 1.083
+ },
+ "893317b7d60e39b2b808b4bbe10b084f0e06103582305d5022fe657fd43a0973": {
+  "texte": "Oui, la perruque est partiellement prise en charge par l’Assurance maladie sur présentation d’un certificat médical fourni par le médecin, avec un remboursement forfaitaire de 125 euros, auquel certaines mutuelles peuvent ajouter un complément (DOC001_P109). Le port de la perruque est conseillé dès le début de la chute des cheveux pour mieux masquer l’alopécie liée à la chimiothérapie (DOC001_P109, DOC001_P108).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_6679aaf36a",
+  "fin": "stop",
+  "tokens_prompt": 864,
+  "tokens_reponse": 94,
+  "duree_secondes": 1.341
+ },
+ "71dd3a399491763df92a84b9bf02a92a74bd0358ab46ccdb1e166a788adc8aaa": {
+  "texte": "Les passages fournis ne mentionnent pas que le casque réfrigérant utilisé pendant la chimiothérapie soit remboursé par l'Assurance maladie. Ils indiquent seulement que ce casque est proposé pour limiter l'alopécie et améliorer le bien-être du patient (DOC001_P174, DOC001_P110, DOC001_P177), tandis que le seul remboursement mentionné concerne les consultations des psychiatres (DOC006_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_e7fa681843",
+  "fin": "stop",
+  "tokens_prompt": 653,
+  "tokens_reponse": 88,
+  "duree_secondes": 1.298
+ },
+ "4bd4429dabc745f18c52c5c1ccbf207a9f99c49c11e50153a74545b2a14e8d7f": {
+  "texte": "Le vernis à ongles n'est pas explicitement mentionné dans les passages fournis, mais il est conseillé de faire attention en se coupant les ongles et d'adopter une bonne hygiène pour éviter les infections, ce qui suggère une prudence quant à toute manipulation des ongles pendant la chimiothérapie ([DOC001_P117]). De plus, la chimiothérapie peut entraîner des modifications de la peau et des ongles, notamment une sensibilité accrue, ce qui pourrait rendre l'usage du vernis à ongles déconseillé ou à discuter avec un médecin ([DOC001_P154]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_e7fa681843",
+  "fin": "stop",
+  "tokens_prompt": 604,
+  "tokens_reponse": 122,
+  "duree_secondes": 1.448
+ },
+ "3efd955fcfbca8f861b96dfb2292f4cec85b25af8f2ef88d0eeaf93b1efa671f": {
+  "texte": "Il est déconseillé de prendre le volant juste après une séance de chimiothérapie en raison des effets secondaires fréquents tels que les nausées et vomissements, qui peuvent survenir rapidement après la perfusion et durer jusqu'à 72 heures, rendant la conduite dangereuse ([DOC001_P084]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3a1604a676",
+  "fin": "stop",
+  "tokens_prompt": 881,
+  "tokens_reponse": 62,
+  "duree_secondes": 1.297
+ },
+ "c64fe3c37879577c1996048332e11f9e3bc06fff37683ff96e48a285bbe7bc03": {
+  "texte": "La chute des cheveux commence généralement 15 jours à 3 semaines après la première perfusion de chimiothérapie, parfois dès la première séance, et les cheveux recommencent à pousser environ 6 à 8 semaines après la fin du traitement (DOC001_P105, DOC004_P003). En général, les cheveux repoussent dans les 3 à 6 mois qui suivent l'arrêt du traitement (DOC004_P002).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 974,
+  "tokens_reponse": 85,
+  "duree_secondes": 1.216
+ },
+ "dace9ccf5cfea1ce848a5b5d255d569fef4fed1f68b526ec3a61aa0c23bdfbb0": {
+  "texte": "Les nausées débutent souvent le soir ou le lendemain de la perfusion de chimiothérapie et durent rarement plus de 72 heures après le traitement. Les vomissements, qui ne sont pas systématiques, persistent en général pas plus de 48 heures après le traitement (DOC007_P004, DOC001_P084).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 964,
+  "tokens_reponse": 66,
+  "duree_secondes": 1.279
+ },
+ "42a5ab37932570e5834099780ed6e4fe6b76e7098f41194c60b3f149ae78294d": {
+  "texte": "En cas de perte ou prise rapide de poids (deux kilos ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d’informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement diététique visant à trouver un équilibre alimentaire (DOC001_P142, DOC003_P008). Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie et doit être proposé si besoin lors du parcours de soins (DOC002_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 975,
+  "tokens_reponse": 109,
+  "duree_secondes": 1.893
+ },
+ "3922ae34336c50d06562fa413aa9adeaa3e95a7f9934755e1484f1f64c4de7a2": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits par le médecin traitant, le cancérologue ou le pédiatre jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an [DOC002_P010].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 917,
+  "tokens_reponse": 63,
+  "duree_secondes": 1.37
+ },
+ "27d3a3e080307e4c42d77184e45eded3160deb33de2349ff31af1a70282eb827": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1042,
+  "tokens_reponse": 10,
+  "duree_secondes": 1.019
+ },
+ "e694195026073b411081257cbc0729444485884419302b7b81026fae503a1a8f": {
+  "texte": "Il vaut mieux éviter les aliments qui favorisent l'apparition d'aphtes, comme les noix, le gruyère ou l'ananas, ainsi que les aliments trop épicés ou acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs. Il est conseillé de privilégier des aliments moelleux ou mixés, à texture douce, pour ne pas irriter l'intérieur de la bouche [DOC009_P003].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 916,
+  "tokens_reponse": 97,
+  "duree_secondes": 1.326
+ },
+ "05392448f1e43d4c2df536c18829961d1f44fa4b28ccc32132c7b63acce9200c": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids habituel en 1 mois ou de plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, on parle de dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1010,
+  "tokens_reponse": 78,
+  "duree_secondes": 1.894
+ },
+ "9388147a389cd7e84facc03d0fb615e6c916224da766daab27c7a4a84afc90b3": {
+  "texte": "On parle de dénutrition en cas de perte de plus de 5 % en 1 mois ou de plus de 10 % en 6 mois de son poids habituel. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, il s'agit de dénutrition sévère (DOC008_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 957,
+  "tokens_reponse": 70,
+  "duree_secondes": 1.645
+ },
+ "ccfa63cd508a06e42b491bf148f450e9d6fee0987fcd58820c803ff094620774": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d'utiliser un rasoir électrique, une brosse à dents souple ou un coton-tige si la thrombopénie est importante, d'éviter l'aspirine ou les produits qui en contiennent, de signaler tout traitement anticoagulant, et de ne pas prendre la température par l'anus [DOC001_P124]. Il faut aussi éviter de se brosser les dents si le nombre de plaquettes est trop bas, car cela risque de faire saigner les gencives [DOC001_P100].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 976,
+  "tokens_reponse": 129,
+  "duree_secondes": 1.825
+ },
+ "fa2e5bf9aa8998996941fa9d39ccf064a5ee089adb21df68b3ea51b39f60ecb1": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il est conseillé de boire au moins deux litres de liquides tels que eau, thé, tisane, bouillon de légumes, eau de riz, jus de carottes ou sodas à température ambiante pour éviter la déshydratation, et des solutions de réhydratation orale peuvent être utilisées (DOC007_P009). Il faut alerter son médecin si les diarrhées persistent ou sont associées à de la fièvre ou à des vomissements (DOC007_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 839,
+  "tokens_reponse": 112,
+  "duree_secondes": 1.551
+ },
+ "171c54f9a235bd8334f27cd711c6c3cb167436c46cef4ab98e723fb32610f616": {
+  "texte": "Les chimiothérapies à base de médicaments dérivés du platine ou des taxanes risquent d'abîmer les nerfs et peuvent entraîner des douleurs de type neuropathique [DOC005_P006].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 859,
+  "tokens_reponse": 44,
+  "duree_secondes": 1.311
+ },
+ "6408c78450710a8caf4a82f7f34cb34c24be6e064055234fa99e8aafbdd2fd4b": {
+  "texte": "Le passage de la nutrition par sonde à domicile est généralement assuré par un prestataire de soins à domicile qui installe le matériel et coordonne avec l’infirmier libéral pour le passage, souvent de nuit, et le suivi diététique ; ce matériel est donc pris en charge par ce prestataire (DOC008_P031). La nutrition peut être momentanée, totale ou partielle, sans durée précise indiquée dans les documents (DOC008_P031). Le document ne précise pas comment le patient doit être installé lors de la nutrition par sonde (DOC008_P031, DOC008_P025).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1023,
+  "tokens_reponse": 123,
+  "duree_secondes": 1.611
+ },
+ "5ecfec6ac16cb2f13977ec76432d2275a4742b1f7ed41950ddbb7aab02bce2a6": {
+  "texte": "Il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces aliments et compléments peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées. Il est donc déconseillé d’en consommer sans indication médicale (DOC008_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1000,
+  "tokens_reponse": 77,
+  "duree_secondes": 1.551
+ },
+ "93a474ed08376dccf94829648f21cd3f9a81dc6b0c3898908030657ab772d94b": {
+  "texte": "Des douleurs aiguës peuvent apparaître après deux ou trois semaines de chimiothérapie et disparaissent lorsque la chimiothérapie est finie [DOC005_P003]. Information insuffisante dans les documents fournis pour savoir si des douleurs persistent après la fin du traitement.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 954,
+  "tokens_reponse": 52,
+  "duree_secondes": 1.134
+ },
+ "d2ce92c80a37bdcd06139ae50a43472c9a561d1a7565e733d426bbc3bad76a64": {
+  "texte": "Pour évaluer soi-même sa fatigue au jour le jour, il est conseillé d’utiliser une échelle analogique en notant de 0 à 20 son niveau d’énergie, son aptitude aux activités journalières habituelles et sa qualité de vie en général, afin de pouvoir décrire précisément cette fatigue à l’équipe soignante lors des consultations [DOC006_P002].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 972,
+  "tokens_reponse": 76,
+  "duree_secondes": 1.615
+ },
+ "18f6c92ec5930bf7e02652010f643065e51076b80f870005e73a27db02c1d023": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 929,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.811
+ },
+ "d0caf3e86ee264a8ca77a262ee74c23015c7165bc086d76e6eba306a7fdf70fe": {
+  "texte": "Oui, la perruque est prise en charge partiellement par l’Assurance maladie sur présentation d’un certificat médical fourni par le médecin, avec un remboursement forfaitaire d’environ 125 euros, auquel certaines mutuelles peuvent ajouter un complément (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 948,
+  "tokens_reponse": 55,
+  "duree_secondes": 1.329
+ },
+ "d99642f9fd913e2a73458013b371ccc81c3dd34633e8a30a7d1ca52423ed9f7f": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 737,
+  "tokens_reponse": 10,
+  "duree_secondes": 1.411
+ },
+ "1674ebf2ef77b23416ff194d1fe55b381d4c005341ec5b20c82fa8034ded2172": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 688,
+  "tokens_reponse": 10,
+  "duree_secondes": 1.003
+ },
+ "d3104f14e9a978f7b5787c84581e7ef2117d5ded5a1627d4cb4c994e75814a45": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 965,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.866
+ },
+ "0ab3db4d31e75895d3a1e5c533236b572a1abb3999ad3e0eadd7cc4b160ad2e2": {
+  "texte": "La chute des cheveux commence généralement entre 15 jours et 3 semaines après la première séance ou perfusion de chimiothérapie, parfois dès la première séance, et peut être progressive ou brutale selon les molécules utilisées [DOC001_P105], [DOC004_P003]. Les cheveux repoussent environ 6 à 8 semaines après la fin du traitement, ou plus généralement dans les 3 à 6 mois suivant l'arrêt du traitement [DOC001_P105], [DOC004_P002].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1116,
+  "tokens_reponse": 100,
+  "duree_secondes": 1.496
+ },
+ "1921cc8685f549114780409eee67269a37b65b5ac49c595c33d8dd4b1592cd3f": {
+  "texte": "Les nausées débutent souvent le soir ou le lendemain de la chimiothérapie et durent rarement plus de 72 heures (3 jours) après le traitement, tandis que les vomissements, non systématiques, persistent en général moins de 48 heures après la séance (DOC007_P004, DOC001_P084).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1106,
+  "tokens_reponse": 65,
+  "duree_secondes": 1.541
+ },
+ "cbb192447dd4a812edb2eedb001aff57d630cf0d90aa9004feff6cdcdde599df": {
+  "texte": "En cas de perte ou prise rapide de poids (2 kg ou plus) pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids, d’en informer son médecin, qui peut orienter vers une diététicienne pour un accompagnement diététique visant à trouver un équilibre alimentaire avant, pendant et après la chimiothérapie [DOC001_P142], [DOC003_P008]. Cet accompagnement diététique fait partie des soins de support remboursés par l’Assurance maladie et doit être proposé si besoin dans le cadre du parcours de soins [DOC002_P003], [DOC002_P006].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1117,
+  "tokens_reponse": 125,
+  "duree_secondes": 2.454
+ },
+ "bea38ab7538edc181c1f9b58664859929510b009590e6638ba2e25f624ac980c": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits par le médecin traitant, le cancérologue ou le pédiatre jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an [DOC002_P010]. Au maximum, six consultations peuvent être prescrites dans le cadre du parcours de soins global après traitement d’un cancer [DOC002_P009].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1059,
+  "tokens_reponse": 91,
+  "duree_secondes": 1.532
+ },
+ "1e639f4334945aaf96b53a4eb353b96758df7c63105db54eee65e09d795b682a": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1184,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.707
+ },
+ "eff08241999561452a660d397294004addc1fd7d7949f50af7ff2719469f7f49": {
+  "texte": "Il vaut mieux éviter les aliments qui favorisent l'apparition d'aphtes, comme les noix, le gruyère ou l'ananas, ainsi que les aliments trop épicés ou acides (jus de citron, vinaigrette, moutarde), secs, croquants ou durs. Il est conseillé de privilégier des aliments moelleux ou mixés, à texture douce, pour ne pas irriter la bouche (DOC009_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1058,
+  "tokens_reponse": 94,
+  "duree_secondes": 1.345
+ },
+ "3735ee32e905b7a8ae62caae580e169bb28eaad717bc4d20a572419d1aa75fd2": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids habituel en 1 mois ou de plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, on parle de dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1152,
+  "tokens_reponse": 78,
+  "duree_secondes": 1.256
+ },
+ "75e12c42c2c54342db829d022a00aa4d99501bf85f525bc560d9ed4fd7913183": {
+  "texte": "On parle de dénutrition en cas de perte de plus de 5 % du poids habituel en 1 mois ou de plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, il s'agit d'une dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1099,
+  "tokens_reponse": 70,
+  "duree_secondes": 1.272
+ },
+ "6103a3c00262c40bfa101810a4aecd4e837740ad4df482a5bbc12d569a0b2964": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d'utiliser un rasoir électrique, une brosse à dents souple ou un coton-tige si la thrombopénie est importante, d'éviter l'aspirine ou les produits qui en contiennent, de signaler tout traitement anticoagulant, et d'éviter de prendre la température par l'anus [DOC001_P124]. Il faut aussi se brosser les dents régulièrement sauf si le nombre de plaquettes est trop bas, car cela risquerait de faire saigner les gencives [DOC001_P100].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1118,
+  "tokens_reponse": 132,
+  "duree_secondes": 1.94
+ },
+ "26844bda2b4c5c61d8f02f4d52aa629862646317c81bccc57b36527fec29d9d6": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il est conseillé de boire au moins deux litres de liquides (eau, thé, tisane, bouillon de légumes, eau de riz, jus de carottes, sodas à température ambiante) pour éviter la déshydratation, et des solutions de réhydratation orale peuvent être utilisées (DOC007_P009). Il faut alerter son médecin si les diarrhées persistent ou s'accompagnent de fièvre ou de vomissements (DOC007_P009). Les documents ne précisent pas d'aliments spécifiques à privilégier en cas de diarrhée, mais recommandent en général une alimentation équilibrée (DOC001_P143, DOC003_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 981,
+  "tokens_reponse": 151,
+  "duree_secondes": 1.695
+ },
+ "4a128ab722b1553efbbab3c8a7b473c31bce7dc81c778aa2e4f8d4bee31c7b7c": {
+  "texte": "Les chimiothérapies à base de médicaments dérivés du platine ou de taxanes risquent d'abîmer les nerfs et peuvent entraîner des douleurs de type neuropathique [DOC005_P006]. Ces douleurs neuropathiques sont caractérisées par des sensations telles que des engourdissements, des fourmillements ou d’autres « sensations étranges », et peuvent être lancinantes ou continues [DOC005_P011].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1001,
+  "tokens_reponse": 90,
+  "duree_secondes": 2.918
+ },
+ "09d95b66d98c8c2a185f418a263bb811ad75c05616ee6a797bbcdcd791507566": {
+  "texte": "Pour la nutrition par sonde à domicile, l'installation du matériel est effectuée par le prestataire de soins à domicile en coordination avec l’infirmier libéral, qui assure aussi le suivi diététique et la surveillance, souvent pendant la nuit ; le service d’hospitalisation à domicile (HAD) peut intervenir (DOC008_P031). Le passage de la nutrition est donc réalisé par des professionnels, mais le document ne précise pas la durée exacte du passage. Concernant l'installation, si la nutrition entérale est longue, une gastrostomie peut être posée en milieu hospitalier sous anesthésie (DOC008_P026). Le document ne précise pas comment le patient doit être installé pendant la nutrition par sonde.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1165,
+  "tokens_reponse": 148,
+  "duree_secondes": 1.876
+ },
+ "ede8fc86cf160fc1e687f0e8527b21d10bfda9358995110f0e1ae180d4e9fe1b": {
+  "texte": "Boire du jus de pamplemousse ou prendre du millepertuis pendant un traitement anticancéreux est risqué car ces aliments et plantes peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées, ou augmenter le risque d’effets indésirables. Il est donc déconseillé d’en consommer sans indication médicale (DOC008_P009).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1142,
+  "tokens_reponse": 85,
+  "duree_secondes": 1.296
+ },
+ "bac01c825d85404aa67f70fd6bd98c28764852b49f4fba4f1e9a189f4ee4aec9": {
+  "texte": "Les douleurs liées à la chimiothérapie peuvent apparaître après deux ou trois semaines de traitement et disparaissent lorsque la chimiothérapie est finie [DOC005_P003]. Les documents ne précisent pas si ces douleurs persistent après la fin du traitement.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1096,
+  "tokens_reponse": 49,
+  "duree_secondes": 0.959
+ },
+ "a760d09f3c154fe72569723a4ec9cef346867e78a0bc425781d1529e30971dfa": {
+  "texte": "Pour évaluer soi-même sa fatigue au jour le jour, il est conseillé de noter son niveau d’énergie, son aptitude aux activités journalières habituelles et sa qualité de vie en général sur une échelle analogique de 0 à 20, ce qui facilite la description de la fatigue à l’équipe soignante lors des consultations [DOC006_P002]. L’équipe soignante peut aussi proposer des outils spécifiques pour aider à repérer et décrire la fatigue ressentie [DOC006_P002].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1114,
+  "tokens_reponse": 103,
+  "duree_secondes": 1.586
+ },
+ "d30191e8df67362ce13bccfc30725b64ca64eb8629ee2fb91cd9505eb8fcead9": {
+  "texte": "Les signes qui doivent faire penser à une infection lorsque les globules blancs sont bas (neutropénie) ne sont pas précisés dans les passages fournis. En revanche, la neutropénie survient habituellement la deuxième semaine après la chimiothérapie et peut conduire le médecin à retarder ou modifier la dose de traitement si les globules blancs ne remontent pas avant la séance suivante [DOC001_P112]. Les passages ne donnent pas d'indications précises sur les signes d'infection ni sur les actions à entreprendre en cas de neutropénie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1071,
+  "tokens_reponse": 117,
+  "duree_secondes": 1.661
+ },
+ "56514c8af537cadddb08050f272f4a0c63ef3a1b08e348353e8c9d2a7bc11195": {
+  "texte": "Oui, la perruque est prise en charge partiellement par l’Assurance maladie sur présentation d’un certificat médical, avec un forfait de 125 euros remboursé, et certaines mutuelles peuvent rembourser le complément (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1090,
+  "tokens_reponse": 52,
+  "duree_secondes": 1.114
+ },
+ "86b070771296c2ea0527357ba28d6560e2527912663ad4deba81f3138a7653f3": {
+  "texte": "Les passages fournis ne contiennent aucune information sur le remboursement par l'Assurance maladie du casque réfrigérant utilisé pendant la chimiothérapie.  \nInformation insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 879,
+  "tokens_reponse": 40,
+  "duree_secondes": 0.969
+ },
+ "73b3cc90ff5974ebaf53599a0291d087c17fed053ec3f6e3bcf692214fd47555": {
+  "texte": "Information insuffisante dans les documents fournis. Aucun passage ne traite spécifiquement de l'utilisation du vernis à ongles pendant une chimiothérapie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 830,
+  "tokens_reponse": 30,
+  "duree_secondes": 0.933
+ },
+ "283229df0350ba6efa186c52b08794a22c1208fdabc4a55fe202bd1ff69210e5": {
+  "texte": "Les documents ne donnent pas d'information explicite sur la conduite automobile juste après une séance de chimiothérapie. Ils mentionnent que la chimiothérapie est souvent ambulatoire et que les nausées peuvent survenir peu après la perfusion, mais ne précisent pas s'il est déconseillé de prendre le volant dans ce contexte.  \nInformation insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_8c75033c9a",
+  "fin": "stop",
+  "tokens_prompt": 1107,
+  "tokens_reponse": 77,
+  "duree_secondes": 1.615
+ },
+ "8fc49b7ed3f0bf7d62b7772ecb883610b3bea9528e6ac70e29614f93b52db19b": {
+  "texte": "La chute des cheveux commence généralement 2 à 3 semaines après le début de la chimiothérapie, parfois dès la première séance, et souvent entre 15 jours et 3 semaines après la première perfusion. Les cheveux repoussent en général dans les 3 à 6 mois suivant l'arrêt du traitement, avec un début de repousse souvent observé environ 6 à 8 semaines après la fin de la chimiothérapie. (DOC004_P003, DOC001_P105, DOC004_P002, DOC004_P009)",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 908,
+  "tokens_reponse": 107,
+  "duree_secondes": 3.045
+ },
+ "9d8e1829bbfb55c08cd881b74ea294374db6267d527f3596e79de8a03b5db23b": {
+  "texte": "Les nausées débutent souvent le soir ou le lendemain de la perfusion et ne persistent généralement pas plus de 3 jours (72 heures) après le traitement. Les vomissements, qui ne sont pas systématiques, ne durent en général pas plus de 48 heures après le traitement (DOC007_P004, DOC001_P084, DOC001_P085).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 946,
+  "tokens_reponse": 75,
+  "duree_secondes": 1.623
+ },
+ "2fb54bac200a3bd3ecdd4723e37c8452fa3010e2a39c3a3dd8100e907c67bb14": {
+  "texte": "Si l'on perd ou prend rapidement deux kilos ou plus pendant une chimiothérapie, il est conseillé de suivre régulièrement son poids et d'informer son médecin, qui peut orienter vers une diététicienne pour aider à trouver un équilibre alimentaire (DOC003_P008, DOC001_P142). L'accompagnement diététique fait partie des soins de support accessibles dans les établissements de santé, auprès de professionnels ou de structures dédiées, mais il n'est pas précisé ici s'ils sont remboursés (DOC002_P008).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 685,
+  "tokens_reponse": 108,
+  "duree_secondes": 1.885
+ },
+ "5e7e2832780dcaed3bfb774fc4eb4bd7f6c9d6522c6846844b7b15256535f0e6": {
+  "texte": "Après un cancer, les bilans et consultations de soins de support peuvent être prescrits par le médecin traitant, le cancérologue ou le pédiatre jusqu’à 12 mois après la fin du traitement, dans la limite d’un montant maximal de 180 euros par an [DOC002_P010].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 775,
+  "tokens_reponse": 63,
+  "duree_secondes": 1.7
+ },
+ "b5f6afa270a0a5e2e194b0cd8154fdbf0fa9f8c592b466d4f5db382bf0efd086": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1059,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.925
+ },
+ "1000db353a045b74854c53c9d493a361138fab77582dddb5a05011c72ffed04c": {
+  "texte": "Il vaut mieux éviter les aliments trop épicés ou acides (comme le jus de citron, la vinaigrette, la moutarde), secs, croquants ou durs, ainsi que des aliments comme le gruyère, les ananas et les noix (DOC001_P098, DOC001_P097). Il est aussi conseillé de supprimer ou réduire le tabac et l’alcool (DOC001_P098).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1045,
+  "tokens_reponse": 86,
+  "duree_secondes": 1.587
+ },
+ "433f54c9008f9eb93bf95982679183726f05624ab1ba0fcc80b5ad5ee49b82d4": {
+  "texte": "Une personne traitée pour un cancer est considérée comme dénutrie en cas de perte de plus de 5 % de son poids en 1 mois ou de plus de 10 % en 6 mois par rapport à son poids habituel. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, on parle de dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 953,
+  "tokens_reponse": 83,
+  "duree_secondes": 1.243
+ },
+ "6d750ecf9ab8d8e71782de104789bf500dba1ac72888c1986c33fd8f48e75383": {
+  "texte": "On parle de dénutrition en cas de perte de plus de 5 % du poids habituel en 1 mois ou de plus de 10 % en 6 mois. Au-delà de 10 % en 1 mois ou de 15 % en 6 mois, il s'agit d'une dénutrition sévère [DOC008_P014].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 970,
+  "tokens_reponse": 70,
+  "duree_secondes": 1.4
+ },
+ "7f045c59599f64b24135ad66d7174ddc4dd9043fb2ceb3150923ceb192ccc5cc": {
+  "texte": "Pour limiter les saignements en cas de baisse des plaquettes due à la chimiothérapie, il est conseillé d’utiliser un rasoir électrique, une brosse à dents souple ou un coton-tige si la thrombopénie est importante, d’éviter l’aspirine ou les produits qui en contiennent, et de ne pas prendre la température par l’anus. Il faut également signaler tout traitement anticoagulant au médecin (DOC001_P124).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1028,
+  "tokens_reponse": 95,
+  "duree_secondes": 2.073
+ },
+ "2f0d52cae6faa21865e0fa02e70c51644018decf1aac09fb9e30ed5bd76249cb": {
+  "texte": "En cas de diarrhée pendant la chimiothérapie, il faut boire au moins 2 litres de liquide par jour, notamment de l'eau, du thé, des tisanes, de l'eau de riz, du bouillon de légumes, du jus de carottes ou des boissons gazeuses à température ambiante, et privilégier une alimentation pauvre en fibres à base de riz, pâtes, pommes vapeur, bananes bien mûres, gelée de coing, fromage à pâte cuite, biscottes et carottes, tout en évitant le café, les boissons glacées, le lait, les fruits et légumes crus, les céréales et le pain complet (DOC001_P093, DOC007_P008). Il faut alerter son médecin si la diarrhée persiste plus d’une journée ou si elle est accompagnée de fièvre ou de vomissements (DOC001_P092).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 755,
+  "tokens_reponse": 184,
+  "duree_secondes": 3.19
+ },
+ "7c33d38f411db5abe9e00f266ae1c53be73ab02477fb116e4d727cf36155d92a": {
+  "texte": "Les chimiothérapies dérivées du platine et les taxanes risquent d'abîmer les nerfs, entraînant des douleurs de type neuropathique [DOC005_P006].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 704,
+  "tokens_reponse": 40,
+  "duree_secondes": 1.026
+ },
+ "fe364134fa61cd60ea38a585bac3ccfa9d5ed2cee63c29f210e2b7c53d3cb977": {
+  "texte": "Pour la nutrition entérale à domicile, la meilleure position pour le passage est assise ou demi-assise avec une inclinaison du lit ou du fauteuil à 30 degrés, afin d'éviter nausées et régurgitations (DOC008_P027). Le passage de la nutrition peut durer environ 18 heures, laissant 6 heures pour être couché (DOC008_P027). Un prestataire de soins à domicile fournit le matériel, les produits, assure la coordination des intervenants et le suivi diététique (DOC008_P028).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1012,
+  "tokens_reponse": 111,
+  "duree_secondes": 1.705
+ },
+ "2865b0b3066d5a493fd3fbd493d08d7cd66be109cc7e85a65e710fa9a0265a28": {
+  "texte": "Il est risqué de boire du jus de pamplemousse ou de prendre du millepertuis pendant un traitement anticancéreux, car ces aliments et compléments peuvent perturber ou diminuer l’effet des médicaments anticancéreux, notamment certaines thérapies ciblées, ou entraîner un risque accru d’effets indésirables. Il est donc déconseillé d’en consommer sans indication médicale et il est important d’en parler à son médecin ou pharmacien (DOC008_P009, DOC002_P041).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 658,
+  "tokens_reponse": 108,
+  "duree_secondes": 1.61
+ },
+ "d595b2d3b06dae5f9af7b6b4f03d24d37dac6af203d577fb06a27d8fe7f6777f": {
+  "texte": "Des douleurs aiguës peuvent apparaître après deux ou trois semaines de chimiothérapie et disparaissent lorsque la chimiothérapie est finie [DOC005_P003]. Information insuffisante dans les documents fournis concernant la persistance des douleurs après la fin du traitement.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 778,
+  "tokens_reponse": 52,
+  "duree_secondes": 1.229
+ },
+ "6224890847d51ac696870fa667ba7c72b735be38a438d6aa2d25963d5422b04a": {
+  "texte": "Pour évaluer soi-même sa fatigue au jour le jour, il est conseillé de noter quotidiennement son niveau d’énergie, son aptitude aux activités journalières habituelles et sa qualité de vie en général sur une échelle analogique de 0 à 20, ou bien de remplir un questionnaire sous forme de tableau regroupant toutes les observations sur la fatigue, à transmettre ensuite à l’équipe soignante lors des consultations [DOC006_P002], [DOC006_P003].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 807,
+  "tokens_reponse": 96,
+  "duree_secondes": 1.379
+ },
+ "d736be99955486ac8c1980155eec2c5096a1cf320d605fe0ddb665f71981510b": {
+  "texte": "Les signes qui doivent faire penser à une infection lorsque les globules blancs sont bas après une chimiothérapie sont : une fièvre égale ou supérieure à 38°C depuis 24 heures, une fièvre de 38,5°C ou plus, une température inférieure à 36,5°C, des frissons, une rougeur, un écoulement ou une douleur au niveau du cathéter, une rougeur, une douleur ou un œdème au bras ou à la jambe, des sueurs nocturnes, des ulcérations de la bouche avec des plaques blanchâtres, une toux, un essoufflement, une douleur à la poitrine, des douleurs ou brûlures urinaires, ou une diarrhée persistante (DOC001_P118). En cas d’apparition de ces symptômes, il est indispensable de consulter immédiatement un médecin, car un traitement antibiotique sera alors administré et une hospitalisation peut être nécessaire (DOC001_P119).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 963,
+  "tokens_reponse": 200,
+  "duree_secondes": 2.197
+ },
+ "7b3e0ec495e14a1c7d39416433c596f718154ca44989eb2b5fdc12d8e266c824": {
+  "texte": "Oui, la perruque est prise en charge partiellement par l’Assurance maladie sur présentation d’un certificat médical fourni par le médecin, avec un remboursement forfaitaire d’environ 125 euros, et certaines mutuelles peuvent rembourser le complément (DOC001_P109).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 1099,
+  "tokens_reponse": 57,
+  "duree_secondes": 2.214
+ },
+ "f9684ac32172961337261966d6764546bbe60dc200177e7046bcf52bccd2318a": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 778,
+  "tokens_reponse": 10,
+  "duree_secondes": 1.36
+ },
+ "da4995b8c4a75133f1c14400063dc72b0c9169a0938f7a2393c34c1ccfbd35f1": {
+  "texte": "Les documents indiquent que la chimiothérapie peut provoquer une fragilisation des ongles, qui deviennent cassants, striés, ondulés et peuvent tomber, mais ils ne mentionnent pas explicitement s'il est possible ou déconseillé de mettre du vernis à ongles pendant le traitement. Ils conseillent seulement de se couper les ongles courts pour éviter qu’ils ne se fissurent ou se soulèvent [DOC001_P140], [DOC001_P138]. \n\nInformation insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 971,
+  "tokens_reponse": 109,
+  "duree_secondes": 1.49
+ },
+ "3e2485cc7360559b99e9ac9c6c96c17ca5be4dfcce93866804a847b842a115c2": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_dfe129d8ff",
+  "fin": "stop",
+  "tokens_prompt": 800,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.859
+ }
+}
