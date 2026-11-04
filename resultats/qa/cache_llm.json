@@ -2198,5 +2198,305 @@
   "tokens_prompt": 800,
   "tokens_reponse": 10,
   "duree_secondes": 0.859
+ },
+ "7c0d83e216e5e3f2de6e960138ab8b5a16389358dd06146ee1e3659e3ac93908": {
+  "texte": "Le casque réfrigérant est posé environ 10 à 15 minutes avant le début de la perfusion, changé très régulièrement, généralement toutes les 45 minutes, pour rester bien froid, et retiré environ 30 minutes après la fin de la perfusion ([DOC004_P006], [DOC001_P182], [DOC001_P179]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_f26cc340c5",
+  "fin": "stop",
+  "tokens_prompt": 840,
+  "tokens_reponse": 70,
+  "duree_secondes": 3.328
+ },
+ "57b011b4dac6021a13a70d83f3ed69c1c3b6dfccc9334614cf135e499b15a4b3": {
+  "texte": "Les consultations chez un psychologue ne sont pas remboursées par l’Assurance maladie, sauf si elles sont réalisées dans le cadre du dispositif « Mon soutien psy » ou si le psychologue est conventionné, mais seules les consultations chez un psychiatre sont systématiquement remboursées. Des consultations gratuites peuvent aussi être proposées par des associations (DOC002_P028, DOC002_P030, DOC006_P014).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_610f3b86f7",
+  "fin": "stop",
+  "tokens_prompt": 710,
+  "tokens_reponse": 84,
+  "duree_secondes": 1.293
+ },
+ "4b7352643bb64cc37e4deb61c2d666ef2131e8d2b978bf5832abd4dfaca2e8fd": {
+  "texte": "Il s'agit du syndrome main-pied, une réaction cutanée fréquente sous capécitabine caractérisée par des rougeurs, douleurs, sécheresse et parfois des cloques sur les paumes et plantes des pieds. Pour en prendre soin, il est conseillé d'adopter une hygiène douce avec un savon dermatologique, d'hydrater régulièrement la peau avec des émollients, d'éviter les produits irritants et les efforts physiques prolongés, et de signaler ces symptômes à votre médecin pour un traitement adapté (crèmes locales ou ajustement du dosage) [DOC005_P005], [DOC010_P002], [DOC010_P003].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_610f3b86f7",
+  "fin": "stop",
+  "tokens_prompt": 880,
+  "tokens_reponse": 136,
+  "duree_secondes": 1.556
+ },
+ "776a54709ed4a1f19d960c71adab3fa1cdaf1a3b9cf2f737b042049af2ca8be1": {
+  "texte": "Il est généralement possible de se faire vacciner contre la grippe pendant une chimiothérapie, car la plupart des vaccinations ne sont pas contre-indiquées, mais ce n’est pas forcément le meilleur moment et il est important de demander l’avis de votre médecin (DOC001_P039). De plus, la chimiothérapie diminue temporairement les globules blancs, ce qui réduit la capacité à lutter contre les infections, d’où la nécessité de prendre des précautions (DOC001_P115).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_9f99b25194",
+  "fin": "stop",
+  "tokens_prompt": 882,
+  "tokens_reponse": 99,
+  "duree_secondes": 1.134
+ },
+ "6c7ea516b30610714f605530800770a16335cdb8e29fc855e9e0b54a3ce8fe19": {
+  "texte": "Oui, il est connu que certaines personnes ressentent des nausées dès leur arrivée à l'hôpital, avant même la perfusion, souvent liées à une sensibilité aux odeurs ou un mauvais goût en bouche. Pour les soulager, il est conseillé de sucer des bonbons mentholés, pratiquer des exercices de relaxation, et s’occuper avec des activités comme écouter de la musique ou lire (DOC001_P087). Adapter son alimentation en privilégiant des aliments froids ou tièdes et en mangeant légèrement peut aussi aider à diminuer ces nausées (DOC007_P006).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_2648a71878",
+  "fin": "stop",
+  "tokens_prompt": 898,
+  "tokens_reponse": 123,
+  "duree_secondes": 1.011
+ },
+ "8af56491f1997ea4a599337084ebebb008390f3831707a9531219f9426ad06b1": {
+  "texte": "Les compléments nutritionnels oraux existent sous différentes formes telles que potages, biscuits, crèmes, boissons lactées ou à base de jus de fruits, et poudres, avec des goûts variés (sucrés, salés ou neutres). Ils sont intégralement remboursés par la Sécurité sociale pour traiter la dénutrition, mais ne doivent en aucun cas remplacer un repas, seulement compléter l’alimentation habituelle (DOC008_P021, DOC008_P022).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_0e7b5db390",
+  "fin": "stop",
+  "tokens_prompt": 889,
+  "tokens_reponse": 99,
+  "duree_secondes": 1.433
+ },
+ "b4abb7c4c04580049e31ccf3b374c8965b072f00f06c9a4729bcbe2ffc5a0c73": {
+  "texte": "Il est conseillé de pratiquer au moins 30 minutes par jour d’exercice cardiorespiratoire (marche, nage, vélo…), au moins 5 jours par semaine, en évitant de rester plus de 2 jours consécutifs sans pratiquer (DOC002_P034).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_f36b05c68c",
+  "fin": "stop",
+  "tokens_prompt": 900,
+  "tokens_reponse": 55,
+  "duree_secondes": 0.801
+ },
+ "67aff0cd292be41cf7594741bfae68443e6e6ef6b11ff63e116ff15e39b94f08": {
+  "texte": "Un ergothérapeute peut vous aider au quotidien en vous aidant à maintenir ou récupérer votre autonomie grâce à des solutions pratiques comme l’aménagement de l’habitat ou des conseils pour les tâches quotidiennes (toilette, habillage) [DOC001_P188], [DOC006_P008]. Cependant, ses consultations en ville sont payantes et non remboursées par la Sécurité sociale [DOC006_P009].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_89baadaeb8",
+  "fin": "stop",
+  "tokens_prompt": 799,
+  "tokens_reponse": 86,
+  "duree_secondes": 1.182
+ },
+ "7966078223ad312fd8988d2d0ca1f640b0ebcf0758e9c4ce93b4294b89fb54c0": {
+  "texte": "Les passages fournis ne mentionnent pas l’efficacité du gingembre pour calmer les nausées dues à la chimiothérapie. Aucun document ne traite spécifiquement de ce remède ou de son impact sur les nausées liées à ce traitement ([DOC001_P084], [DOC001_P155], [DOC001_P110], [DOC001_P019], [DOC002_P024]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_07e815c12d",
+  "fin": "stop",
+  "tokens_prompt": 833,
+  "tokens_reponse": 78,
+  "duree_secondes": 0.908
+ },
+ "64adcfefdd9cf1fd9c4c218e304b77536aab8b30677a0ab7fbfef814f9feda2d": {
+  "texte": "Les séances d'acupuncture ne sont pas remboursées pendant un traitement contre le cancer, car elles font partie des pratiques de soins non conventionnelles qui peuvent soulager mais ne remplacent pas les traitements habituels et ne sont pas prises en charge par l'Assurance maladie (DOC008_P032).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_cf0e6a13b9",
+  "fin": "stop",
+  "tokens_prompt": 810,
+  "tokens_reponse": 61,
+  "duree_secondes": 0.799
+ },
+ "4f3e137de6eb914f68549b81fc8cc660213a52d6e2505d037678659540b929c7": {
+  "texte": "Le casque réfrigérant est posé environ 10 à 15 minutes avant le début de la perfusion, changé très régulièrement, généralement toutes les 45 minutes, pour rester bien froid tout au long de la perfusion, et retiré environ 30 minutes après la fin de la perfusion (DOC004_P006, DOC001_P182, DOC001_P179).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 924,
+  "tokens_reponse": 75,
+  "duree_secondes": 1.738
+ },
+ "7033b9a912ccd2dc8f6e08899d44c64fec86ed3db49a15fc4b6ad5ca3ecfa989": {
+  "texte": "Les consultations chez un psychologue ne sont remboursées par l’Assurance maladie que dans le cadre du dispositif Mon soutien psy, qui prévoit jusqu’à douze séances remboursées par an pour une souffrance psychique légère à modérée, mais les consultations classiques chez un psychologue ne sont pas remboursées. En revanche, les consultations chez un psychiatre sont remboursées. (DOC002_P028, DOC002_P030, DOC006_P014)",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 794,
+  "tokens_reponse": 95,
+  "duree_secondes": 1.7
+ },
+ "131e6a342c80ae034b482c9b0b60cda4185d898b9636026cafd2c155a2fd42e5": {
+  "texte": "Il s'agit du syndrome main-pied, caractérisé par des rougeurs et des douleurs au niveau des paumes et des plantes des pieds, provoqué par la capécitabine. Pour prendre soin de votre peau, il est conseillé d'assurer une hygiène rigoureuse avec un savon doux ou une huile lavante, d'appliquer régulièrement un agent hydratant émollient, d'éviter les produits parfumés ou contenant des conservateurs, et d'éviter les exercices physiques prolongés comme la course ou la marche (DOC005_P005, DOC010_P002, DOC010_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 964,
+  "tokens_reponse": 122,
+  "duree_secondes": 1.574
+ },
+ "06bcb00aee87041467a2deba2dd5f1320f3d9206499ab2d00ecb8294d81f8b7b": {
+  "texte": "La plupart des vaccinations, y compris le vaccin contre la grippe, ne sont pas contre-indiquées pendant une chimiothérapie, mais ce n’est pas forcément le meilleur moment pour se faire vacciner. Il est donc nécessaire de demander l’avis de votre médecin avant de vous faire vacciner cet hiver (DOC001_P039).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 966,
+  "tokens_reponse": 67,
+  "duree_secondes": 0.974
+ },
+ "3f152335ccc19daf0e8c28d7396881890b4da09d0ddc625a865014f67c5b26be": {
+  "texte": "Il est connu que certaines personnes ressentent des nausées dès l'arrivée à l'hôpital, notamment à cause de la sensibilité aux odeurs ou d'un mauvais goût en bouche avant même la perfusion (DOC001_P087). Pour diminuer ces nausées, il est conseillé de pratiquer des exercices de relaxation avant et pendant la perfusion, sucer des bonbons mentholés, ou s’occuper avec des activités comme écouter de la musique ou regarder la télévision (DOC001_P087).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 982,
+  "tokens_reponse": 103,
+  "duree_secondes": 1.182
+ },
+ "d0ab2f2caed46cea97baf59011cfd14f78107464eb137e11c93194d768103772": {
+  "texte": "Les compléments nutritionnels oraux existent sous différentes formes telles que potages, biscuits, crèmes, boissons lactées ou à base de jus de fruits, ou poudres, avec une variété de goûts sucrés, salés ou neutres. Ils sont intégralement remboursés par la Sécurité sociale pour traiter la dénutrition. Ces compléments viennent compléter l’alimentation habituelle mais ne doivent en aucun cas remplacer les repas (DOC008_P021, DOC008_P022).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 973,
+  "tokens_reponse": 100,
+  "duree_secondes": 1.102
+ },
+ "e404434a141b1223cc49ebca0ae7a1ef2b102b5bbb0a691f54dd86a0af0e82be": {
+  "texte": "Il est conseillé de pratiquer au moins 30 minutes par jour d’exercice cardiorespiratoire (marche, nage, vélo…), au moins 5 jours par semaine, ce qui correspond à au moins 2h30 d’exercice d’endurance par semaine, en évitant de rester plus de 2 jours consécutifs sans pratiquer [DOC002_P034].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 984,
+  "tokens_reponse": 73,
+  "duree_secondes": 1.05
+ },
+ "56962e4525f49fd6c71c0275455b08cc17b7df68d5a1c2ac076fd60f0985d1bb": {
+  "texte": "Un ergothérapeute peut vous aider au quotidien en vous aidant à vous réinsérer dans votre environnement personnel et professionnel, en vous permettant d’acquérir, maintenir ou récupérer votre autonomie grâce à des solutions pratiques comme l’aménagement de l’habitat ou des conseils pour les tâches quotidiennes (toilette, habillage) [DOC001_P188], [DOC006_P008]. Cependant, les consultations auprès d’un ergothérapeute en ville sont payantes et non remboursées par la Sécurité sociale [DOC006_P009].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 883,
+  "tokens_reponse": 112,
+  "duree_secondes": 1.168
+ },
+ "2198a4b943cbb238e48037edb9f351dda84d9ab29c4b97e8bd767f4a08c85429": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 917,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.788
+ },
+ "b0f7d763ccd95a2b3b174f996814f0e1091977ccfdcb5af53d71bfb86f11d4ef": {
+  "texte": "Les séances d'acupuncture ne sont pas mentionnées comme remboursées pendant un traitement contre le cancer, et les pratiques de soins non conventionnelles comme l'acupuncture peuvent soulager mais ne remplacent pas les traitements habituels du cancer (DOC008_P032).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 894,
+  "tokens_reponse": 53,
+  "duree_secondes": 0.992
+ },
+ "071a49cf551b21188e689b8c287e6c94b9d958b0c4270ab7f633b085003ba16e": {
+  "texte": "Le casque réfrigérant est posé environ 10 à 15 minutes avant le début de la perfusion, changé très régulièrement (le plus souvent toutes les 45 minutes) pour rester bien froid tout au long de la perfusion, et retiré environ 30 minutes après la fin de la perfusion (DOC004_P006, DOC001_P182, DOC001_P179).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 882,
+  "tokens_reponse": 77,
+  "duree_secondes": 0.964
+ },
+ "685f24174880be55ab3475baf9679490495b64775bffcb3c8e3018654a608a7a": {
+  "texte": "Oui, les consultations chez un psychologue sont remboursées dans le cadre du dispositif mis en place par l’Assurance maladie pour les personnes en souffrance psychique, y compris les patients suivis pour un cancer. Ce dispositif permet jusqu’à 12 séances remboursées par an, sans avance de frais pour les patients en affection de longue durée (ALD) comme le cancer (DOC002_P029, DOC002_P030). De plus, des consultations peuvent être prescrites par un médecin jusqu’à 12 mois après la fin du traitement, avec un tarif plafonné et prises en charge (DOC002_P010).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 1011,
+  "tokens_reponse": 127,
+  "duree_secondes": 1.425
+ },
+ "925bb786f8c79d8d7853991ddbe2cbcff4c85591b88a908e66c5a85dc1c2b950": {
+  "texte": "Il s'agit du syndrome main-pied, caractérisé par des rougeurs et des douleurs au niveau des paumes et des plantes des pieds, souvent causé par la capécitabine (DOC005_P005, DOC010_P002). Pour prendre soin de votre peau, il est conseillé d'appliquer des soins locaux à base de crème hydratante, d'éviter l'exposition au soleil, de porter des chaussures confortables, et de signaler rapidement ces symptômes à votre médecin pour un traitement adapté (DOC005_P005, DOC001_P140, DOC010_P008).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 896,
+  "tokens_reponse": 119,
+  "duree_secondes": 1.299
+ },
+ "76fbbf2e9c5713c79adc4572641aac9933f6877f974ddee4dae9c1226f15561e": {
+  "texte": "La plupart des vaccinations ne sont pas contre-indiquées pendant une chimiothérapie, mais ce n’est pas forcément le meilleur moment pour se faire vacciner. Il est nécessaire de demander l’avis de votre médecin avant de faire votre vaccin contre la grippe cet hiver (DOC001_P039).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 861,
+  "tokens_reponse": 59,
+  "duree_secondes": 1.006
+ },
+ "d9be942b08d01bce7da233e9ebbce051f4efbab99ba3fede048703256584333f": {
+  "texte": "Oui, il est connu que des nausées peuvent commencer dès l'entrée à l'hôpital, avant même le début de la perfusion, ce phénomène s'appelle les nausées anticipatoires et est lié à l'anxiété provoquée par la chimiothérapie. Ces nausées peuvent être réduites par des médicaments ou des techniques de relaxation, il est conseillé d'en parler aux professionnels de santé qui vous accompagnent (DOC007_P003).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 744,
+  "tokens_reponse": 91,
+  "duree_secondes": 1.159
+ },
+ "d06751cf243a8c65cfea9de8b44cc2e4107fac2fd1eb01f5f424416646a12aa0": {
+  "texte": "Les compléments nutritionnels oraux existent sous différentes formes telles que potages, biscuits, crèmes, boissons lactées ou à base de jus de fruits, ou poudres, avec une variété de goûts sucrés, salés ou neutres. Ils sont intégralement remboursés par la Sécurité sociale pour traiter la dénutrition. Ces compléments viennent compléter l’alimentation habituelle mais ne doivent en aucun cas remplacer les repas (DOC008_P021, DOC008_P022).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 860,
+  "tokens_reponse": 100,
+  "duree_secondes": 1.146
+ },
+ "e8066894b7786582621ee4a86daaeb2f423cdf721fd5184b9792cfa01002b66f": {
+  "texte": "Il est conseillé de pratiquer au moins 30 minutes par jour d’exercice cardiorespiratoire (marche, nage, vélo…), au moins 5 jours par semaine, en évitant de rester plus de 2 jours consécutifs sans pratiquer (DOC002_P034).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 769,
+  "tokens_reponse": 55,
+  "duree_secondes": 1.02
+ },
+ "f92689626529d08cd7e6965e208d6c7243ec8ec0ffbb65371a22cddb63c8e30d": {
+  "texte": "Un ergothérapeute peut vous aider au quotidien en proposant des solutions pratiques pour faciliter les tâches quotidiennes (toilette, habillage), en recommandant des aménagements de l’habitat (mains courantes, vêtements faciles à enfiler) afin de maintenir ou récupérer votre autonomie (DOC006_P008). Les consultations des professionnels des soins de support en ville, qui peuvent exercer en libéral, sont généralement ouvertes à tous, mais le document ne précise pas explicitement si les consultations d’ergothérapeutes en ville sont remboursées (DOC002_P008, DOC002_P015). \n\nInformation insuffisante dans les documents fournis concernant le remboursement spécifique des consultations d’ergothérapeutes en ville.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 829,
+  "tokens_reponse": 148,
+  "duree_secondes": 1.844
+ },
+ "f7f4cc7061097c3094502155fedb5b402a26e9963bba873bf1845b3146230b37": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 875,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.733
+ },
+ "99905e5f0df4efe684680e22a9ffa58b7afad31425f6e1b5a172110fb7774b03": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_3e00b34037",
+  "fin": "stop",
+  "tokens_prompt": 607,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.844
  }
 }

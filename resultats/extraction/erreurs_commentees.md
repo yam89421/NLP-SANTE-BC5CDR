@@ -1,78 +1,94 @@
-# Cinq erreurs d'extraction commentées (méthode apprise, VALIDATION)
+# Cinq erreurs d'extraction commentées (méthode apprise APP-v3, VALIDATION)
 
-Méthode : BioBERT retenu (poids 1, 2 époques). Erreurs tirées au hasard (seed 42) parmi celles de
-`tals.erreurs`, puis choisies pour couvrir des causes différentes, dans cinq documents différents.
-Pour chaque cas, on indique aussi la sortie du dictionnaire (2.3).
+Méthode : PubMedBERT ajusté en BIO (APP-v3, 7 époques, graine 42), prédictions de
+`predictions_apprise_v3_validation.jsonl`. Erreurs classées avec `tals.erreurs`, tirées au hasard (graine 42)
+puis choisies pour couvrir des causes différentes. Pour chaque cas, on indique aussi la sortie du dictionnaire (DIC-v2).
+L'analyse de la version précédente (BioBERT, APP-v1) est conservée dans `erreurs_commentees_APP-v1.md`.
 
-Bilan VALIDATION : 8 208 correctes ; 631 frontières, 11 types, 741 manquées (dont 330 absentes de TRAIN),
-769 parasites.
+## Bilan VALIDATION (9 591 mentions de référence)
 
-## 1. Forme inconnue : mention manquée (PMID 11195262)
+| | Correctes | Frontière | Type | Manquées | Parasites |
+|---|---|---|---|---|---|
+| APP-v1 (BioBERT, 2 époques) | 8 208 | 631 | 11 | 741 | 769 |
+| APP-v3 (PubMedBERT, 7 époques) | 8 821 | 432 | 4 | 334 | 499 |
 
-> « Contribution of sodium valproate to the **syndrome of inappropriate secretion of antidiuretic hormone**. »
+- **Disease concentre les erreurs** : 343 frontières sur 432, 218 manquées sur 334, 300 parasites sur 499.
+- **Frontières** : la mention prédite est plus longue que la référence dans 244 cas, plus courte dans 187.
+- **Manquées** : 251 sur 334 ont une forme absente des mentions de TRAIN (sigles, descriptions longues).
+- **Confusions de type** : presque disparues (4 cas).
 
-- Référence : `syndrome of inappropriate secretion of antidiuretic hormone` <Disease>
-- BioBERT : rien. Dictionnaire : rien.
+## 1. Frontière trop courte sur une maladie décrite par une expression (PMID 1628552)
 
-La forme n'apparaît jamais dans TRAIN. Elle est longue (7 mots) et ne contient aucun mot typique d'une maladie :
-le modèle devrait prédire un `B` puis six `I` sans interruption. C'est le cas le plus difficile : mention longue
-et jamais vue.
+> « …presented with progressive **deterioration of vision**, easy fatiguability, dyspnoea… »
 
-## 2. Mauvaise frontière sur une mention composite (PMID 3115150)
+- Référence : `deterioration of vision` <Disease>
+- APP-v3 : `of vision` <Disease>
+- Dictionnaire : rien
 
-> « …possibly enhanced CNS, **cardiovascular, and respiratory depression**. »
+La maladie n'est pas un nom technique mais une expression courante. Le modèle choisit une étiquette par mot :
+il manque le `B` sur « deterioration » et ouvre la mention sur « of », ce qu'aucun annotateur ne ferait. Même cas
+pour `increase in MAP`, prédit `increase in` (PMID 8586822). Avec le score strict, chacune de ces erreurs compte
+deux fois (1 faux positif + 1 faux négatif).
 
-- Référence : `cardiovascular, and respiratory depression` <Disease> (une seule mention)
-- BioBERT : `depression` <Disease>
-- Dictionnaire : `respiratory depression` <Disease>
+## 2. Coordination et contexte de vaccination : « hepatitis B and rubella » (PMID 15867025)
 
-Mention composite (deux maladies dans un même intervalle), gardée entière selon la convention du 2.2. Les deux
-méthodes trouvent le cœur de la mention mais pas ses limites. Avec le score strict, l'erreur compte 1 FP + 1 FN.
-La frontière est la première cause d'erreur de BioBERT (631 cas).
+> « Assessment of perinatal **hepatitis B** and **rubella** prevention… administration of the **hepatitis B** vaccine
+> birth dose to all infants, administration of **hepatitis B** immune globulin… »
 
-## 3. Mention coupée en deux mots (PMID 10524660)
+- Référence : `hepatitis B` <Disease> (9 fois) et `rubella` <Disease> (3 fois), chaque maladie séparément
+- APP-v3 : `hepatitis B and rubella` <Disease> (une seule mention, 3 fois) ; `hepatitis B vaccine` et
+  `hepatitis B immune globulin` <Chemical> ; seulement 2 `hepatitis B` exacts sur 9
+- Dictionnaire : `hepatitis B` <Disease> à chaque occurrence
 
-> « …the messenger molecule **nitric oxide** (NO) is involved in pain mechanisms… »
+Deux difficultés se cumulent. La coordination « hepatitis B and rubella » ressemble aux mentions composites gardées
+entières (convention du 2.2), alors qu'ici les annotateurs ont séparé les deux maladies. Devant « vaccine » ou
+« immune globulin », le modèle annote le produit administré comme Chemical, alors que la référence garde seulement
+le nom de la maladie. Déjà présente avec BioBERT (APP-v1), cette erreur résiste au changement de modèle : c'est
+le document qui rapporte le plus d'erreurs. Le dictionnaire, qui ignore le contexte, a raison ici.
 
-- Référence : `nitric oxide` <Chemical>
-- BioBERT : `nitric` <Chemical> (`oxide` a reçu `O` au lieu de `I-Chemical`)
-- Dictionnaire : `nitric oxide` <Chemical> ✓ (vue 8 fois dans TRAIN, toujours annotée)
+## 3. Sigle absent de TRAIN : « COCs » (PMID 12851669)
 
-La forme est connue, mais BioBERT décide mot par mot : une seule étiquette fausse coupe la mention. Le
-dictionnaire cherche la suite complète et la retrouve.
+> « …among women on combined oral contraceptives (**COCs**)… per 10 000 women years among women on
+> levonorgestrel-containing **COCs**… »
 
-## 4. Confusion de type due au contexte (PMID 15867025)
+- Référence : `COCs` <Chemical> (7 fois dans le document)
+- APP-v3 : rien (7 manquées)
+- Dictionnaire : `COCs` <Chemical> ✓
 
-> « …administration of the **hepatitis B** vaccine birth dose to all infants… »
+Le sigle apparaît 3 fois dans TRAIN mais n'y est jamais annoté : le modèle a appris à le laisser de côté. Le
+dictionnaire le retrouve grâce à la règle des sigles définis (« forme longue (SIGLE) », DIC-v2), qui lui donne le
+type de « combined oral contraceptives ». Les sigles définis dans le texte (COCs, DVP, PCC, MCAO) sont la première
+source de mentions manquées : c'est là que les deux méthodes se complètent le mieux.
 
-- Référence : `hepatitis B` <Disease>
-- BioBERT : `hepatitis B` <Chemical>
-- Dictionnaire : `hepatitis B` <Disease> ✓
+## 4. Manquée : symptôme décrit en langage d'expérimentation (PMID 3088349)
 
-BioBERT tient compte du contexte : devant « vaccine » ou « immune globulin », il voit un produit administré et
-prédit Chemical. Les annotateurs gardent Disease pour le nom de la maladie, même dans « hepatitis B vaccine ».
-Dans ce document, la première occurrence (« screening for hepatitis B ») est correcte ; l'erreur se répète 6 fois
-en contexte de vaccination, de même pour « rubella vaccine ». Le dictionnaire, qui ignore le contexte, a raison
-ici. Ce type d'erreur reste rare (11 cas).
+> « …amphetamine has an irreversible effect on the post-lesion DA pool contributing to **contralateral rotation**. »
 
-## 5. Détection parasite : classe de médicaments non annotée (PMID 9201797)
+- Référence : `contralateral rotation` <Disease> (6 fois dans VALIDATION)
+- APP-v3 : rien
+- Dictionnaire : rien
 
-> « …although **neuroleptic**-induced catalepsy was not considered a specific test for **neuroleptic**-induced akathisia. »
+Chez le rat, une rotation du côté opposé à la lésion est un comportement anormal, annoté comme Disease. L'expression
+n'apparaît jamais dans TRAIN et ne contient aucun mot qui ressemble à une maladie. Comme pour le cas 1, les
+annotations de Disease couvrent des effets décrits par des mots ordinaires, que ni le dictionnaire ni le modèle
+ne savent reconnaître sans les avoir vus.
 
-- Référence : `catalepsy`, `akathisia` <Disease> seulement
-- BioBERT : en plus, 3 fois `neuroleptic` <Chemical> (3 FP)
-- Dictionnaire : aucune fausse détection
+## 5. Parasite dû à une annotation irrégulière : « antidepressant » (PMID 8800187 et 7 autres)
 
-« neuroleptic » désigne une classe de médicaments, employée ici comme adjectif. Elle n'est pas annotée dans ce
-document ni dans TRAIN. BioBERT généralise à partir de mots qui ressemblent à des médicaments : c'est ce qui lui
-permet de trouver des noms inconnus, mais aussi ce qui produit ce type de fausse détection (769 parasites).
+> « Hypotension is a major contributor to mortality in tricyclic **antidepressant** overdose… »
 
-## Observation : des mots fréquents manqués par BioBERT
+- Référence : rien (aucune des 15 occurrences de VALIDATION n'est annotée)
+- APP-v3 : `antidepressant` <Chemical> (11 parasites)
+- Dictionnaire : rien
 
-« toxicity » est manqué 36 fois, « oxygen » 18 fois, « sodium » et « calcium » environ 13 fois, alors que ces
-mots sont fréquents dans TRAIN. Le dictionnaire les trouve : c'est une bonne part des 583 mentions trouvées
-par lui seul (contre 2 616 par BioBERT seul).
+Dans TRAIN, « antidepressant » est annoté Chemical à **chacune** de ses 15 occurrences ; dans VALIDATION, à
+**aucune**. Le modèle applique ce qu'il a appris : l'erreur vient de l'annotation, pas du modèle. Ce cas, comme
+« insulin » (7 parasites, jamais annoté), montre la limite du score strict : une part des faux positifs sont des
+noms de produits plausibles que le corpus n'annote pas de façon régulière.
 
-Raison : l'annotation de ces mots est irrégulière. « toxicity » n'est annoté que dans 72 % de ses occurrences
-dans TRAIN (78 sur 108), « oxygen » dans 86 % (12 sur 14). BioBERT apprend à hésiter sur ces mots ; le
-dictionnaire les prédit toujours. Sur ces cas précis, la méthode simple fait mieux.
+## Complémentarité avec le dictionnaire
+
+Mentions correctes trouvées par APP-v3 seul : 2 216 ; par le dictionnaire seul : 231 (*hepatitis B*, *COCs*,
+*cytotoxicity*, *serotonin*, *angiotensin*, *seizures*…) ; rappel de l'union : 0,944 (APP-v3 seul : 0,920).
+L'écart entre les deux méthodes s'est creusé depuis APP-v1 (621 mentions trouvées par le dictionnaire seul), mais
+les deux erreurs les plus typées (cas 2 et 3) restent mieux traitées par le dictionnaire.

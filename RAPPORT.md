@@ -16,8 +16,11 @@ restituer à la fin des résultats comparatifs. Il est mis à jour à chaque mod
 | Version | Méthode | Date | P val | R val | F1 val | F1 Chemical val | F1 Disease val | Temps val | F1 TEST | Statut |
 |---|---|---|---|---|---|---|---|---|---|---|
 | DIC-v1 | Dictionnaire TRAIN + regex manuelles | ≤ 2026-10-11 | 0,8835 | 0,6438 | 0,7449 | 0,7715 | 0,7127 | 1,4 s | — | remplacée |
-| DIC-v2 | DIC-v1 + 5 règles de post-traitement | 2026-10-16 | 0,8889 | 0,7128 | **0,7912** | 0,8289 | 0,7434 | 1,2 s | à calculer | **figée (actuelle)** |
-| APP-v1 | BioBERT fine-tuné (BIO) | ≤ 2026-10-11 | 0,8533 | 0,8558 | **0,8546** | 0,9128 | 0,7813 | 18,0 s (GPU T4) | à calculer | figée |
+| DIC-v2 | DIC-v1 + 5 règles de post-traitement | 2026-10-16 | 0,8889 | 0,7128 | **0,7912** | 0,8289 | 0,7434 | 1,2 s | non évaluée (remplacée avant le test) | remplacée |
+| DIC-v3 | DIC-v2 + filtre corrigé, variantes singulier/pluriel, extension à droite, propagation dans le document | 2026-10-30 | 0,8811 | 0,7314 | **0,7993** | 0,8333 | 0,7569 | 4,0 s | **0,7978** | **figée (actuelle)** |
+| APP-v1 | BioBERT fine-tuné (BIO) | ≤ 2026-10-11 | 0,8533 | 0,8558 | **0,8546** | 0,9128 | 0,7813 | 18,0 s (GPU T4) | non évaluée (remplacée avant le test) | remplacée |
+| APP-v2 | BioBERT, 10 époques + warmup, taux 5e-5, 4 époques retenues | 2026-10-30 | 0,8886 | 0,8973 | **0,8929** | 0,9358 | 0,8392 | 18,3 s (GPU T4) | non évaluée (remplacée avant le test) | remplacée |
+| APP-v3 | PubMedBERT, recette d'APP-v2, 7 époques | 2026-10-30 | 0,9042 | 0,9197 | **0,9119** | 0,9532 | 0,8598 | 16,4 s (GPU T4) | **0,8941** | **figée (actuelle)** |
 
 > `resultats/extraction/comparaison_validation.csv` recalculé le 2026-10-23 avec DIC-v2 et APP-v1 (prédictions sauvegardées, sans réentraîner BioBERT). Les sorties affichées dans le notebook 2.4 montrent encore DIC-v1.
 
@@ -26,9 +29,87 @@ restituer à la fin des résultats comparatifs. Il est mis à jour à chaque mod
 | Version | Correctes | Frontière | Type | Manquées | Parasites |
 |---|---|---|---|---|---|
 | DIC-v2 | 6 836 | 576 | 8 | 2 171 | 270 |
+| DIC-v3 | 7 015 | 627 | 8 | 1 941 | 312 |
 | APP-v1 | 8 208 | 631 | 11 | 741 | 769 |
+| APP-v2 | 8 606 | 489 | 14 | 482 | 576 |
+| APP-v3 | 8 821 | 432 | 4 | 334 | 499 |
 
 **Complémentarité DIC-v2 / APP-v1** : 6 215 mentions trouvées par les deux, 1 993 par BioBERT seul, 621 par le dictionnaire seul (*toxicity, oxygen, sodium, calcium, tumor, 5-HT, Na, K…*), 762 par aucune. Rappel de l'union : 0,921 (contre 0,856 pour BioBERT seul).
+
+**Évaluation TEST des versions figées (2026-10-30, `5_evaluation.ipynb`, évaluées une seule fois)** — `resultats/extraction/scores_test.csv`
+
+| Méthode | Catégorie | VP | FP | FN | P | R | F1 TEST | F1 VALIDATION | Temps TEST |
+|---|---|---|---|---|---|---|---|---|---|
+| DIC-v3 | Chemical | 4 085 | 401 | 1 300 | 0,9106 | 0,7586 | 0,8277 | 0,8333 | |
+| DIC-v3 | Disease | 3 135 | 669 | 1 289 | 0,8241 | 0,7086 | 0,7620 | 0,7569 | |
+| DIC-v3 | **global** | 7 220 | 1 070 | 2 589 | 0,8709 | 0,7361 | **0,7978** | 0,7993 | 3,3 s (CPU) |
+| APP-v3 | Chemical | 5 085 | 486 | 300 | 0,9128 | 0,9443 | 0,9283 | 0,9532 | |
+| APP-v3 | Disease | 3 843 | 749 | 581 | 0,8369 | 0,8687 | 0,8525 | 0,8598 | |
+| APP-v3 | **global** | 8 928 | 1 235 | 881 | 0,8785 | 0,9102 | **0,8941** | 0,9119 | 16,8 s (GPU T4) |
+
+- TEST : 500 documents, 9 809 mentions. Erreurs TEST — DIC-v3 : 695 frontières, 7 types, 1 887 manquées, 368 parasites ; APP-v3 : 476 frontières, 3 types, 402 manquées, 756 parasites.
+- **Écart VALIDATION → TEST** : DIC-v3 −0,0015 (stable) ; APP-v3 −0,0178, surtout en Chemical (−0,025) et par la précision (parasites 499 → 756). Le choix d'APP-v3 (modèle, époque, graine 42 au point haut) a été fait sur VALIDATION : la baisse est l'optimisme attendu de ce choix. Sur TEST, APP-v3 reste au niveau des résultats publiés (PubMedBERT ≈ 0,933 Chemical / 0,856 Disease).
+- **Comparaison** : la méthode apprise dépasse le dictionnaire de 9,6 points de F1, essentiellement par le rappel (0,910 contre 0,736) ; leur précision est proche (0,879 contre 0,871). Le dictionnaire est 5 fois plus rapide et tourne sans GPU.
+- `data/predictions_extraction.jsonl` : sorties TEST des deux méthodes au format du guide (2 000 lignes).
+
+### Comparaison avec l'état de l'art sur BC5CDR (2026-10-30)
+
+**A. Références directement comparables : mesurées avec notre scoreur, sur notre TEST** (`resultats/extraction/scores_test_references_officielles.csv`)
+
+Le corpus distribué (`CDR_Data/`) contient les prédictions sur TEST des deux outils de référence fournis par les organisateurs de BioCreative V : **tmChem** pour les Chemical (CRF + lexiques, Leaman et al., 2015) et **DNorm** pour les Disease (apprentissage avec normalisation, Leaman et al., 2013). Évalués exactement comme nos méthodes (document, bornes et type exacts, micro-moyenne) :
+
+| Système (TEST) | P | R | F1 Chemical | F1 Disease | **F1 global** |
+|---|---|---|---|---|---|
+| DIC-v3 (dictionnaire + règles, ce projet) | 0,871 | 0,736 | 0,828 | 0,762 | **0,798** |
+| tmChem + DNorm (outils officiels, 2013-2015) | 0,888 | 0,849 | 0,922 | 0,802 | **0,868** |
+| APP-v3 (PubMedBERT, ce projet) | 0,879 | 0,910 | 0,928 | 0,853 | **0,894** |
+
+- Notre dictionnaire reste 7 points sous les outils officiels, surtout en Chemical (0,828 contre 0,922) : tmChem s'appuie sur de grands lexiques chimiques externes et un CRF, alors que notre dictionnaire est limité aux formes de TRAIN (choix imposé par le livret, section 2.3).
+- PubMedBERT dépasse les outils officiels de 2,6 points, surtout en Disease (+5,0) ; en Chemical, l'écart est faible (+0,6), tmChem étant déjà très précis (0,947).
+
+**B. Résultats publiés pour les modèles du type de notre méthode apprise** (F1 entité, TEST BC5CDR, autres implémentations)
+
+| Modèle | BC5CDR Chemical | BC5CDR Disease | Les deux types (un seul modèle) | Source |
+|---|---|---|---|---|
+| BERT-base (domaine général) | 89,25 | 81,44 | 86,72 | Gu et al. 2021 ; Beltagy et al. 2019 |
+| scispaCy `en_ner_bc5cdr_md` (CNN, spaCy) | — | — | 84,28 | doc. scispaCy |
+| BioBERT (base) | 92,85 | 84,70 | 88,85 | BLURB (Gu et al. 2021) ; Beltagy et al. 2019 |
+| BioBERT v1.1 (article d'origine) | 93,47 | 87,15 | — | Lee et al. 2020, tableau 6 |
+| SciBERT | 92,49 | 84,54 | 90,01 | BLURB ; Beltagy et al. 2019 |
+| **PubMedBERT** (même modèle qu'APP-v3) | **93,33** | **85,62** | — | BLURB (Gu et al. 2021) |
+| BioLinkBERT-base / large | 93,75 / 94,04 | 86,10 / 86,39 | — | Yasunaga et al. 2022 (LinkBERT) |
+| **APP-v3 (ce projet)** | **92,83** | **85,25** | **89,41** | `scores_test.csv` |
+
+- **Même modèle (PubMedBERT)** : nous sommes à −0,5 point en Chemical et −0,4 en Disease du résultat publié. Sur le score des deux types, APP-v3 (89,4) se place entre BioBERT (88,9) et SciBERT (90,0) entraînés eux aussi sur les deux types à la fois.
+- L'écart restant s'explique par le protocole plutôt que par la méthode : BLURB entraîne **un modèle par type** (BC5-chem et BC5-disease sont deux jeux distincts) et moyenne plusieurs graines, alors que nous entraînons un seul modèle pour les deux types, avec une seule graine figée (graine 42), un seul taux d'apprentissage testé, et la convention de mentions composites du 2.2 (5 mentions TEST non représentables en BIO).
+
+**C. Repères historiques et récents** (métriques différentes : à ne pas comparer chiffre à chiffre)
+
+| Repère | Résultat | Source |
+|---|---|---|
+| Compétition BioCreative V (2015), tâche DNER (maladies), meilleure équipe — CRF | F1 86,46 (P 89,63, R 83,50), **au niveau des concepts normalisés** (identifiants MeSH par document), pas des mentions ; accord inter-annotateurs 0,8875 | Wei et al. 2016 |
+| Combinaison des systèmes de la compétition | F1 88,89 (DNER) | Wei et al. 2016 |
+| Plus grands modèles récents (BioMegatron, SciFive, OpenMed NER 2025) | jusqu'à ≈ 96 (Chemical) / ≈ 91 (Disease), protocoles et prétraitements variables | OpenMed NER, 2025 |
+| LLM sans ajustement (GPT-4, zéro / un exemple) | Chemical 0,799 / 0,833 | Chen et al. 2023-2025 |
+| LLM sans ajustement (Claude 2, zéro exemple) | Chemical 58,05 ; Disease 50,13 | Jahan et al. 2024 |
+| LLM ajusté (LLaMA 2 13B fine-tuné) | Chemical 0,915 | Chen et al. 2023-2025 |
+
+- Les LLM utilisés sans ajustement restent 10 à 15 points sous un modèle BERT biomédical ajusté : notre dictionnaire construit sur TRAIN (Chemical 0,828) fait jeu égal avec GPT-4 en zéro exemple (0,799) et un exemple (0,833).
+
+**D. Comment fonctionnent ces références**
+
+| Famille | Systèmes | Principe | Pourquoi ce niveau |
+|---|---|---|---|
+| CRF + lexiques (2013-2015) | tmChem, DNorm, équipes de la compétition | Étiquetage mot par mot (comme le BIO) à partir de caractéristiques écrites à la main (mot et voisins, préfixes/suffixes, forme « 5-FU » → « 9-XX », présence dans un lexique) ; le CRF apprend leurs poids et les enchaînements d'étiquettes. tmChem : deux CRF entraînés sur CHEMDNER, caractéristiques chimiques, sigles, rattachement à MeSH/ChEBI par grands lexiques. DNorm : repérage par CRF (BANNER) puis rattachement au vocabulaire des maladies par une similarité apprise (*learning to rank*). | Très forts en Chemical grâce aux lexiques externes ; plus faibles en Disease, entraînés sur d'autres corpus et conventions que BC5CDR. |
+| Transformeurs pré-entraînés puis ajustés | BioBERT, SciBERT, PubMedBERT, BioLinkBERT (et APP-v3) | 1) pré-entraînement sans étiquettes sur des millions de textes en devinant des mots masqués : le modèle apprend le sens des mots selon leur contexte ; 2) ajustement sur TRAIN avec une couche B/I/O. Différences : textes et vocabulaire du pré-entraînement (BioBERT prolonge BERT avec son vocabulaire général ; SciBERT et PubMedBERT partent de zéro avec un vocabulaire scientifique / biomédical ; BioLinkBERT apprend aussi les liens de citation). | Le pré-entraînement apporte la connaissance des mots et du contexte ; 500 résumés suffisent à apprendre les conventions de BC5CDR. Vocabulaire biomédical : « Doxorubicin-induced cardiomyopathy » = 4 sous-mots (PubMedBERT) contre 12 (BioBERT). |
+| Réseau léger entraîné sur BC5CDR | scispaCy | CNN de spaCy, sans pré-entraînement massif. | Rapide mais moins précis (84,3). |
+| Grands modèles de langage | GPT-4, Claude 2 (sans ajustement) ; LLaMA 2 13B (ajusté) | Sans ajustement : une consigne et 0 à quelques exemples ; le modèle génère la liste des entités, à réaligner sur le texte. Ajusté : entraîné sur TRAIN comme un BERT. | Sans ajustement, le modèle ignore les conventions d'annotation (bornes, classes de médicaments, « hepatitis B vaccine ») : ≈ 0,80 en Chemical, comme notre dictionnaire. Ajusté : 0,915, encore sous PubMedBERT pour un modèle 100 fois plus gros. |
+
+Notre projet couvre les deux extrêmes : DIC-v3 reprend le principe « lexique + règles » de 2015 sans CRF ni lexique externe ; APP-v3 suit la recette standard actuelle (BLURB), d'où des scores proches des publications.
+
+**Conclusion** : APP-v3 atteint le niveau publié pour son modèle (à moins d'un point) avec un protocole plus contraint (un seul modèle, une graine, réglage limité) ; DIC-v3 se situe sous les outils officiels de 2015, l'écart venant du vocabulaire (formes absentes de TRAIN), que le livret ne permet pas de compléter par un lexique externe.
+
+**Sources** : [Wei et al. 2016, *Database*, overview BioCreative V CDR](https://academic.oup.com/database/article/doi/10.1093/database/baw032/2630271) ; [Li et al. 2016, corpus BC5CDR](https://academic.oup.com/database/article/doi/10.1093/database/baw068/2630414) ; `CDR_Data/README.txt` (tmChem, DNorm) ; [Lee et al. 2020, BioBERT, *Bioinformatics*](https://pmc.ncbi.nlm.nih.gov/articles/PMC7703786/) ; [Gu et al. 2021, PubMedBERT / BLURB](https://arxiv.org/pdf/2007.15779) ; [classement BLURB](https://microsoft.github.io/BLURB/tasks.html) ; [Beltagy et al. 2019, SciBERT](https://arxiv.org/pdf/1903.10676) ; [Yasunaga et al. 2022, LinkBERT](https://aclanthology.org/2022.acl-long.551.pdf) ; [scispaCy](https://allenai.github.io/scispacy/) ; [OpenMed NER 2025](https://arxiv.org/html/2508.01630v1) ; [Chen et al., benchmark des LLM en TAL biomédical](https://pmc.ncbi.nlm.nih.gov/articles/PMC12478438/) ; [Jahan et al. 2024, *Computers in Biology and Medicine*](https://www.sciencedirect.com/science/article/pii/S0010482524002737).
 
 ---
 
@@ -113,6 +194,28 @@ Cinq règles appliquées après DIC-v1, dans cet ordre (code dans le notebook, `
 
 **Fichiers (version figée DIC-v2)** — `resultats/extraction/` : `dictionnaire_config_gelee.json` (configuration, règles apprises, temps), `dictionnaire.tsv`, `regles_effet_validation.csv`, `scores_dictionnaire_validation.csv`, `predictions_dictionnaire_validation.jsonl`, `predictions_dictionnaire_test.jsonl` (7 995 prédictions).
 
+### DIC-v3 — variantes et priorités supplémentaires (2026-10-30, notebook `2.3b_dictionnaire_regles_v3.ipynb`)
+
+- **Point de départ** : DIC-v2 reconstruite dans le notebook et vérifiée à l'identique (mêmes 7 690 prédictions VALIDATION). Le notebook 2.3 n'est pas modifié.
+- **Analyse de départ (erreurs DIC-v2 sur VALIDATION)** : 2 171 manquées, dont 827 mots et 764 expressions jamais vus dans TRAIN (hors de portée d'un dictionnaire construit sur TRAIN), 338 sigles, 106 formes retirées à tort par le filtre, 54 variantes singulier/pluriel, 88 formes reconnues ailleurs dans le même résumé ; 576 frontières, dont 514 mentions prédites trop courtes.
+- **Livret (section 2.3)** : dictionnaire construit à partir des formes annotées de TRAIN, choix de casse, de variantes et de priorité, regex si un motif le justifie. Un lexique externe (MeSH) a été écarté : hors du cadre décrit.
+- **Quatre ajouts**, appris sur TRAIN (seuils de C repris de la règle des modificateurs à gauche, sans nouveau réglage) :
+
+| Ajout | P | R | F1 val | Ajouts justes / faux | Effet |
+|---|---|---|---|---|---|
+| DIC-v2 | 0,8889 | 0,7128 | 0,7912 | — | — |
+| A — filtre corrigé (occurrences incluses dans une mention plus longue ignorées) | 0,8841 | 0,7214 | 0,7945 | 83 / 57 | +27 entrées : *cancer, edema, infection, hemorrhage, atrophy…* |
+| B — variantes singulier/pluriel absentes des textes de TRAIN | 0,8883 | 0,7180 | 0,7941 | 51 / 16 | 1 928 variantes : *movement disorders, visual disturbances…* |
+| C — extension à droite (suites de 1 à 3 mots, ≥ 3 fois, ≥ 70 %) | 0,8892 | 0,7130 | 0,7914 | 2 / 2 | seulement 2 suites apprises (*methyl ester*, *C* de *hepatitis C*) : effet nul |
+| D — propagation d'une forme retenue à ses autres occurrences dans le résumé (même casse) | 0,8866 | 0,7174 | 0,7931 | 45 / 26 | *dilevalol, ATRA, tiapride, ethambutol…* ; faux : *lesion, carbonate* |
+| **A + B + C + D (DIC-v3)** | **0,8811** | **0,7314** | **0,7993** | 180 / 101 | |
+
+- **Règle de choix** (écrite dans le notebook) : un ajout est gardé s'il améliore seul le F1 VALIDATION ; les quatre le font. C est gardé par application de la règle, mais son effet est nul (2 justes, 2 faux).
+- **Bilan** : +0,8 point de F1 (Chemical 0,8289 → 0,8333, Disease 0,7434 → 0,7569) ; manquées 2 171 → 1 941, mais frontières 576 → 627 et parasites 270 → 312 (le filtre corrigé réintroduit *infection, cancer* aussi là où ils font partie d'une mention plus longue). Gain inférieur à l'estimation initiale (+2 à 3 points) : les frontières trop courtes viennent surtout de formes longues absentes de TRAIN (*migraine with aura*), que l'extension apprise ne couvre pas.
+- **Limite principale** : 1 591 mentions manquées restent des formes jamais vues dans TRAIN ; c'est là que la méthode apprise (APP-v3, F1 0,912) fait la différence.
+- Score VALIDATION légèrement optimiste (réglages de DIC-v2 et choix des ajouts faits sur VALIDATION) : seul TEST juge.
+- Fichiers : `dictionnaire_v3_effet_validation.csv`, `scores_dictionnaire_v3_validation.csv`, `predictions_dictionnaire_v3_validation.jsonl`, `predictions_dictionnaire_v3_test.jsonl` (8 290 prédictions), `dictionnaire_v3_config_gelee.json`. Exécuté sur le serveur (CPU), environnement `~/venvs/nlp` (pandas 3.1, numpy 2.5).
+
 ---
 
 ## 4. Méthode apprise (notebook `2.4_methode_apprise.ipynb`)
@@ -133,6 +236,69 @@ Cinq règles appliquées après DIC-v1, dans cet ordre (code dans le notebook, `
 - **Configuration retenue** : poids 1, 2 époques. Entraînement 84,6 s, prédiction 18 s par partition.
 - Fichiers : `apprise_config_gelee.json`, `scores_apprise_validation.csv`, `predictions_apprise_validation.jsonl`, `predictions_apprise_test.jsonl`.
 
+### APP-v2 — BioBERT mieux entraîné (2026-10-30, notebook `2.4b_methode_apprise_v2.ipynb`, Colab GPU T4)
+
+- **Diagnostic d'APP-v1** : 70 étapes par époque (560 fenêtres, lots de 8), soit 140 étapes pour la configuration retenue ; F1 encore en forte hausse d'une époque à l'autre (0,74 → 0,85) ; le point « 2 époques » était l'étape intermédiaire d'un entraînement prévu pour 3. Hypothèse : sous-entraînement.
+- **Configuration testée** : même modèle, données, fenêtres et décodage ; 10 époques évaluées une à une sur VALIDATION ; warmup 10 % puis décroissance linéaire ; taux 3e-5 et 5e-5 ; graines 42 et 43 ; poids 1.
+- **Règle de choix fixée avant exécution** : meilleure moyenne de F1 VALIDATION sur les deux graines ; à moins de 0,005 de la meilleure, le moins d'époques ; modèle figé = graine 42.
+
+F1 VALIDATION global, moyenne des deux graines (`apprise_v2_reglage_validation.csv`) :
+
+| Époques | 1 | 2 | 3 | **4** | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| taux 3e-5 | 0,747 | 0,867 | 0,878 | 0,881 | 0,884 | 0,882 | 0,887 | 0,885 | 0,889 | 0,887 |
+| taux 5e-5 | 0,835 | 0,879 | 0,883 | **0,892** | 0,892 | 0,890 | 0,893 | 0,895 | 0,895 | **0,896** |
+
+- **Retenu** : taux 5e-5, **4 époques** (moyenne 0,892, à 0,004 du meilleur 0,8956 à 10 époques) ; écart entre graines ≤ 0,01 → les différences au-delà de 4 époques sont de l'ordre du bruit.
+- **Scores VALIDATION du modèle figé** (graine 42, `scores_apprise_v2_validation.csv`) :
+
+| Catégorie | P | R | F1 | APP-v1 F1 | Gain |
+|---|---|---|---|---|---|
+| Chemical | 0,9331 | 0,9385 | **0,9358** | 0,9128 | +2,3 pts |
+| Disease | 0,8331 | 0,8454 | **0,8392** | 0,7813 | **+5,8 pts** |
+| Global (micro) | 0,8886 | 0,8973 | **0,8929** | 0,8546 | +3,8 pts |
+
+- **Erreurs** : frontières 631 → 489, manquées 741 → 482, parasites 769 → 576, types 11 → 14. Le diagnostic est confirmé : le gain venait de l'entraînement, surtout pour Disease.
+- **Coût** : entraînement 10 époques ≈ 3 à 4 min par run (4 runs), prédiction 18 s par partition.
+- **Écart restant** aux résultats publiés de BioBERT (≈ 0,93 / 0,85 sur TEST, protocole différent) : de l'ordre de 1 point → changer de modèle (APP-v3) ne peut plus apporter qu'un gain limité.
+- Fichiers : `apprise_v2_config_gelee.json`, `apprise_v2_reglage_validation.csv`, `apprise_v2_historique_entrainement.json`, `scores_apprise_v2_validation.csv`, `apprise_v2_comparaison_v1_validation.csv`, `predictions_apprise_v2_validation.jsonl`, `predictions_apprise_v2_test.jsonl` ; modèle `modeles/biobert_v2` (non versionné). Versions : torch 2.11.0, transformers 5.20.2.
+
+### APP-v3 — autre modèle pré-entraîné, même recette (2026-10-30, notebook `2.4c_methode_apprise_v3.ipynb`, Colab GPU T4)
+
+- **Question** : avec la recette d'APP-v2, un modèle plus spécialisé fait-il mieux que BioBERT ? Seul le modèle change.
+- **Modèles** : `microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext` (PubMedBERT) et `michiyasunaga/BioLinkBERT-base` ; architecture BERT, `BertTokenizer` en minuscules. Leur vocabulaire, appris sur PubMed, découpe beaucoup moins les termes biomédicaux : « Doxorubicin-induced cardiomyopathy » → 4 sous-mots (BioBERT : 12) ; d'où moins de fenêtres (518 en TRAIN contre 560).
+- **Recette** (identique à APP-v2) : taux 5e-5, warmup 10 %, 10 époques évaluées une à une sur VALIDATION, graines 42 et 43, poids 1. Référence BioBERT : runs APP-v2 au taux 5e-5.
+- **Règles fixées avant exécution** : époques choisies comme en APP-v2 ; remplacement d'APP-v2 si gain moyen > 0,005.
+
+F1 VALIDATION global, moyenne des deux graines (`apprise_v3_reglage_validation.csv`) :
+
+| Époques | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| BioBERT (APP-v2) | 0,835 | 0,879 | 0,883 | **0,892** | 0,892 | 0,890 | 0,893 | 0,895 | 0,895 | 0,896 |
+| BioLinkBERT-base | 0,793 | 0,881 | 0,894 | 0,901 | **0,906** | 0,906 | 0,902 | 0,908 | 0,906 | 0,907 |
+| PubMedBERT | 0,795 | 0,875 | 0,892 | 0,898 | 0,902 | 0,905 | **0,911** | 0,908 | 0,909 | 0,910 |
+
+| Modèle (époques retenues) | F1 moyen | F1 Chemical | F1 Disease | Écart à BioBERT |
+|---|---|---|---|---|
+| BioBERT (4) | 0,892 | 0,935 | 0,838 | — |
+| BioLinkBERT-base (5) | 0,906 | 0,948 | 0,851 | +0,014 |
+| **PubMedBERT (7)** | **0,911** | **0,951** | **0,861** | **+0,019** |
+
+- **Retenu : PubMedBERT, 7 époques** (gain +0,019 > 0,005 → remplace APP-v2). À partir de 3 époques, les deux nouveaux modèles dépassent BioBERT à chaque époque : le gain ne dépend pas du point choisi. L'écart PubMedBERT / BioLinkBERT (0,006) est en revanche proche de la variation entre graines : les deux se valent presque.
+- **Scores VALIDATION du modèle figé** (graine 42, `scores_apprise_v3_validation.csv`) :
+
+| Catégorie | P | R | F1 | APP-v2 F1 | Gain |
+|---|---|---|---|---|---|
+| Chemical | 0,9450 | 0,9615 | **0,9532** | 0,9358 | +1,7 pts |
+| Disease | 0,8526 | 0,8671 | **0,8598** | 0,8392 | +2,1 pts |
+| Global (micro) | 0,9042 | 0,9197 | **0,9119** | 0,8929 | +1,9 pts |
+
+- **Erreurs** : frontières 489 → 432, types 14 → 4, manquées 482 → 334, parasites 576 → 499.
+- **Erreurs commentées** (`erreurs_commentees.md`, réécrit pour APP-v3 ; l'analyse d'APP-v1 est conservée dans `erreurs_commentees_APP-v1.md`) : Disease concentre les erreurs (343 frontières, 218 manquées, 300 parasites) ; 251 manquées sur 334 ont une forme absente de TRAIN. Cinq cas : expression descriptive coupée (*deterioration of vision* → *of vision*), coordination et contexte de vaccination (*hepatitis B and rubella*, *hepatitis B vaccine*), sigle défini jamais annoté dans TRAIN (*COCs*, retrouvé par le dictionnaire), symptôme d'expérimentation inconnu (*contralateral rotation*), annotation irrégulière (*antidepressant* : 15/15 annoté en TRAIN, 0/15 en VALIDATION). Rappel de l'union APP-v3 + dictionnaire : 0,944 (APP-v3 seul 0,920).
+- **Prudence** : la graine 42 à 7 époques est un point haut (0,9119 contre 0,9105 pour la graine 43, 0,9090 à 10 époques) ; le score TEST jugera. Seul le taux 5e-5 a été testé pour les nouveaux modèles.
+- **Coût** : entraînement 10 époques ≈ 3 à 4,5 min par run (4 runs), prédiction 16 s par partition.
+- Fichiers : `apprise_v3_config_gelee.json`, `apprise_v3_reglage_validation.csv`, `apprise_v3_historique_entrainement.json`, `scores_apprise_v3_validation.csv`, `apprise_v3_comparaison_v2_validation.csv`, `predictions_apprise_v3_validation.jsonl`, `predictions_apprise_v3_test.jsonl` ; modèle `modeles/apprise_v3` sur le Drive (non rapatrié, non versionné).
+
 ---
 
 ## 5. Négation (notebook `2.5_negation.ipynb`)
@@ -147,7 +313,7 @@ Cinq règles appliquées après DIC-v1, dans cet ordre (code dans le notebook, `
 
 ## 6. Question-réponse (notebooks 3, 4.1, 4.2)
 
-Cadrage : effets indésirables de la chimiothérapie / soins de support, documents INCa (`rapport/cadrage_qa.md`). Objectif : 20 questions DEV et 10 TEST. Notebooks 4.1 et 4.2 pas encore exécutés : aucun résultat.
+Cadrage : effets indésirables de la chimiothérapie / soins de support, documents INCa (`rapport/cadrage_qa.md`). Objectif : 20 questions DEV et 10 TEST.
 
 **Corpus documentaire (2026-10-23) : 3 → 10 documents INCa** (`data/corpus.csv`, fichiers dans `data/sources_qa/`)
 
@@ -394,6 +560,73 @@ Cadrage : effets indésirables de la chimiothérapie / soins de support, documen
 - **Bilan** : avec la recherche dense, Q2 répond correctement à Q012 et Q016, que la configuration du socle ratait, et complète Q010 et Q015 ; une régression (Q003, élément « remboursement » manquant, sans affirmation fausse). L'erreur de Q008 (prémisse en kilos) reste la seule erreur imputable au LLM sur DEV, avec la façon de présenter la divergence de Q001.
 - À reproduire sur TEST après le gel (comparaison BM25 REC-v2 / dense pour Q2), en rappelant que DEV a servi à choisir la méthode dense (résultat DEV optimiste).
 
+### APP-REC-v2 — essai de reclassement par cross-encoder (2026-10-30, notebook `4.3_recherche_hybride.ipynb`, DEV) — non retenu
+
+- **Question** : peut-on combiner BM25 et recherche dense sans poids à régler, en réunissant leurs candidats puis en les faisant trier par un reclasseur (pipeline RAG « hybride » classique) ?
+- **Configuration fixée avant exécution** : candidats = union des 20 premiers BM25 REC-v2 et des 20 premiers denses (E5, section + texte) ; reclasseur `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1` (multilingue, 118 M paramètres, CPU, 512 tokens), qui lit titre de section + texte ; code `Reclasseur` dans `src/qa_recherche.py`. Variantes sans paramètre : reclassement des 20 premiers BM25 seuls, ou denses seuls.
+- **Règle de choix fixée avant exécution** : retenu seulement si le Rappel@5 dépasse celui de la recherche dense seule sans perte de preuve sur aucune question.
+- **Scores DEV** (16 questions avec réponse, `resultats/qa/recherche_dev_reclassement.csv`) ; rang réciproque = moyenne de 1 / rang de la 1re preuve :
+
+| DEV | Hit@5 | Rappel@5 | Couverture éléments@5 | Rang réciproque | Temps / question (CPU) |
+|---|---|---|---|---|---|
+| BM25 REC-v2 | 0,875 | 0,781 | 0,823 | 0,674 | < 0,01 s |
+| dense (section + texte) | **0,938** | **0,875** | **0,979** | 0,702 | 0,04 s |
+| reclassement des 20 premiers BM25 | 0,875 | 0,750 | 0,781 | 0,844 | 2,1 s |
+| reclassement des 20 premiers denses | 0,938 | 0,875 | 0,958 | **0,853** | 2,0 s |
+| reclassement de l'union BM25 + dense | 0,938 | 0,875 | 0,958 | **0,853** | 3,5 s |
+
+- **Lecture** : le reclasseur met la 1re preuve en tête bien plus souvent (rang 1 pour 12 questions sur 16, contre 9 avec la recherche dense seule), mais le Rappel@5 ne bouge pas. Il fait sortir du top-5 l'une des deux sources divergentes de Q001 (couverture 1 → 0,67) et fait reculer Q006 (aphtes, rang 1 avec BM25 → 7). Sur les candidats BM25 seuls, il ne peut pas rattraper Q012 et Q016, absents des 20 premiers. L'union donne exactement le même résultat que les 20 premiers denses seuls.
+- **Décision** : non retenu (règle ci-dessus). Pour un coût 50 fois plus élevé (≈ 2 s par question, plus 15 s de chargement), aucun gain de rappel ; la recherche dense seule reste l'approfondissement retenu. Le meilleur ordre du top-5 n'aurait d'intérêt que pour transmettre moins de passages au LLM (k = 3), ce qui n'a pas été testé.
+- **Environnement** : exécuté sur le serveur Pico (venv `~/venvs/nlp`, torch 2.15 CPU, transformers 4.57.1, sentence-transformers 5.1.2) ; les scores des méthodes déjà mesurées (BM25, dense, RRF) sont identiques à ceux du laptop, seuls les temps de `recherche_dev_hybride.csv` changent.
+
+### Gel QA et BLEU / ROUGE sur DEV (2026-10-30, notebooks 4.2 et 5)
+
+- **Configuration figée** (`resultats/qa/qa_config_gelee.json`, texte exact des prompts) : socle = BM25 REC-v2, 5 passages ; Q0 = premier passage tel quel ; **Q1 v1** et **Q2 v1** (prompts du guide), **contexte c2** pour les deux ; `gpt-4.1-mini-2025-04-14`, température 0, graine 42, 300 tokens. Approfondissement : Q2 v1 c2 avec les 5 passages de la recherche dense (E5, section + texte). Q2 v2 non retenu (pas de gain sur DEV, généralités en plus).
+- **Calcul BLEU / ROUGE** (`src/qa_scores.py`, annexe B.4 du guide) : questions avec réponse ; citations valides et phrase d'abstention retirées (abstention = réponse vide) ; NFC, minuscules, mots `\w+` communs à BLEU et ROUGE (le tokeniseur de rouge-score supprime les accents, d'où un tokeniseur commun). BLEU de corpus 0-100, sacrebleu 2.6.0 (`nrefs:1|case:mixed|eff:no|tok:none|smooth:exp`, minuscules faites avant) ; ROUGE-1/2/L : F1 moyenné par question, rouge-score 0.1.2.
+- **Scores DEV** (16 questions avec réponse, `resultats/qa/bleu_rouge_dev.csv`) :
+
+| DEV | BLEU | ROUGE-1 | ROUGE-2 | ROUGE-L | Réponses vides | Mots (médiane) |
+|---|---|---|---|---|---|---|
+| Q0 (BM25 REC-v2) | 5,67 | 0,276 | 0,110 | 0,184 | 0 | 108 |
+| Q1 v1 c2 | 13,04 | 0,434 | 0,209 | 0,336 | 0 | 52 |
+| **Q2 v1 c2 (retenu)** | **16,16** | 0,453 | 0,231 | 0,360 | 1 | 48,5 |
+| Q2 v2 c2 | 13,85 | 0,445 | 0,235 | 0,344 | 0 | 59 |
+| Q2 v1 c2, recherche dense | 14,12 | **0,507** | **0,250** | **0,377** | 0 | 60,5 |
+
+- **Lecture** : Q0 est pénalisé par sa longueur (un passage entier, ≈ 100 mots, contre des références de 30 à 55 mots). Avec la recherche dense, Q2 gagne en ROUGE (réponses plus complètes : Q010, Q012, Q015, Q016) mais perd en BLEU, plus sensible à la longueur et à la formulation exacte. Les écarts entre Q1 et Q2 sont faibles : ils ne disent rien de la justesse (Q1 ne s'abstient jamais), d'où la grille manuelle.
+- **Notebook 5 préparé et répété sur DEV** : tableaux 3 (recherche TEST, socle et dense) et 4 (génération Q0/Q1/Q2/Q2 dense, BLEU/ROUGE, contrôles) et grille manuelle anonymisée (30 réponses mélangées, graine 42, `grille_manuelle.csv` + `grille_correspondance.csv`). Répétition dans une copie du projet avec les questions DEV à la place de TEST : réponses et scores identiques à ceux des notebooks 4.1-4.3 (tout depuis le cache). **TEST pas encore exécuté** : la clé OpenAI n'est pas sur le serveur ; en cas d'échec d'un appel, le notebook n'écrit rien.
+
+### Évaluation TEST du QA (2026-11-01, `5_evaluation.ipynb`, configuration du gel, exécutée une seule fois)
+
+- 10 questions TEST (8 avec réponse, 2 sans réponse) ; 30 appels au LLM (Q1, Q2, Q2 dense), 0 échec, 26 056 + 2 497 tokens. Sorties : `data/predictions_qa.jsonl` (Q0, Q1, Q2), `resultats/qa/predictions_llm_test_dense.jsonl` ; scores : `recherche_test.csv`, `bleu_rouge.csv`.
+- **Tableau 3 — recherche** (8 questions avec réponse) :
+
+| Recherche | Hit@5 DEV → TEST | Rappel@5 DEV → TEST | Couverture éléments@5 DEV → TEST |
+|---|---|---|---|
+| BM25 REC-v2 (socle) | 0,875 → 0,875 | 0,781 → 0,771 | 0,823 → 0,792 |
+| dense (approfondissement) | 0,938 → **1,000** | 0,875 → 0,771 | 0,979 → 0,792 |
+
+- **Lecture recherche** : le socle BM25 est stable de DEV à TEST. L'avantage de la recherche dense en rappel sur DEV (+0,094) **ne se confirme pas** : égalité sur TEST. Elle retrouve Q025 (« envie de vomir en arrivant à l'hôpital » → passage sur les nausées anticipatoires, que BM25 rate), mais perd des preuves que BM25 trouvait : DOC006_P009 (ergothérapeute non remboursé, Q028), DOC006_P014 (psychiatre seul remboursé, une des deux sources divergentes de Q022), DOC010_P003 (soins de la peau, Q023). Comme attendu, le résultat DEV était optimiste.
+- **Tableau 4 — BLEU / ROUGE** (8 questions avec réponse ; DEV entre parenthèses) :
+
+| TEST | BLEU | ROUGE-1 | ROUGE-2 | ROUGE-L | Mots (médiane) |
+|---|---|---|---|---|---|
+| Q0 (BM25) | 5,44 (5,67) | 0,297 | 0,102 | 0,210 (0,184) | 105,5 |
+| Q1 v1 c2 (BM25) | 9,96 (13,04) | 0,422 | 0,173 | 0,315 (0,336) | 55 |
+| Q2 v1 c2 (BM25) | 10,10 (16,16) | 0,430 | 0,178 | 0,325 (0,360) | 59 |
+| Q2 v1 c2 (dense) | **13,99** (14,12) | **0,455** | **0,222** | **0,354** (0,377) | 63 |
+
+- **Contrôles automatiques** : abstentions correctes (/2) : Q1 0, Q2 1, Q2 dense 2 ; phrase d'abstention sur une question avec réponse (/8) : Q2 dense 1 (Q028, partielle) ; 0 citation inventée.
+- **Premières observations (lecture rapide, avant la grille manuelle)** :
+  - Q021, Q026, Q027 : réponses complètes et justes dans les trois configurations LLM. Q2 ajoute pour Q027 un calcul absent du texte (« au moins 2 h 30 par semaine »).
+  - Q025 : avec BM25, Q1 et Q2 attribuent ces nausées aux odeurs et proposent des bonbons mentholés (passage sur les nausées pendant la perfusion) ; avec la recherche dense, Q2 donne la bonne réponse (nausées anticipatoires, anxiété, médicaments ou relaxation).
+  - Q022 (sources divergentes) : aucune configuration ne signale la divergence. Q1 et Q2 (BM25) fusionnent les deux sources en une règle unique (« pas remboursées sauf Mon soutien psy ») ; Q2 dense, privé de DOC006_P014, ne donne qu'une version (« oui, 12 séances »).
+  - Q024 (pas de passage sur la grippe en particulier) : Q2 écrit « y compris le vaccin contre la grippe », une généralisation que le texte ne dit pas ; Q2 dense reste fidèle.
+  - Q028 : Q1 et Q2 (BM25) complets ; Q2 dense ne retrouve pas le passage sur le remboursement et le dit (abstention partielle).
+  - Q030 (sans réponse, acupuncture) : Q1 affirme à tort que les séances ne sont pas remboursées ; Q2 dit qu'elles « ne sont pas mentionnées comme remboursées » sans la phrase d'abstention (non compté comme abstention) ; Q2 dense s'abstient. Q029 : Q2 et Q2 dense s'abstiennent, Q1 dit que les passages n'en parlent pas sans la phrase imposée.
+- **Bilan provisoire** : sur TEST, Q2 dense obtient les meilleurs scores automatiques et les seules deux abstentions correctes, mais à rappel égal avec BM25 : il gagne Q025 et perd Q028 et une source de Q022. Q1 ne s'abstient jamais et fait une affirmation non soutenue (Q030). Le classement final Q0/Q1/Q2 attend la grille manuelle (B.5).
+- **À faire** : remplir `resultats/qa/grille_manuelle.csv` séparément (AMARA, TOMAS), arbitrer (`final_`), puis ouvrir `grille_correspondance.csv` ; erreurs commentées QA. Aucun réglage ne sera modifié à partir de ces résultats.
+
 ---
 
 ## 7. Journal
@@ -421,3 +654,15 @@ Cadrage : effets indésirables de la chimiothérapie / soins de support, documen
 | 2026-10-29 | APP-REC : essais de fusion pondérée (× 1,5 à × 3) et de règle « grand écart » sur DEV, sans gain sur la recherche dense seule (Rappel@5 0,812 / 0,781 contre 0,875) ; dense sans fusion retenu pour l'approfondissement. |
 | 2026-10-29 | APP-REC : Q2 v1 c2 avec passages denses sur DEV ; Q012 et Q016 désormais justes, Q010 et Q015 complétées, régression sur Q003. |
 | 2026-10-29 | Synthèse du jalon QA1 rédigée (`rapport/synthese_QA1.md`). |
+| 2026-10-30 | APP-v2 préparé (notebook 2.4b) : diagnostic de sous-entraînement d'APP-v1, plan 10 époques + warmup, 2 taux × 2 graines ; exécution Colab à faire. |
+| 2026-10-30 | APP-v2 exécuté (Colab T4) : taux 5e-5, 4 époques ; F1 VALIDATION 0,8546 → 0,8929 (Chemical 0,9358, Disease 0,8392) ; APP-v2 remplace APP-v1 comme méthode apprise figée. |
+| 2026-10-30 | APP-v3 préparé (notebook 2.4c) : PubMedBERT et BioLinkBERT-base avec la recette d'APP-v2, 2 graines ; règle de remplacement : gain > 0,005 ; exécution Colab à faire. |
+| 2026-10-30 | APP-v3 exécuté (Colab T4) : PubMedBERT 7 époques retenu ; F1 VALIDATION 0,8929 → 0,9119 (Chemical 0,9532, Disease 0,8598) ; BioLinkBERT 0,906 ; APP-v3 remplace APP-v2. |
+| 2026-10-30 | Erreurs commentées réécrites pour APP-v3 (`erreurs_commentees.md`) ; version APP-v1 conservée (`erreurs_commentees_APP-v1.md`). |
+| 2026-10-30 | DIC-v3 (notebook 2.3b) : filtre corrigé, variantes singulier/pluriel, extension à droite, propagation ; F1 VALIDATION 0,7912 → 0,7993 ; DIC-v3 remplace DIC-v2. |
+| 2026-10-30 | Évaluation TEST (notebook 5, tableau 1) de DIC-v3 (F1 0,7978) et APP-v3 (F1 0,8941) ; `scores_test.csv`, `data/predictions_extraction.jsonl`. |
+| 2026-10-30 | Comparaison avec l'état de l'art (extraction) : outils officiels tmChem + DNorm mesurés sur notre TEST (F1 0,868), résultats publiés (BioBERT, SciBERT, PubMedBERT, BioLinkBERT, LLM). |
+| 2026-10-30 | État de l'art : ajout du fonctionnement des références (CRF + lexiques, transformeurs pré-entraînés, scispaCy, LLM). |
+| 2026-10-30 | APP-REC-v2 (essai) : union BM25 + dense reclassée par un cross-encoder multilingue ; Rappel@5 DEV inchangé (0,875), ≈ 2 s par question ; non retenu, la recherche dense seule reste l'approfondissement. |
+| 2026-10-30 | Gel QA : socle BM25 REC-v2 + Q0 / Q1 v1 / Q2 v1, contexte c2 ; approfondissement Q2 v1 c2 dense (`qa_config_gelee.json`). BLEU/ROUGE sur DEV (Q2 v1 c2 : BLEU 16,2, ROUGE-L 0,36) ; notebook 5 (tableaux 3, 4, grille) prêt, TEST à exécuter avec la clé. |
+| 2026-11-01 | Évaluation TEST du QA (notebook 5, une seule fois) : recherche BM25 Hit@5 0,875 / Rappel@5 0,771, dense 1,000 / 0,771 (avantage DEV non confirmé) ; BLEU Q0 5,4, Q1 10,0, Q2 10,1, Q2 dense 14,0 ; grille manuelle créée (30 réponses anonymisées). |

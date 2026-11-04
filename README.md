@@ -49,7 +49,10 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 │   ├── 2.1_choisir_explorer_donnees.ipynb
 │   ├── 2.2_partitions_bio.ipynb
 │   ├── 2.3_dictionnaire_regles.ipynb
+│   ├── 2.3b_dictionnaire_regles_v3.ipynb  # DIC-v3 : variantes, filtre corrigé, propagation
 │   ├── 2.4_methode_apprise.ipynb
+│   ├── 2.4b_methode_apprise_v2.ipynb  # APP-v2 : BioBERT mieux entraîné (Colab)
+│   ├── 2.4c_methode_apprise_v3.ipynb  # APP-v3 : PubMedBERT / BioLinkBERT, même recette (Colab)
 │   ├── 2.5_negation.ipynb
 │   ├── 3_corpus_qa.ipynb
 │   ├── 4.1_recherche_lexicale_q0.ipynb
@@ -75,6 +78,8 @@ Les notebooks portent le numéro de la section du livret qu'ils traitent.
 3. `2.3_dictionnaire_regles.ipynb` — dictionnaire construit sur TRAIN, réglé sur VALIDATION, figé,
    prédictions TEST.
 4. `2.4_methode_apprise.ipynb` — entraînement, réglage sur VALIDATION, comparaison, gel, prédictions TEST.
+   `2.4b_methode_apprise_v2.ipynb` — APP-v2 (Colab GPU, ≈ 35 min) : 10 époques, warmup, 2 taux × 2 graines ; ne modifie pas APP-v1.
+   `2.4c_methode_apprise_v3.ipynb` — APP-v3 (Colab GPU, ≈ 30 min) : PubMedBERT et BioLinkBERT-base avec la recette d'APP-v2, comparés à BioBERT.
 5. `2.5_negation.ipynb` — règles de négation (**développées avant** la génération des phrases fictives),
    génération des 20 phrases, annotation croisée, split dev/test, évaluation.
 6. `3_corpus_qa.ipynb` — thème et public (3.1), documents et passages (3.2), questions (3.3), protocole

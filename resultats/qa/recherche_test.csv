@@ -1,0 +1,17 @@
+recherche,question_id,hit@5,rappel@5,hit@5_equiv,rappel@5_equiv,couverture_elements@5,rang_premiere_preuve
+BM25 REC-v2 (socle),Q021,1,1.0,1,1.0,1.0,2.0
+BM25 REC-v2 (socle),Q022,1,0.6666666666666666,1,0.6666666666666666,0.6666666666666666,1.0
+BM25 REC-v2 (socle),Q023,1,1.0,1,1.0,1.0,1.0
+BM25 REC-v2 (socle),Q024,1,1.0,1,1.0,1.0,1.0
+BM25 REC-v2 (socle),Q025,0,0.0,0,0.0,0.0,
+BM25 REC-v2 (socle),Q026,1,1.0,1,1.0,1.0,1.0
+BM25 REC-v2 (socle),Q027,1,0.5,1,0.5,0.6666666666666666,1.0
+BM25 REC-v2 (socle),Q028,1,1.0,1,1.0,1.0,1.0
+dense (approfondissement),Q021,1,1.0,1,1.0,1.0,1.0
+dense (approfondissement),Q022,1,0.6666666666666666,1,0.6666666666666666,0.6666666666666666,2.0
+dense (approfondissement),Q023,1,0.5,1,0.5,0.5,1.0
+dense (approfondissement),Q024,1,1.0,1,1.0,1.0,1.0
+dense (approfondissement),Q025,1,1.0,1,1.0,1.0,4.0
+dense (approfondissement),Q026,1,1.0,1,1.0,1.0,2.0
+dense (approfondissement),Q027,1,0.5,1,0.5,0.6666666666666666,1.0
+dense (approfondissement),Q028,1,0.5,1,0.5,0.5,1.0

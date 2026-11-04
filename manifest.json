@@ -109,35 +109,40 @@
   },
   "prompts": {
     "q1_version": "v1 (guide, annexe C)",
-    "q2_version": "v1 et v2 testées sur DEV (contexte c2 avec titres) ; choix au gel",
-    "fichier": "notebooks/4.2_llm_q1_q2.ipynb",
+    "q2_version": "v1 (retenue au gel du 2026-10-30) ; v2 testée sur DEV, non retenue",
+    "fichier": "notebooks/4.2_llm_q1_q2.ipynb ; texte exact figé dans resultats/qa/qa_config_gelee.json",
     "contexte": "c2 : identifiant + titre du document + section, puis texte du passage"
   },
   "evaluation": {
     "bleu": {
       "outil": "sacrebleu",
-      "version": null,
-      "options": "lissage exponentiel, tokenisation externe commune, ordre effectif désactivé"
+      "version": "2.6.0",
+      "options": "lissage exponentiel, tokenisation externe commune (tokenize=none, mots \\w+ NFC minuscules), ordre effectif désactivé ; signature nrefs:1|case:mixed|eff:no|tok:none|smooth:exp|version:2.6.0"
     },
     "rouge": {
-      "outil": null,
-      "version": null
-    }
+      "outil": "rouge-score",
+      "version": "0.1.2",
+      "options": "ROUGE-1/2/L F1 moyenné par question, même tokeniseur \\w+ que BLEU, sans racinisation"
+    },
+    "preparation": "questions avec réponse ; citations valides et phrase d'abstention retirées (abstention = réponse vide) ; src/qa_scores.py"
   },
   "gel": {
-    "date_gel_qa": "2026-11-06",
-    "statut": "non_gele",
+    "date_gel_qa": "2026-10-30",
+    "statut": "gele",
+    "configuration": "resultats/qa/qa_config_gelee.json (socle : BM25 REC-v2, k=5, Q0, Q1 v1, Q2 v1, contexte c2 ; approfondissement : Q2 v1 c2 avec recherche dense)",
     "commit_ou_version_code": null
   },
-  "dernier_maj": "2026-10-23",
+  "dernier_maj": "2026-10-30",
   "approfondissement_recherche": {
     "statut": "approfondissement C.1, DEV seulement (notebook 4.3)",
     "modele_dense": "intfloat/multilingual-e5-small (sentence-transformers 5.1.2, CPU)",
     "methodes": [
       "dense texte",
       "dense section + texte",
-      "hybride RRF (top-20 BM25 REC-v2 + top-20 dense, constante 60)"
+      "hybride RRF (top-20 BM25 REC-v2 + top-20 dense, constante 60)",
+      "reclassement cross-encoder mmarco-mMiniLMv2-L12-H384-v1 (union top-20 BM25 + dense), essai non retenu"
     ],
-    "resultat_dev": "dense section + texte : Hit@5 0.938, Rappel@5 0.875, couverture 0.979 (BM25 REC-v2 : 0.875 / 0.781 / 0.823) ; RRF sans gain"
+    "resultat_dev": "dense section + texte : Hit@5 0.938, Rappel@5 0.875, couverture 0.979 (BM25 REC-v2 : 0.875 / 0.781 / 0.823) ; RRF sans gain",
+    "retenu": "dense section + texte, sans fusion ni reclassement ; comparé au socle sur TEST (Q2 v1 c2)"
   }
 }

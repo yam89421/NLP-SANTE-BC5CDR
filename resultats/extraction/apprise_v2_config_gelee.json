@@ -1,0 +1,47 @@
+{
+  "version": "APP-v2",
+  "modele": "dmis-lab/biobert-base-cased-v1.1",
+  "parametres": {
+    "batch_size": 8,
+    "weight_decay": 0.01,
+    "max_length": 512,
+    "entity_weight": 1.0,
+    "epochs": 10,
+    "warmup": 0.1
+  },
+  "taux_compares": [
+    3e-05,
+    5e-05
+  ],
+  "graines": [
+    42,
+    43
+  ],
+  "config_retenue": {
+    "learning_rate": 5e-05,
+    "epochs": 4,
+    "graine": 42,
+    "F1_validation_moyen": 0.892,
+    "regle": "meilleure moyenne, tolérance 0.005, moins d'époques"
+  },
+  "politique_decodage": "reparer",
+  "fenetres": "phrases entières, max_length sous-mots",
+  "alignement_sous_mots": "premier sous-mot supervisé (tals.aligner_sous_mots)",
+  "appareil": "GPU Tesla T4",
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.20.2"
+  },
+  "temps_s": {
+    "entrainement_10_epoques": 175.6,
+    "prediction_validation": 18.3,
+    "prediction_test": 19.2
+  },
+  "fenetres_par_partition": {
+    "train": 560,
+    "validation": 552,
+    "test": 563
+  },
+  "predictions_test": 10039,
+  "mode_rapide": false
+}

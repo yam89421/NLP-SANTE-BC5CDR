@@ -158,3 +158,20 @@ def fusion_rrf(classements: list[list[int]], k: int = 5, candidats: int = 20, co
             scores[i] += w / (constante + rang)
     ordre = sorted(scores, key=lambda i: (-scores[i], i))
     return [(i, scores[i]) for i in ordre[:k]]
+
+
+MODELE_RECLASSEUR = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"   # multilingue, 118 M paramètres
+
+
+class Reclasseur:
+    """Reclassement (cross-encoder) : le modèle lit la question et le passage ensemble et donne un score de
+    pertinence ; plus précis qu'un cosinus entre deux vecteurs, mais un calcul par paire (question, passage)."""
+
+    def __init__(self, modele: str = MODELE_RECLASSEUR, appareil: str = "cpu"):
+        from sentence_transformers import CrossEncoder
+        self.modele = CrossEncoder(modele, device=appareil, max_length=512)
+
+    def reclasser(self, question: str, candidats: list[int], textes: list[str]) -> list[int]:
+        """Candidats triés par score décroissant ; ex æquo : ordre du corpus."""
+        scores = self.modele.predict([(question, textes[i]) for i in candidats], batch_size=16)
+        return [i for _, i in sorted(zip(-scores, candidats))]

@@ -1,0 +1,65 @@
+{
+  "version": "APP-v3",
+  "modeles_compares": {
+    "PubMedBERT": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+    "BioLinkBERT": "michiyasunaga/BioLinkBERT-base"
+  },
+  "parametres": {
+    "learning_rate": 5e-05,
+    "batch_size": 8,
+    "weight_decay": 0.01,
+    "max_length": 512,
+    "entity_weight": 1.0,
+    "epochs": 10,
+    "warmup": 0.1
+  },
+  "graines": [
+    42,
+    43
+  ],
+  "choix_par_modele": {
+    "BioBERT": {
+      "epoques": 4.0,
+      "F1": 0.892,
+      "F1 Chemical": 0.9351,
+      "F1 Disease": 0.838,
+      "écart à BioBERT": 0.0
+    },
+    "BioLinkBERT": {
+      "epoques": 5.0,
+      "F1": 0.9056,
+      "F1 Chemical": 0.9484,
+      "F1 Disease": 0.8514,
+      "écart à BioBERT": 0.0136
+    },
+    "PubMedBERT": {
+      "epoques": 7.0,
+      "F1": 0.9112,
+      "F1 Chemical": 0.9514,
+      "F1 Disease": 0.8606,
+      "écart à BioBERT": 0.0192
+    }
+  },
+  "modele_fige": {
+    "nom": "PubMedBERT",
+    "chemin": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext",
+    "epochs": 7,
+    "graine": 42
+  },
+  "remplace_app_v2": true,
+  "regle": "époques : meilleure moyenne, tolérance 0.005, moins d'époques ; remplacement si gain > 0.005",
+  "politique_decodage": "reparer",
+  "tokenizer": "BertTokenizer, do_lower_case=True",
+  "appareil": "GPU Tesla T4",
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.20.2"
+  },
+  "temps_s": {
+    "entrainement_10_epoques": 173.7,
+    "prediction_validation": 16.3,
+    "prediction_test": 16.8
+  },
+  "predictions_test": 10163,
+  "mode_rapide": false
+}

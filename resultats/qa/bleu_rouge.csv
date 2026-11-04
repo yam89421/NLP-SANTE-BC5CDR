@@ -1,0 +1,5 @@
+,questions,BLEU,ROUGE-1,ROUGE-2,ROUGE-L,réponses vides,mots (médiane)
+Q0 (BM25),8,5.44,0.297,0.102,0.21,0,105.5
+Q1 v1 c2 (BM25),8,9.96,0.422,0.173,0.315,0,55.0
+Q2 v1 c2 (BM25),8,10.1,0.43,0.178,0.325,0,59.0
+"Q2 v1 c2 (dense, approfondissement)",8,13.99,0.455,0.222,0.354,0,63.0

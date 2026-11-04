@@ -17,3 +17,7 @@ __pycache__/
 
 # Archives de rendu
 *.zip
+
+# Modèles entraînés (≈ 430 Mo chacun, non joints au rendu)
+/modeles/
+CLAUDE.md
