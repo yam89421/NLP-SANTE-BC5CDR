@@ -1,21 +1,21 @@
 phrase_id,phrase,mention,positions,label,justification
-NEG001,The patient reported no headache after the first infusion.,headache,24-32,,
-NEG002,The patient reported a severe headache after the first infusion.,headache,30-38,,
-NEG003,"No fever was recorded, but the child developed a persistent cough.",fever,3-8,,
-NEG004,"No fever was recorded, but the child developed a persistent cough.",persistent cough,49-65,,
-NEG005,She experienced neither nausea nor vomiting during the treatment.,vomiting,35-43,,
-NEG006,She experienced nausea and vomiting during the treatment.,vomiting,27-35,,
-NEG007,"Examination revealed no rash, jaundice or edema, and mild hypertension was noted.",edema,42-47,,
-NEG008,"Examination revealed no rash, jaundice or edema, and mild hypertension was noted.",hypertension,58-70,,
-NEG009,Acute hepatitis was ruled out by liver biopsy.,Acute hepatitis,0-15,,
-NEG010,Acute hepatitis was confirmed by liver biopsy.,Acute hepatitis,0-15,,
-NEG011,Drug-induced lupus cannot be excluded at this stage.,Drug-induced lupus,0-18,,
-NEG012,Drug-induced lupus was excluded after serological testing.,Drug-induced lupus,0-18,,
-NEG013,There was no increase in seizure frequency after the dose change.,seizure,25-32,,
-NEG014,No seizures occurred after the dose change.,seizures,3-11,,
-NEG015,The normal ECG did not exclude myocardial ischemia.,myocardial ischemia,31-50,,
-NEG016,Myocardial ischemia was absent on the stress test.,Myocardial ischemia,0-19,,
-NEG017,"If neuropathy appears, the dose of cisplatin should be reduced.",neuropathy,3-13,,
-NEG018,Nerve conduction studies showed no evidence of neuropathy.,neuropathy,47-57,,
-NEG019,"The patient did not, despite the high cumulative dose of doxorubicin, develop cardiomyopathy.",cardiomyopathy,78-92,,
-NEG020,Cardiomyopathy developed despite the low cumulative dose of doxorubicin.,Cardiomyopathy,0-14,,
+NEG001,The patient reported no headache after the first infusion.,headache,24-32,nie,no avant la mention
+NEG002,The patient reported a severe headache after the first infusion.,headache,30-38,non_nie,aucun indice de negation
+NEG003,"No fever was recorded, but the child developed a persistent cough.",fever,3-8,nie,no avant la mention
+NEG004,"No fever was recorded, but the child developed a persistent cough.",persistent cough,49-65,non_nie,negation hors portee (but la ferme)
+NEG005,She experienced neither nausea nor vomiting during the treatment.,vomiting,35-43,nie,nor avant la mention
+NEG006,She experienced nausea and vomiting during the treatment.,vomiting,27-35,non_nie,aucun indice de negation
+NEG007,"Examination revealed no rash, jaundice or edema, and mild hypertension was noted.",edema,42-47,nie,no avant portee prolongee par or
+NEG008,"Examination revealed no rash, jaundice or edema, and mild hypertension was noted.",hypertension,58-70,non_nie,negation hors portee
+NEG009,Acute hepatitis was ruled out by liver biopsy.,Acute hepatitis,0-15,nie,ruled out
+NEG010,Acute hepatitis was confirmed by liver biopsy.,Acute hepatitis,0-15,non_nie,aucun indice de negation
+NEG011,Drug-induced lupus cannot be excluded at this stage.,Drug-induced lupus,0-18,non_nie,incertitude cannot be excluded
+NEG012,Drug-induced lupus was excluded after serological testing.,Drug-induced lupus,0-18,nie,excluded
+NEG013,There was no increase in seizure frequency after the dose change.,seizure,25-32,non_nie,la negation porte sur l'augmentation pas sur la mention
+NEG014,No seizures occurred after the dose change.,seizures,3-11,nie,no avant la mention
+NEG015,The normal ECG did not exclude myocardial ischemia.,myocardial ischemia,31-50,non_nie,incertitude did not exclude
+NEG016,Myocardial ischemia was absent on the stress test.,Myocardial ischemia,0-19,nie,absent
+NEG017,"If neuropathy appears, the dose of cisplatin should be reduced.",neuropathy,3-13,non_nie,condition (if)
+NEG018,Nerve conduction studies showed no evidence of neuropathy.,neuropathy,47-57,non_nie,hypothese no evidence of
+NEG019,"The patient did not, despite the high cumulative dose of doxorubicin, develop cardiomyopathy.",cardiomyopathy,78-92,nie,did not
+NEG020,Cardiomyopathy developed despite the low cumulative dose of doxorubicin.,Cardiomyopathy,0-14,non_nie,aucune negation sur la mention
