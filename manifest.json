@@ -19,40 +19,69 @@
       "seed": 42,
       "ratio": "500/500/500 documents",
       "identifiants_sauvegardes_dans": "data/partitions_extraction.csv"
-    }
+    },
+    "predictions_test": "data/predictions_extraction.jsonl : DIC-v3 et APP-v3, évaluées une seule fois sur TEST (notebook 5)"
   },
   "methode_dictionnaire": {
-    "description": "dictionnaire des formes annotées de TRAIN (src/dictionnaire.py, adapté de tals.regles.ExtracteurDictionnaire), réglé sur VALIDATION parmi 16 configurations",
+    "version": "DIC-v3 (notebook 2.3b_dictionnaire_regles_v3.ipynb, 2026-10-30) ; historique DIC-v1 → DIC-v3 dans RAPPORT.md",
+    "description": "dictionnaire des formes annotées de TRAIN (src/dictionnaire.py, adapté de tals.regles.ExtracteurDictionnaire), réglé sur VALIDATION parmi 16 configurations (DIC-v1), puis 5 règles de post-traitement (DIC-v2) et 4 ajouts (DIC-v3)",
     "config_retenue": {
       "casse": "insensible",
       "seuil_annotation": 0.3,
       "regex": true
     },
-    "nb_entrees": 2348,
-    "gestion_casse_variantes": "clés en minuscules NFC (casse insensible), texte original jamais modifié ; formes découpées avec le même tokeniseur que le texte ; type majoritaire pour une forme ambiguë",
+    "nb_entrees": 4303,
+    "gestion_casse_variantes": "clés en minuscules NFC (casse insensible), texte original jamais modifié ; formes découpées avec le même tokeniseur que le texte ; type majoritaire pour une forme ambiguë ; 1 928 variantes singulier/pluriel ajoutées (DIC-v3)",
     "priorite": "plus longue correspondance à un même point de départ, rejet des recouvrements ; regex de priorité inférieure",
-    "filtre": "forme gardée si son taux d'annotation dans TRAIN >= 0.3",
+    "filtre": "forme gardée si son taux d'annotation dans TRAIN >= 0.3, en ignorant les occurrences incluses dans une mention plus longue (filtre corrigé, DIC-v3)",
     "regles_regex": {
       "Chemical": "\\b[A-Za-z][a-z]{2,}(?:mycin|micin|cillin|cycline|azole|olol|pril|sartan|platin|statin|tidine|azepam|azolam|caine|profen|oxacin|vudine|navir|parin|semide|thiazide|triptyline|pramine|peridol|zodone|xetine|barbital)\\b",
       "Disease": "\\b[A-Za-z][a-z]{2,}(?:itis|emia|aemia|pathy|toxicity|algia|plegia|penia|cytosis|trophy|oma|uria)\\b"
     },
-    "fichiers": [
-      "resultats/extraction/dictionnaire.tsv",
-      "resultats/extraction/dictionnaire_config_gelee.json",
-      "resultats/extraction/dictionnaire_reglage_validation.csv"
+    "regles_post_traitement": [
+      "suffixes appris sur TRAIN (DIC-v2)",
+      "modificateurs à gauche des maladies (DIC-v2)",
+      "« X-induced » / « induced by X » → X Chemical (DIC-v2)",
+      "sigles définis « forme longue (SIGLE) » (DIC-v2)",
+      "retrait des prédictions en « anti- » (DIC-v2)",
+      "extension à droite par suites apprises sur TRAIN (DIC-v3)",
+      "propagation d'une forme retenue à ses autres occurrences dans le document (DIC-v3)"
     ],
-    "statut": "gelé le 2026-10-07"
+    "f1_validation": 0.7993,
+    "f1_test": 0.7978,
+    "fichiers": [
+      "resultats/extraction/dictionnaire_v3_config_gelee.json",
+      "resultats/extraction/dictionnaire_v3_effet_validation.csv",
+      "resultats/extraction/scores_dictionnaire_v3_validation.csv",
+      "resultats/extraction/predictions_dictionnaire_v3_test.jsonl"
+    ],
+    "statut": "figée le 2026-10-30 (DIC-v3)"
   },
   "methode_apprise": {
-    "type_modele": null,
-    "checkpoint_preentraine": null,
+    "version": "APP-v3 (notebook 2.4c_methode_apprise_v3.ipynb, Colab GPU T4, 2026-10-30) ; historique APP-v1 → APP-v3 dans RAPPORT.md",
+    "type_modele": "BERT fine-tuné en étiquetage de tokens (BIO), code src/apprise.py repris du TD NER",
+    "checkpoint_preentraine": "microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext (PubMedBERT)",
+    "modeles_compares": "BioBERT dmis-lab/biobert-base-cased-v1.1 (F1 val 0.892), BioLinkBERT michiyasunaga/BioLinkBERT-base (0.906), PubMedBERT (0.911) ; moyenne de 2 graines",
+    "tokenizer": "BertTokenizer, do_lower_case=True",
     "hyperparametres": {
-      "learning_rate": null,
-      "batch_size": null,
-      "epochs": null,
-      "seed": null
+      "learning_rate": 5e-05,
+      "batch_size": 8,
+      "epochs": 7,
+      "warmup": 0.1,
+      "weight_decay": 0.01,
+      "max_length": 512,
+      "seed": 42
     },
-    "config_retenue_sur_validation": null
+    "config_retenue_sur_validation": "PubMedBERT, 7 époques (meilleure moyenne des graines 42 et 43 sur 10 époques évaluées), remplace APP-v2 car gain > 0.005",
+    "f1_validation": 0.9119,
+    "f1_test": 0.8941,
+    "fichiers": [
+      "resultats/extraction/apprise_v3_config_gelee.json",
+      "resultats/extraction/apprise_v3_reglage_validation.csv",
+      "resultats/extraction/scores_apprise_v3_validation.csv",
+      "resultats/extraction/predictions_apprise_v3_test.jsonl"
+    ],
+    "statut": "figée le 2026-10-30 (APP-v3) ; poids du modèle sur le Drive, non versionnés"
   },
   "negation": {
     "regles_version": "v0 (src/negation.py, démarche NegEx du cours), retenue sans modification après le développement",
@@ -130,9 +159,10 @@
     "date_gel_qa": "2026-10-30",
     "statut": "gele",
     "configuration": "resultats/qa/qa_config_gelee.json (socle : BM25 REC-v2, k=5, Q0, Q1 v1, Q2 v1, contexte c2 ; approfondissement : Q2 v1 c2 avec recherche dense)",
-    "commit_ou_version_code": null
+    "commit_ou_version_code": null,
+    "evaluation_test_qa": "2026-11-01, une seule fois (notebook 5) ; sorties data/predictions_qa.jsonl et resultats/qa/predictions_llm_test_dense.jsonl"
   },
-  "dernier_maj": "2026-10-30",
+  "dernier_maj": "2026-11-04",
   "approfondissement_recherche": {
     "statut": "approfondissement C.1, DEV seulement (notebook 4.3)",
     "modele_dense": "intfloat/multilingual-e5-small (sentence-transformers 5.1.2, CPU)",

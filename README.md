@@ -19,15 +19,18 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 | Catégories retenues | Chemical, Disease | Deux catégories annotées du même corpus, ~5 000 et ~4 200 mentions en TRAIN |
 | Thème QA | Effets indésirables de la chimiothérapie et soins de support ; 10 documents INCa | Sources publiques, fiables, en français, sous licence ouverte |
 | Public visé (QA) | Patients traités par chimiothérapie et leurs proches | Documents INCa écrits pour ce public |
-| Modèle méthode apprise | *(à compléter)* | *(à compléter)* |
+| Méthode par dictionnaire | Dictionnaire des formes de TRAIN + regex + règles de post-traitement (DIC-v3) | Version figée après trois versions réglées sur VALIDATION |
+| Modèle méthode apprise | PubMedBERT (`microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext`), 7 époques (APP-v3) | Meilleur F1 VALIDATION (0,912) devant BioLinkBERT (0,906) et BioBERT (0,892), même recette d'entraînement |
 | LLM utilisé pour Q1/Q2 | `gpt-4.1-mini-2025-04-14` (API OpenAI), température 0, graine 42 | Version datée, génération déterministe, coût faible ; clé dans `.env` (non versionné) |
 | Recherche lexicale | BM25 du TD RAG (k1 = 1,5, b = 0,75) avec racinisation Snowball français, texte du passage indexé, top-5 | Méthode du cours ; prétraitement choisi sur DEV (REC-v2) |
+| Approfondissement QA | Recherche dense `intfloat/multilingual-e5-small` (titre de section + texte), top-5, comparée au BM25 avec Q2 | Modèle du TD RAG ; meilleur rappel sur DEV, à vérifier sur TEST |
 
 ## 3. Arborescence du dépôt
 
 ```
 .
 ├── README.md                          # ce fichier
+├── RAPPORT.md                         # historique des versions, configurations et scores
 ├── manifest.json                      # versions, modèle, prompts, paramètres, date du gel
 ├── requirements.txt                   # dépendances Python
 ├── CDR_Data/                          # corpus BC5CDR d'origine (PubTator, BioC), domaine public
@@ -35,16 +38,16 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 ├── tals/                              # paquet du cours, copié sans modification
 ├── data/
 │   ├── partitions_extraction.csv      # PMID -> partition (2.2)
-│   ├── corpus_extraction.jsonl        # corpus BC5CDR relu et vérifié (2.2)
-│   ├── bio_extraction.jsonl           # tokens, positions, étiquettes BIO (2.2)
+│   ├── corpus_extraction.jsonl/.csv   # corpus BC5CDR relu et vérifié (2.2)
+│   ├── bio_extraction.jsonl/.csv      # tokens, positions, étiquettes BIO (2.2)
 │   ├── sources_qa/                    # documents QA d'origine (INCa)
 │   ├── corpus.csv                     # catalogue des documents QA
 │   ├── passages.jsonl                 # passages QA découpés
 │   ├── questions_dev.jsonl            # 20 questions DEV annotées
 │   ├── questions_test.jsonl           # 10 questions TEST annotées
 │   ├── negation.jsonl                 # 20 phrases fictives de négation
-│   ├── predictions_extraction.jsonl   # sorties des 2 méthodes d'extraction sur TEST
-│   └── predictions_qa.jsonl           # sorties Q0/Q1/Q2
+│   ├── predictions_extraction.jsonl   # sorties des 2 méthodes figées (DIC-v3, APP-v3) sur TEST
+│   └── predictions_qa.jsonl           # sorties Q0/Q1/Q2 sur TEST
 ├── notebooks/                         # un notebook par section du livret, dans l'ordre d'exécution
 │   ├── 2.1_choisir_explorer_donnees.ipynb
 │   ├── 2.2_partitions_bio.ipynb
@@ -64,7 +67,7 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 │   ├── negation/                      # matrice de confusion, P/R/F1, erreurs commentées
 │   └── qa/                            # Hit@5, rappel@5, BLEU/ROUGE, grille manuelle
 ├── gabarits/                          # exemples fictifs illustrant chaque format
-└── rapport/                           # rapport final (8-12 pages hors annexes)
+└── rapport/                           # notes de cadrage et synthèses, puis rapport final (8-12 pages hors annexes)
 ```
 
 ## 4. Ordre d'exécution
@@ -76,7 +79,9 @@ Les notebooks portent le numéro de la section du livret qu'ils traitent.
 2. `2.2_partitions_bio.ipynb` — partitions officielles, doublons, sauvegarde des identifiants, convention
    BIO (mentions composites, aller-retour BIO, mentions hors frontière de token).
 3. `2.3_dictionnaire_regles.ipynb` — dictionnaire construit sur TRAIN, réglé sur VALIDATION, figé,
-   prédictions TEST.
+   prédictions TEST (DIC-v1, DIC-v2).
+   `2.3b_dictionnaire_regles_v3.ipynb` — DIC-v3 (version figée) : filtre corrigé, variantes singulier/pluriel,
+   extension à droite, propagation dans le document ; ne modifie pas le notebook 2.3.
 4. `2.4_methode_apprise.ipynb` — entraînement, réglage sur VALIDATION, comparaison, gel, prédictions TEST.
    `2.4b_methode_apprise_v2.ipynb` — APP-v2 (Colab GPU, ≈ 35 min) : 10 époques, warmup, 2 taux × 2 graines ; ne modifie pas APP-v1.
    `2.4c_methode_apprise_v3.ipynb` — APP-v3 (Colab GPU, ≈ 30 min) : PubMedBERT et BioLinkBERT-base avec la recette d'APP-v2, comparés à BioBERT.
@@ -86,7 +91,10 @@ Les notebooks portent le numéro de la section du livret qu'ils traitent.
    DEV/TEST (3.4).
 7. `4.1_recherche_lexicale_q0.ipynb` — BM25, top-5 passages, sortie Q0.
 8. `4.2_llm_q1_q2.ipynb` — prompts Q1/Q2, mêmes passages, mêmes paramètres.
-9. `5_evaluation.ipynb` — les 4 tableaux de mesures (5.1), interprétation (5.2), analyse d'erreurs (5.3).
+9. `4.3_recherche_hybride.ipynb` — approfondissement sur DEV : recherche dense, hybride (RRF) et reclassement
+   par cross-encoder (non retenu).
+10. `5_evaluation.ipynb` — évaluation unique sur TEST des versions figées : les 4 tableaux de mesures (5.1),
+   interprétation (5.2), analyse d'erreurs (5.3).
 
 ## 5. Installation
 
@@ -113,31 +121,31 @@ pip install -r requirements.txt
   des mentions au niveau du document.
 - `src/negation.py` : règles de négation à la manière de NegEx (Chapman et al., 2001), d'après le cours
   « Qualification et normalisation » (diapositives 6 à 9).
-- Modèle pré-entraîné : BioBERT `dmis-lab/biobert-base-cased-v1.1` (Lee et al., 2020), via Hugging Face.
+- Modèles pré-entraînés (Hugging Face) : PubMedBERT `microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext`
+  (Gu et al., 2021), modèle retenu ; comparés : BioBERT `dmis-lab/biobert-base-cased-v1.1` (Lee et al., 2020) et
+  BioLinkBERT `michiyasunaga/BioLinkBERT-base` (Yasunaga et al., 2022).
+- `src/qa_recherche.py` : BM25 et recherche dense repris du TD RAG du cours ; modèle d'embeddings
+  `intfloat/multilingual-e5-small` (Wang et al., 2024) ; cross-encoder `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`
+  (essai non retenu).
+- `src/qa_scores.py` : BLEU (sacrebleu) et ROUGE (rouge-score) selon l'annexe B.4 du guide.
 - Aide d'IA générative (Claude, Anthropic) : aide pour l'écriture du code, génération des 20 phrases
   fictives de négation (après le gel des règles).
 
 ## 7. Sorties produites
 
-- `data/predictions_extraction.jsonl` : prédictions des deux méthodes d'extraction sur TEST.
-- `data/predictions_qa.jsonl` : prédictions Q0/Q1/Q2 sur DEV puis TEST (réponses brutes conservées).
+- `data/predictions_extraction.jsonl` : prédictions des deux méthodes figées (DIC-v3, APP-v3) sur TEST.
+- `data/predictions_qa.jsonl` : prédictions Q0/Q1/Q2 sur TEST (réponses brutes conservées) ; prédictions DEV
+  dans `resultats/qa/`, variante Q2 avec recherche dense dans `resultats/qa/predictions_llm_test_dense.jsonl`.
 - `resultats/` : tableaux de scores et analyses manuelles (voir section 5 du livret).
 - Les calculs coûteux (entraînement du modèle appris, appels LLM) ont leurs sorties sauvegardées
   dans `resultats/` pour ne pas nécessiter de ré-exécution complète.
 
 ## 8. Partitions et gel
 
-- Extraction : partitions officielles si disponibles, sinon découpage par documents (ex. 70/15/15),
-  identifiants sauvegardés — voir `manifest.json`.
+- Extraction : partitions officielles de BC5CDR (Training / Development / Test = TRAIN / VALIDATION / TEST,
+  500 documents chacune), identifiants sauvegardés dans `data/partitions_extraction.csv`. Réglages sur
+  VALIDATION uniquement ; DIC-v3 et APP-v3 figées le 30/10/2026, puis évaluées une seule fois sur TEST.
 - QA : DEV (20 questions) sert exclusivement au réglage (découpage, recherche, prompts).
-  TEST (10 questions) est gelé le **06/11/2026** avec la configuration figée dans `manifest.json`,
-  puis exécuté une seule fois sans nouveau réglage.
-
-## 9. Calendrier du dépôt
-
-| Date | Jalon | Archive |
-|---|---|---|
-| xx/xx/xx | E (extraction + négation) | `AMARA_TOMAS_E.zip` |
-| xx/xx/xx | QA1 (corpus + questions + recherche sur DEV) | `AMARA_TOMAS_QA1.zip` |
-| xx/xx/xx | Gel des configurations QA | — |
-| xx/xx/xx | QA2 + soutenances (dépôt final) | `AMARA_TOMAS_final.zip` |
+  Configuration gelée le **30/10/2026** (`resultats/qa/qa_config_gelee.json`, résumée dans `manifest.json`),
+  puis TEST (10 questions) exécuté une seule fois le 01/11/2026, sans nouveau réglage.
+- Le détail des versions et des scores est dans `RAPPORT.md`.
