@@ -98,6 +98,7 @@ Les notebooks portent le numéro de la section du livret qu'ils traitent.
 
 ## 5. Installation
 
+
 ```bash
 python -m venv venv
 source venv/bin/activate          # Windows : venv\Scripts\activate
