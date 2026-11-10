@@ -38,7 +38,7 @@ Produits par `4.2_llm_q1_q2.ipynb` (DEV seulement) :
 - `predictions_llm_test_dense.jsonl` — Q2 v1 c2 sur TEST avec la recherche dense (approfondissement) ; Q0/Q1/Q2
   TEST sont dans `data/predictions_qa.jsonl`.
 - `grille_manuelle.csv` — 30 réponses TEST (10 questions × Q0/Q1/Q2) mélangées et anonymisées : jugements
-  individuels des deux membres + décision finale (exactitude, complétude, citations, abstentions) ;
+  notes d'un juge LLM sans contexte du projet, colonnes `_juge` (exactitude, complétude, citations, abstentions) ;
   `grille_correspondance.csv` donne la configuration de chaque réponse (à ouvrir après les jugements).
 - `erreurs_commentees.md` — passage manqué, réponse incomplète, affirmation non soutenue, absence
   d'information, désaccord score automatique / lecture humaine.

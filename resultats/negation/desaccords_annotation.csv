@@ -1,0 +1,6 @@
+phrase_id,phrase,mention,label_AMARA,label_TOMAS,label_final,resolution
+NEG007,"Examination revealed no rash, jaundice or edema, and mild hypertension was noted.",edema,nie,non_nie,nie,presence de negation
+NEG008,"Examination revealed no rash, jaundice or edema, and mild hypertension was noted.",hypertension,non_nie,nie,non_nie,portee fermee par « and »
+NEG010,Acute hepatitis was confirmed by liver biopsy.,Acute hepatitis,non_nie,nie,non_nie,absence de negation
+NEG013,There was no increase in seizure frequency after the dose change.,seizure,non_nie,nie,non_nie,variation qui est niee
+NEG018,Nerve conduction studies showed no evidence of neuropathy.,neuropathy,non_nie,nie,nie,« no evidence of »

@@ -1,0 +1,52 @@
+{
+ "77ba80c47ad55935094b695b4d26db417ce41b474cd21b7ee32f25f49f11089f": {
+  "texte": "Pour lutter contre les nausées pendant la chimiothérapie, plusieurs mesures peuvent être mises en place :\n\n1. Des alternatives proposées pendant la perfusion de chimiothérapie (DOC001_P087) :  \n   - Sucer des bonbons mentholés pour diminuer le goût désagréable parfois déclenché par la chimiothérapie.  \n   - Pratiquer des exercices de relaxation avant et pendant la perfusion.  \n   - Se distraire en regardant la télévision, écoutant la radio ou de la musique, jouant à des jeux de société, lisant ou discutant.\n\n2. Adapter son alimentation (DOC007_P006) :  \n   - Privilégier les aliments froids ou tièdes, moins odorants que les aliments chauds.  \n   - Éviter les aliments lourds, difficiles à digérer comme les aliments frits, gras ou épicés.  \n   - Manger ce qui fait plaisir et envie.  \n   - Faire plusieurs petits repas plutôt que deux repas longs.  \n   - Manger lentement pour faciliter la digestion.  \n   - Manger légèrement avant et après le traitement.  \n   - Boire plutôt avant ou après les repas que pendant.  \n   - Les boissons gazeuses fraîches, notamment à base de cola, peuvent parfois aider à diminuer les nausées.\n\nCes conseils peuvent contribuer à réduire la sensation de nausées pendant la chimiothérapie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_802f1283f8",
+  "fin": "stop",
+  "tokens_prompt": 874,
+  "tokens_reponse": 293,
+  "duree_secondes": 5.345
+ },
+ "62f0348cb4695d36d5557fe9cb2ea24ba17a3d554eb47b736c56cd19aed8433a": {
+  "texte": "La chute des cheveux commence généralement 15 jours à 3 semaines après la première perfusion de chimiothérapie ([DOC001_P105]) ou après la première séance de radiothérapie ([DOC004_P005]). Pour certaines chimiothérapies conventionnelles, la chute survient généralement 2 à 3 semaines après le début du traitement, parfois dès la première séance ([DOC004_P003]). Pour les thérapies ciblées et autres traitements comme l’immunothérapie ou l’hormonothérapie, la chute survient plus tardivement, après 3 à 4 mois de traitement ([DOC004_P004]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_802f1283f8",
+  "fin": "stop",
+  "tokens_prompt": 847,
+  "tokens_reponse": 122,
+  "duree_secondes": 2.563
+ },
+ "33725f92ddb1cfb76038bdd1a835bd753baa18ec421120fb10f67a55c8e797cc": {
+  "texte": "Contre les nausées pendant la chimiothérapie, plusieurs mesures peuvent être mises en place :\n\n- Sucer des bonbons mentholés diminue le goût désagréable parfois déclenché par la chimiothérapie [DOC001_P087].\n- Pratiquer des exercices de relaxation avant et pendant la perfusion de chimiothérapie, avec les conseils de l’infirmière [DOC001_P087].\n- Se distraire pendant la perfusion en regardant la télévision, écoutant la radio ou de la musique, jouant à des jeux de société, lisant ou discutant, ce qui peut diminuer la sensation de nausées [DOC001_P087].\n- Adapter son alimentation en privilégiant les aliments froids ou tièdes, moins odorants, éviter les aliments lourds, frits, gras ou épicés, manger plusieurs petits repas, manger lentement, manger légèrement avant et après le traitement, et boire plutôt avant ou après les repas [DOC007_P006].\n- Les boissons gazeuses fraîches, notamment à base de cola, aident parfois à diminuer les nausées [DOC007_P006].\n\nCes conseils combinés peuvent contribuer à réduire les nausées pendant la chimiothérapie.",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_9d881fade5",
+  "fin": "stop",
+  "tokens_prompt": 874,
+  "tokens_reponse": 251,
+  "duree_secondes": 3.339
+ },
+ "2fb568aeae0819808860f817bd7ebfa5193d5f52ea7391fdb74e030537996c26": {
+  "texte": "Les traitements contre les nausées et les vomissements sont des médicaments antiémétiques prescrits par le médecin [DOC005_P016]. De plus, des médicaments spécifiques permettent de diminuer les nausées ou vomissements liés à l’anxiété ou à des facteurs anticipatoires avant le traitement [DOC001_P086].",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_600e26b6f7",
+  "fin": "stop",
+  "tokens_prompt": 816,
+  "tokens_reponse": 66,
+  "duree_secondes": 1.479
+ },
+ "8f341c0426484cdc12e68b1709eceec89a7a3a748ae186a194cd3c6b8cf5077f": {
+  "texte": "Pour limiter la fatigue pendant la chimiothérapie, il est conseillé de demander de l’aide pour les tâches quotidiennes (courses, ménage), de favoriser des repas faciles à préparer et de mobiliser toute l’aide disponible. Par ailleurs, pratiquer une activité physique régulière, notamment via des programmes d’activité physique adaptée (APA), s’avère efficace pour lutter contre la fatigue ([DOC002_P025]).  \n\nDe plus, des soins et des conseils médicaux adaptés peuvent aider à limiter les effets indésirables de la chimiothérapie, dont la fatigue, afin d’améliorer la qualité de vie ([DOC003_P001]). Le médecin peut également proposer des traitements complémentaires et des conseils simples, notamment en matière d’hygiène et d’alimentation, pour mieux tolérer le traitement ([DOC001_P151]).",
+  "echec": null,
+  "modele_reponse": "gpt-4.1-mini-2025-04-14",
+  "system_fingerprint": "fp_65d23720a9",
+  "fin": "stop",
+  "tokens_prompt": 723,
+  "tokens_reponse": 161,
+  "duree_secondes": 3.276
+ }
+}

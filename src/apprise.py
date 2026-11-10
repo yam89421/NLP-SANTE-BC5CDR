@@ -138,3 +138,34 @@ class WeightedLossTrainer(Trainer):
         loss = CrossEntropyLoss(weight=poids, ignore_index=IGNORE)(
             logits.reshape(-1, model.config.num_labels), labels.reshape(-1))
         return (loss, outputs) if return_outputs else loss
+
+
+def entrainer(nom_modele, donnees_train, tokenizer, dossier, *, taux, epoques, graine, poids=1.0, warmup=0.1,
+              batch_size=8, weight_decay=0.01):
+    """Ajuste un BERT pré-entraîné sur TRAIN (recette d'APP-v2 / APP-v3, notebooks 2.4b et 2.4c).
+
+    Sauvegarde le modèle à la fin de chaque époque dans `dossier` et renvoie (points de sauvegarde, durée en s).
+    Prévu pour un GPU (Google Colab) : environ 3 à 4 min pour 10 époques sur une T4.
+    """
+    import math
+    import time
+    from pathlib import Path
+    from transformers import (BertForTokenClassification, DataCollatorForTokenClassification, TrainingArguments,
+                              set_seed)
+
+    set_seed(graine)
+    modele = BertForTokenClassification.from_pretrained(
+        nom_modele, num_labels=len(LABELS), id2label=dict(enumerate(LABELS)), label2id=LABEL2ID)
+    etapes = math.ceil(len(donnees_train) / batch_size) * epoques
+    args = TrainingArguments(
+        output_dir=str(dossier), save_strategy="epoch", save_only_model=True, eval_strategy="no",
+        logging_strategy="epoch", learning_rate=taux, per_device_train_batch_size=batch_size,
+        num_train_epochs=epoques, weight_decay=weight_decay, lr_scheduler_type="linear",
+        warmup_steps=int(warmup * etapes), fp16=torch.cuda.is_available(), report_to="none",
+        seed=graine, data_seed=graine, save_total_limit=None)
+    trainer = WeightedLossTrainer(model=modele, args=args, entity_weight=poids, train_dataset=donnees_train,
+                                  processing_class=tokenizer, data_collator=DataCollatorForTokenClassification(tokenizer))
+    debut = time.perf_counter()
+    trainer.train()
+    points = sorted(Path(dossier).glob("checkpoint-*"), key=lambda c: int(c.name.split("-")[1]))
+    return points, time.perf_counter() - debut

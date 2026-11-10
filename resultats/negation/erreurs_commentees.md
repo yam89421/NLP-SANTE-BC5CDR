@@ -1,8 +1,9 @@
 # Négation — erreurs et cas difficiles
 
 Règles `v0` (figées le 07/10/2026 à 16:40:40, avant la génération des phrases), évaluées une fois sur les
-10 mentions de test. Référence **provisoire** tant que la double annotation n'est pas faite : à relire après
-résolution des désaccords.
+10 mentions de test. Référence **finale** issue de la double annotation (06/11/2026 : kappa 0,51, 5 désaccords
+résolus ensemble dans `desaccords_annotation.csv`) ; elle est identique aux labels de génération, les erreurs
+ci-dessous restent donc valables.
 
 Résultat : 8 mentions correctes sur 10 ; F1 = 0,80 pour « niée » comme pour « non niée » ; moyenne des deux
 F1 = 0,80. Sur 10 exemples, une erreur fait varier le F1 d'environ 0,1 : ce jeu rédigé par ses auteurs est

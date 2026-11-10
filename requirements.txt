@@ -13,3 +13,4 @@ openai>=1.0
 python-dotenv>=1.0
 snowballstemmer>=2.2
 sentence-transformers>=5,<5.2   # transformers reste en 4.57.1 (BioBERT)
+streamlit>=1.30

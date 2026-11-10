@@ -61,13 +61,14 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 │   ├── 4.1_recherche_lexicale_q0.ipynb
 │   ├── 4.2_llm_q1_q2.ipynb
 │   ├── 4.3_recherche_hybride.ipynb      # approfondissement : recherche dense / hybride
+│   ├── 4.4_comparaison_mistral.ipynb    # mêmes prompts QA avec Mistral (DEV et TEST)
 │   └── 5_evaluation.ipynb
 ├── resultats/
 │   ├── extraction/                    # tableaux VP/FP/FN, P/R/F1, erreurs commentées
 │   ├── negation/                      # matrice de confusion, P/R/F1, erreurs commentées
 │   └── qa/                            # Hit@5, rappel@5, BLEU/ROUGE, grille manuelle
 ├── gabarits/                          # exemples fictifs illustrant chaque format
-└── rapport/                           # notes de cadrage et synthèses, puis rapport final (8-12 pages hors annexes)
+└── rapport/                           # rapport en 3 notebooks (1_extraction, 2_negation, 3_question_reponse) + notes de cadrage
 ```
 
 ## 4. Ordre d'exécution
@@ -95,6 +96,10 @@ Les notebooks portent le numéro de la section du livret qu'ils traitent.
    par cross-encoder (non retenu).
 10. `5_evaluation.ipynb` — évaluation unique sur TEST des versions figées : les 4 tableaux de mesures (5.1),
    interprétation (5.2), analyse d'erreurs (5.3).
+11. `4.4_comparaison_mistral.ipynb` — comparaison OpenAI / Mistral : tous les prompts QA (DEV, TEST, question libre)
+    renvoyés tels quels à `mistral-medium-2604` ; à exécuter après le notebook 5 (il relit ses prédictions TEST).
+    La section « Comparaison avec un second LLM » du notebook 5 relit à son tour les réponses Mistral : la relancer
+    après le notebook 4.4 (aucun nouvel appel, tout vient des fichiers).
 
 ## 5. Installation
 

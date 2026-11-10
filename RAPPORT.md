@@ -309,6 +309,18 @@ F1 VALIDATION global, moyenne des deux graines (`apprise_v3_reglage_validation.c
 - Score TEST **provisoire** (référence = labels de génération, double annotation en cours) : F1 « nié » 0,80, F1 « non nié » 0,80, moyenne 0,80 (matrice 4/1/1/4).
 - À faire : compléter `annotation_AMARA.csv` / `annotation_TOMAS.csv`, calculer le kappa et remplacer le score provisoire.
 
+### Double annotation (2026-11-06, notebook `2.5_negation.ipynb`)
+
+- Les deux feuilles sont complètes (`annotation_AMARA.csv`, `annotation_TOMAS.csv`, 20 mentions chacune). **Accord observé 0,75, kappa de Cohen 0,51** (accord modéré) ; 5 désaccords : NEG007, NEG008 (liste « no rash, jaundice or edema, and … »), NEG010 (« was confirmed »), NEG013 (« no increase in »), NEG018 (« no evidence of »). Les 15 accords sont tous égaux aux labels de génération.
+- Désaccords recopiés dans `resultats/negation/desaccords_annotation.csv` ; `label_final` et `resolution` sont à remplir ensemble. Tant qu'ils sont vides, la référence reste provisoire (labels de génération) et les scores NEG-v0 ci-dessus ne changent pas (matrice et scores régénérés à l'identique).
+
+### NEG-v0 — score TEST sur la référence finale (2026-11-06, notebooks `2.5_negation.ipynb` et `5_evaluation.ipynb`)
+
+- **Résolution des désaccords** (ensemble, `desaccords_annotation.csv`) : NEG007 `nie` (négation prolongée par « or »), NEG008 `non_nie` (portée fermée par « and »), NEG010 `non_nie` (aucune négation), NEG013 `non_nie` (c'est la hausse qui est niée), NEG018 `nie` (« no evidence of »). Guide d'annotation inchangé.
+- **Référence finale** = accords + décisions ci-dessus ; elle est identique aux labels de génération pour les 20 mentions (10 dev, 10 test, 5 de chaque label dans chaque ensemble).
+- **Score TEST final** des règles NEG-v0 (inchangées) : matrice 4 / 1 / 1 / 4 ; P = R = F1 = 0,80 pour « nié » et pour « non nié » ; moyenne des deux F1 = **0,80** ; développement : 10/10. Les erreurs commentées (NEG015 double négation, NEG019 portée longue) restent valables.
+- Fichiers : `resultats/negation/scores_par_classe.csv` (colonne `reference_provisoire` = False), `matrice_confusion.csv` et `predictions_test.csv` identiques ; `erreurs_commentees.md` et le tableau 2 du notebook 5 mis à jour.
+
 ---
 
 ## 6. Question-réponse (notebooks 3, 4.1, 4.2)
@@ -627,6 +639,68 @@ Cadrage : effets indésirables de la chimiothérapie / soins de support, documen
 - **Bilan provisoire** : sur TEST, Q2 dense obtient les meilleurs scores automatiques et les seules deux abstentions correctes, mais à rappel égal avec BM25 : il gagne Q025 et perd Q028 et une source de Q022. Q1 ne s'abstient jamais et fait une affirmation non soutenue (Q030). Le classement final Q0/Q1/Q2 attend la grille manuelle (B.5).
 - **À faire** : remplir `resultats/qa/grille_manuelle.csv` séparément (AMARA, TOMAS), arbitrer (`final_`), puis ouvrir `grille_correspondance.csv` ; erreurs commentées QA. Aucun réglage ne sera modifié à partir de ces résultats.
 
+### Test comparatif Q0 / Q1 / Q2 sur une question libre (2026-11-06, notebook `4.2_llm_q1_q2.ipynb`, fin)
+
+- Question hors DEV et TEST : « Dans le cancer du sein, dans quel cas doit-on avoir une chimio adjuvante, ou néoadjuvante ? ». Configuration figée relue dans `qa_config_gelee.json`, sans aucun réglage (BM25 REC-v2, 5 passages, Q0 / Q1 v1 / Q2 v1, contexte c2). 2 appels au LLM (Q1 806 + 73 tokens, Q2 890 + 104), ajoutés au cache ; aucune référence ni score, simple illustration.
+- **Passages** : DOC001_P023, DOC001_P008, DOC004_P001, DOC001_P004, DOC001_P020. Manquent DOC001_P019 (définition de la néoadjuvante) et DOC001_P021-P022 (facteurs de risque) ; « chimio » et « chimiothérapie » n'ont pas la même racine pour BM25.
+- **Réponses** : Q0 = DOC001_P023 entier (information présente mais noyée) ; Q1 et Q2 justes et cités (P023, P020), Q2 un peu plus complet (adjuvante quand elle réduit le risque de métastases). Limite commune : le corpus traite de la chimiothérapie en général, pas du cancer du sein, et ni Q1 ni Q2 ne le signale ; critères de décision absents des passages transmis.
+
+### LLM-v3 — essai après coup : nombre de passages transmis à Q2 (2026-11-06, notebook `4.2_llm_q1_q2.ipynb`, fin, DEV) — non retenu
+
+- **Question** : transmettre 3 ou 10 passages au lieu de 5 améliore-t-il les réponses ? Q2 v1, contexte c2, mêmes paramètres du LLM ; seule la longueur de la liste BM25 REC-v2 change (k = 3, 5, 10). **Fait après l'évaluation de TEST** : DEV seulement, configuration figée inchangée, TEST non relancé.
+- 40 nouveaux appels (k = 3 : 12 825 + 1 133 tokens ; k = 10 : 34 503 + 1 535), 0 échec ; k = 5 vient du cache et redonne exactement les réponses du gel (vérifié dans le notebook). BLEU/ROUGE calculés avec sacrebleu 2.6.0 et rouge-score 0.1.2, installés dans un dossier temporaire (absents des venvs locaux).
+- **Scores DEV** (16 questions avec réponse ; `resultats/qa/llm_dev_nb_passages.csv`) :
+
+| Passages transmis | Hit | Rappel | Couverture éléments | Abstentions correctes (/4) | Abstention sur question avec réponse (/16) | BLEU | ROUGE-1 | ROUGE-2 | ROUGE-L | Mots (médiane) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 3 | 0,750 | 0,625 | 0,677 | 4 | 3 | **16,71** | 0,398 | 0,205 | 0,314 | 45,5 |
+| **5 (gel)** | 0,875 | 0,781 | 0,823 | 4 | 2 | 16,16 | 0,453 | 0,231 | 0,360 | 48,5 |
+| 10 | 0,875 | **0,812** | 0,823 | 4 | 2 | 14,28 | **0,472** | **0,240** | **0,367** | 56 |
+
+- **k = 3** : les preuves de Q001 (2ᵉ source), Q008 et Q014, aux rangs 4-5, sortent du contexte. Q2 s'abstient à tort sur Q008 et Q014 et ne donne plus qu'une version pour Q001. Le BLEU monte un peu grâce à des réponses plus courtes.
+- **k = 10** : une seule preuve en plus (Q002, rang 9, réponse inchangée sur le fond) ; Q003 et Q010 un peu plus complètes. **Q016** : preuve toujours absente, mais Q2 répond au lieu de s'abstenir, avec des signes qui ne sont pas ceux d'une infection (affirmation non soutenue). Q010 : conseils contre les nausées (DOC001_P088) repris pour la diarrhée (aussi à k = 3). Contexte presque 2 fois plus long.
+- **Décision** : k = 5 conservé. Moins de passages fait perdre des preuves ; plus de passages ajoute surtout des passages hors sujet que Q2 utilise.
+- Fichiers : `resultats/qa/predictions_llm_dev_nb_passages.jsonl` (k = 3 et 10, champ `nb_passages`), `resultats/qa/llm_dev_nb_passages.csv`, réponses ajoutées à `cache_llm.json`.
+
+### LLM-MIS-v1 — comparaison OpenAI / Mistral sur toute la partie QA (2026-11-06, notebook `4.4_comparaison_mistral.ipynb`)
+
+- **Principe** : les 192 prompts envoyés à OpenAI (DEV : Q1/Q2 v1 c1, v1 c2, Q2 v2 c2, Q2 dense, essai k = 3 / 10 ; TEST : Q1, Q2, Q2 dense de la configuration figée ; question libre) sont relus dans les fichiers de prédictions et renvoyés **mot pour mot** à Mistral. Seul le modèle change : `mistral-medium-2604` (version datée, même gamme que gpt-4.1-mini), température 0, `random_seed` 42 (nom du paramètre de graine chez Mistral), 300 tokens. 192 appels, 0 échec, 0 réponse tronquée.
+- **Code** : `src/qa_llm.py`, `ClientLLM(..., fournisseur="mistral")` (même client OpenAI, adresse et clé `MISTRAL_API_KEY`) ; nouvelle tentative automatique en cas de limite de débit. Les requêtes OpenAI sont inchangées : leurs 30 réponses TEST reviennent du cache, à l'identique (vérifié).
+- **TEST** : la configuration figée n'est pas modifiée ; on compare deux LLM sans rien régler. Grille manuelle non refaite.
+- **Scores** (`resultats/qa/comparaison_openai_mistral.csv` ; BLEU 0-100, ROUGE-L 0-1, questions avec réponse) :
+
+| Expérience | OpenAI BLEU / ROUGE-L | Mistral BLEU / ROUGE-L | Abstentions correctes OpenAI / Mistral | Abstentions à tort OpenAI / Mistral | Mots (médiane) OpenAI / Mistral |
+|---|---|---|---|---|---|
+| DEV Q1 v1 c2 | 13,04 / 0,336 | 19,07 / 0,394 | 0/4 / 0/4 | 0 / 0 | 52 / 48 |
+| DEV Q2 v1 c2 (gel) | 16,16 / 0,360 | 20,56 / 0,374 | 4/4 / 4/4 | 2 / 1 | 48,5 / 31,5 |
+| DEV Q2 v2 c2 | 13,85 / 0,344 | 20,06 / 0,372 | 4/4 / 4/4 | 0 / 1 | 59 / 37,5 |
+| DEV Q2 v1 c2, dense | 14,12 / 0,377 | 16,47 / 0,377 | 4/4 / 4/4 | 1 / 0 | 60,5 / 44 |
+| DEV Q2 v1 c2, k = 3 | 16,71 / 0,314 | 14,83 / 0,325 | 4/4 / 4/4 | 3 / 4 | 45,5 / 29 |
+| DEV Q2 v1 c2, k = 10 | 14,28 / 0,367 | 18,86 / 0,366 | 4/4 / 4/4 | 2 / 1 | 56 / 31,5 |
+| TEST Q1 v1 c2 | 9,96 / 0,315 | 11,61 / 0,343 | 0/2 / 0/2 | 0 / 0 | 55 / 48,5 |
+| TEST Q2 v1 c2 | 10,10 / 0,325 | 11,66 / 0,359 | 1/2 / **2/2** | 0 / 0 | 59 / 39,5 |
+| TEST Q2 v1 c2, dense | 13,99 / 0,354 | **15,34 / 0,380** | 2/2 / 2/2 | 1 / 1 | 63 / 45 |
+
+  Q0 (sans LLM) : DEV 5,67 / 0,184, TEST 5,44 / 0,210. Aucune citation inventée chez les deux ; durée médiane ≈ 0,9 s (Mistral) contre 1,1-1,4 s (OpenAI).
+- **Lecture** : Mistral a des scores automatiques un peu meilleurs, en partie parce que ses réponses sont plus courtes. Les conclusions ne changent pas : les erreurs viennent surtout de la recherche, et les deux LLM se trompent aux mêmes endroits (Q025 avec BM25, divergence de Q022 non signalée, question libre sans réserve sur le cancer du sein). Différences notables : Mistral s'abstient correctement sur Q030 (Q2) et sur Q016 avec 10 passages (OpenAI y donnait une réponse non soutenue) ; il ne fait pas la généralisation « grippe » de Q024 en Q2 ni le calcul « 2 h 30 » de Q027 ; en revanche, il ajoute à Q025 (BM25) l'« anxiété », absente du passage transmis. Avec 3 passages, les deux perdent des preuves (Mistral : 4 abstentions à tort).
+- **Reproductibilité** : 5 prompts TEST renvoyés sans cache → 3 réponses identiques sur 5 malgré température 0 et graine fixe ; les sorties sont stables grâce au cache (`resultats/qa/cache_llm_mistral.json`).
+- Fichiers : `notebooks/4.4_comparaison_mistral.ipynb`, `resultats/qa/predictions_mistral.jsonl`, `resultats/qa/comparaison_openai_mistral.csv`, `resultats/qa/cache_llm_mistral.json`.
+
+### Grille de lecture QA sur TEST (2026-11-09, `resultats/qa/grille_manuelle.csv`)
+- **Méthode** : les 30 réponses TEST anonymisées (10 questions × Q0/Q1/Q2) ont été notées par un **juge LLM** (Claude, sous-agents sans aucun contexte du projet) et non par les deux membres. Chaque juge ne voyait qu'un fichier contenant, par réponse : question, présence d'une réponse dans les documents, référence, éléments attendus, texte des passages transmis et réponse ; ni la configuration (`grille_correspondance.csv`), ni les autres fichiers du projet. Échelle du notebook 5 (exactitude 0-2, complétude en éléments, citations soutenues / proposées, abstention).
+- Deux juges lancés séparément ont donné **exactement les mêmes notes (30/30 sur les quatre dimensions)**. Ce n'est pas un accord inter-annotateurs (même modèle, même consigne) : un seul jeu de notes est gardé (colonnes `_juge`, qui remplacent `_AMARA`, `_TOMAS` et `_final`).
+- **Résultats par configuration** (TEST) :
+
+| Configuration | Exactitude moyenne (0-2) | Complétude moyenne | Citations soutenues / proposées | Abstentions correctes / manquantes |
+|---|---|---|---|---|
+| Q0 | 1,4 | 0,42 | 10 / 10 | 0 / 2 |
+| Q1 | 1,4 | **0,83** | 23 / 25 | 1 / 1 |
+| Q2 | **1,7** | 0,76 | 18 / 19 | **2 / 0** |
+
+- **Lecture** : Q2 est la plus exacte et la seule à s'abstenir sur les deux questions sans réponse ; Q1 est un peu plus complète. Erreurs relevées : généralisation au vaccin contre la grippe (Q024), divergence des sources non signalée (Q022), passage manquant pour Q025 avec BM25, remboursement de l'acupuncture affirmé sans source (Q030, Q1).
+- **Choix du juge à relire** : une réponse qui recopie un passage juste mais hors sujet reçoit exactitude 1 (Q0 sur Q029/Q030) ou 0 (Q021, Q025) ; une réponse disant que l'information « n'est pas mentionnée », sans la phrase imposée, est comptée comme abstention correcte (Q030, Q2).
+- Fichiers : `resultats/qa/grille_manuelle.csv` (colonnes `_juge`), `notebooks/5_evaluation.ipynb` et `rapport/3_question_reponse.ipynb` (section 9) adaptés.
+
 ---
 
 ## 7. Journal
@@ -666,3 +740,12 @@ Cadrage : effets indésirables de la chimiothérapie / soins de support, documen
 | 2026-10-30 | APP-REC-v2 (essai) : union BM25 + dense reclassée par un cross-encoder multilingue ; Rappel@5 DEV inchangé (0,875), ≈ 2 s par question ; non retenu, la recherche dense seule reste l'approfondissement. |
 | 2026-10-30 | Gel QA : socle BM25 REC-v2 + Q0 / Q1 v1 / Q2 v1, contexte c2 ; approfondissement Q2 v1 c2 dense (`qa_config_gelee.json`). BLEU/ROUGE sur DEV (Q2 v1 c2 : BLEU 16,2, ROUGE-L 0,36) ; notebook 5 (tableaux 3, 4, grille) prêt, TEST à exécuter avec la clé. |
 | 2026-11-01 | Évaluation TEST du QA (notebook 5, une seule fois) : recherche BM25 Hit@5 0,875 / Rappel@5 0,771, dense 1,000 / 0,771 (avantage DEV non confirmé) ; BLEU Q0 5,4, Q1 10,0, Q2 10,1, Q2 dense 14,0 ; grille manuelle créée (30 réponses anonymisées). |
+| 2026-11-06 | Test comparatif Q0 / Q1 / Q2 sur une question libre (chimiothérapie adjuvante / néoadjuvante, cancer du sein), configuration figée : Q1 et Q2 justes et cités, aucun ne signale que le corpus ne parle pas du cancer du sein en particulier. |
+| 2026-11-06 | LLM-v3 (essai après coup, DEV) : Q2 avec 3 / 5 / 10 passages BM25 ; k = 3 perd Q008 et Q014 (abstentions à tort), k = 10 donne une réponse non soutenue sur Q016 ; ROUGE-L 0,31 / 0,36 / 0,37 ; k = 5 conservé, configuration figée inchangée. |
+| 2026-11-06 | Double annotation négation terminée (TOMAS) : accord 0,75, kappa 0,51, 5 désaccords dans `desaccords_annotation.csv`, résolution à faire ensemble ; référence encore provisoire. |
+| 2026-11-06 | Désaccords de négation résolus ensemble : référence finale identique aux labels de génération ; score TEST NEG-v0 final inchangé (moyenne des deux F1 = 0,80), tableau 2 du notebook 5 et erreurs commentées mis à jour. |
+| 2026-11-06 | LLM-MIS-v1 : les 192 prompts QA (DEV, TEST, question libre) renvoyés à `mistral-medium-2604` (notebook 4.4) ; TEST Q2 ROUGE-L 0,359 contre 0,325 (OpenAI), 2/2 abstentions correctes ; mêmes erreurs dues à la recherche ; configuration figée inchangée. |
+| 2026-11-06 | Notebook 5 : section « Comparaison avec un second LLM : Mistral (TEST) » après le tableau 4, qui relit les réponses de LLM-MIS-v1 (mêmes chiffres que le notebook 4.4, aucun nouvel appel). |
+| 2026-11-08 | Rapport rédigé en trois notebooks (`rapport/1_extraction.ipynb`, `2_negation.ipynb`, `3_question_reponse.ipynb`) : cheminement, résultats et interprétations ; scores recalculés à l'identique des versions figées, aucune méthode modifiée, aucun appel à l'API. |
+| 2026-11-09 | Grille de lecture QA (30 réponses TEST) notée par un juge LLM sans contexte du projet (deux juges indépendants, notes identiques, un seul jeu gardé : colonnes `_juge`) ; exactitude moyenne Q0 1,4, Q1 1,4, Q2 1,7. |
+| 2026-11-09 | Notebooks du rapport rendus autonomes : tout est recalculé depuis `CDR_Data/`, `data/sources_qa/`, les annotations et `src/` (APP-v3 rechargé et reprédit, LLM via le cache) ; résultats identiques aux versions figées (prédictions TEST extraction et QA identiques aux livrables). `src/dictionnaire_v3.py` : options pour retrouver DIC-v1/v2 et chaque ajout ; `src/apprise.py` : fonction `entrainer` ; `src/qa_llm.py` : texte des consignes `PROMPTS`. Aucune méthode modifiée. |
