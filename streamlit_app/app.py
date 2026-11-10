@@ -1,8 +1,13 @@
 from pathlib import Path
 import json
 import base64
+import sys
 import pandas as pd
 import streamlit as st
+
+# L'app est dans `streamlit_app/` (dépendances réduites pour Streamlit Cloud) ; le code partagé est à la racine
+RACINE = Path(__file__).resolve().parent.parent   # chemins absolus : l'app marche quel que soit le dossier de lancement
+sys.path.insert(0, str(RACINE))
 
 # Imports des modules locaux du dossier src
 from src.cdr import charger_jsonl
@@ -22,7 +27,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-RACINE = Path(__file__).resolve().parent   # chemins absolus : l'app marche quel que soit le dossier de lancement
 DATA_DIR = RACINE / "data"
 ASSETS_DIR = RACINE / "assets"
 LOGO_PATH = ASSETS_DIR / "ESIEE_Paris_logo.png"

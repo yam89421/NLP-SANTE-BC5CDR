@@ -110,6 +110,22 @@ source venv/bin/activate          # Windows : venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+**Application de démonstration** (`streamlit_app/`) : chatbot RAG, démo d'extraction (DIC-v3, APP-v3) avec
+négation, tableau des scores TEST.
+
+```bash
+streamlit run streamlit_app/app.py
+```
+
+- Déploiement sur Streamlit Community Cloud : fichier principal `streamlit_app/app.py`, Python 3.12.
+  Les dépendances sont lues dans `streamlit_app/requirements.txt` (version réduite, torch CPU).
+- DIC-v3 est reconstruite au démarrage à partir de TRAIN (`src/dictionnaire_v3.py`, mêmes prédictions TEST
+  que le notebook 2.3b).
+- Le modèle APP-v3 est lu dans `modeles/apprise_v3` s'il existe (non versionné), sinon téléchargé depuis
+  Hugging Face : https://huggingface.co/yam89421/app-v3-pubmedbert-bc5cdr.
+- La clé OpenAI est saisie dans l'application et reste dans la session ; sans clé, le chatbot affiche
+  seulement les passages trouvés.
+
 ## 6. Ressources reprises
 
 - `tals/` : copie non modifiée du paquet `Commun/tals` du cours (classe `Mention`, scoreur strict
