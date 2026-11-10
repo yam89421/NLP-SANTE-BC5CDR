@@ -117,7 +117,7 @@ négation, tableau des scores TEST.
 streamlit run streamlit_app/app.py
 ```
 
-- Déploiement sur Streamlit Community Cloud : fichier principal `streamlit_app/app.py`, Python 3.12.
+- Déploiement sur Streamlit Community Cloud : fichier principal `streamlit_app/app.py`, Python 3.12 à 3.14.
   Les dépendances sont lues dans `streamlit_app/requirements.txt` (version réduite, torch CPU).
 - DIC-v3 est reconstruite au démarrage à partir de TRAIN (`src/dictionnaire_v3.py`, mêmes prédictions TEST
   que le notebook 2.3b).

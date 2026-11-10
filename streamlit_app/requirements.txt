@@ -1,12 +1,13 @@
 # Dépendances de l'application Streamlit seule (Streamlit Community Cloud lit ce fichier, à côté de app.py).
 # Le projet complet (notebooks, entraînement) utilise le requirements.txt de la racine.
-# torch en version CPU (Streamlit Cloud : Linux, Python 3.12) : évite les ≈ 2 Go de bibliothèques CUDA inutiles.
-# Lien direct plutôt qu'un index supplémentaire, que l'installeur de Streamlit Cloud (uv) gère mal.
-torch @ https://download.pytorch.org/whl/cpu/torch-2.6.0%2Bcpu-cp312-cp312-linux_x86_64.whl ; sys_platform == "linux" and python_version == "3.12"
-torch==2.6.0 ; sys_platform != "linux" or python_version != "3.12"
+# torch en version CPU : évite les ≈ 2 Go de bibliothèques CUDA inutiles (pas de GPU sur Streamlit Cloud).
+# Les fichiers CPU (« 2.9.1+cpu ») sont ajoutés comme source ; à numéro égal, l'installeur les préfère.
+# Valable pour Python 3.12 à 3.14.
+--find-links https://download.pytorch.org/whl/cpu/torch/
+torch==2.9.1
 streamlit==1.67.0
 pandas==3.0.6
-numpy==2.3.1
+numpy>=2.3.1
 jinja2==3.1.6                  # mise en forme des tableaux (pandas Styler)
 transformers==4.57.1           # PubMedBERT (APP-v3) ; même version que pour l'évaluation
 huggingface_hub==0.36.2        # téléchargement du modèle APP-v3
