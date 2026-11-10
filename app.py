@@ -27,7 +27,8 @@ DATA_DIR = RACINE / "data"
 ASSETS_DIR = RACINE / "assets"
 LOGO_PATH = ASSETS_DIR / "ESIEE_Paris_logo.png"
 PASSAGES_PATH = DATA_DIR / "passages.jsonl"
-MODELE_APP_V3 = RACINE / "modeles" / "apprise_v3"   # copié depuis le Drive (notebook 2.4c), non versionné
+MODELE_APP_V3 = RACINE / "modeles" / "apprise_v3"   # copie locale (notebook 2.4c), non versionnée
+DEPOT_HF_APP_V3 = "yam89421/app-v3-pubmedbert-bc5cdr"   # sinon téléchargé depuis Hugging Face (app déployée)
 RESULTATS = RACINE / "resultats"
 # Cache à part : les prompts de l'app diffèrent de ceux des notebooks, on ne mélange pas avec l'évaluation
 CACHE_LLM_PATH = RACINE / "resultats" / "qa" / "cache_llm_app.json"
@@ -63,7 +64,7 @@ TRADUCTIONS = {
         "ner_input_label": "Texte médical (Anglais) :",
         "ner_button": "Exécuter la détection",
         "ner_no_res": "Aucune entité détectée.",
-        "ner_no_model": "Modèle APP-v3 introuvable : copier le dossier `modeles/apprise_v3` du Drive dans le projet.",
+        "ner_no_model": f"Modèle APP-v3 introuvable : ni dossier `modeles/apprise_v3`, ni dépôt Hugging Face `{DEPOT_HF_APP_V3}` accessible.",
         "metrics_title": "Évaluation et Métriques du Projet",
         "metrics_subtitle": "Scores sur TEST (BC5CDR : 500 résumés ; QA INCa : 8 questions), versions figées, lus dans `resultats/`.",
         "metrics_ner_f1": "F1 extraction (APP-v3, PubMedBERT)",
@@ -111,7 +112,7 @@ TRADUCTIONS = {
         "ner_input_label": "Medical Text (English):",
         "ner_button": "Run Detection",
         "ner_no_res": "No entities detected.",
-        "ner_no_model": "APP-v3 model not found: copy the `modeles/apprise_v3` folder from the Drive into the project.",
+        "ner_no_model": f"APP-v3 model not found: no `modeles/apprise_v3` folder and Hugging Face repo `{DEPOT_HF_APP_V3}` not reachable.",
         "metrics_title": "Project Evaluation & Metrics",
         "metrics_subtitle": "TEST scores (BC5CDR: 500 abstracts; INCa QA: 8 questions), frozen versions, read from `resultats/`.",
         "metrics_ner_f1": "Extraction F1 (APP-v3, PubMedBERT)",
@@ -283,13 +284,18 @@ def charger_dictionnaire_ner():
 
 @st.cache_resource
 def charger_app_v3():
-    """Modèle APP-v3 figé (PubMedBERT ajusté) ; None si le dossier n'a pas été récupéré du Drive."""
-    if not (MODELE_APP_V3 / "config.json").exists():
-        return None
+    """Modèle APP-v3 figé (PubMedBERT ajusté) : copie locale, sinon Hugging Face ; None si aucun des deux."""
+    dossier = MODELE_APP_V3
+    if not (dossier / "config.json").exists():
+        try:
+            from huggingface_hub import snapshot_download
+            dossier = Path(snapshot_download(DEPOT_HF_APP_V3))   # ≈ 430 Mo, gardé en cache ensuite
+        except Exception:
+            return None
     from transformers import BertForTokenClassification, BertTokenizerFast
     # Version rapide (word_ids) : c'est ce que `BertTokenizer` donnait sous transformers 5 sur Colab
-    tok = BertTokenizerFast.from_pretrained(MODELE_APP_V3, do_lower_case=True)
-    modele = BertForTokenClassification.from_pretrained(MODELE_APP_V3)
+    tok = BertTokenizerFast.from_pretrained(dossier, do_lower_case=True)
+    modele = BertForTokenClassification.from_pretrained(dossier)
     return tok, modele
 
 
