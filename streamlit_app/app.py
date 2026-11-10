@@ -16,7 +16,7 @@ from src.negation import detecter
 from src.apprise import construire_fenetres, predire
 from tals import tokeniser_avec_offsets
 from src.qa_recherche import construire_bm25, scores_bm25, premiers, IndexDense
-from src.qa_llm import ClientLLM, formater_passages, ABSTENTION
+from src.qa_llm import ClientLLM, formater_passages, ABSTENTION, FOURNISSEURS
 
 # -----------------------------------------------------------------------------
 # Configuration de la page Streamlit
@@ -84,9 +84,9 @@ TRADUCTIONS = {
         "metrics_rag_intro": "Pour chacune des 8 questions de TEST, on regarde si les 5 premiers passages renvoyés contiennent les preuves attendues. **Hit@5** : part des questions avec au moins une preuve parmi les 5. **Rappel@5** : part des preuves retrouvées. BM25 compare les mots (ramenés à leur racine) ; la recherche dense (E5) compare le sens des phrases.",
         "metrics_gen_intro": "Les réponses produites sont comparées aux réponses de référence rédigées à la main. **Q0** : premier passage BM25 recopié tel quel ; **Q1** : LLM avec une consigne simple ; **Q2** : LLM avec une consigne stricte (s'appuyer sur les seuls passages, citer leurs identifiants, dire quand l'information manque). BLEU (0 à 100) et ROUGE (0 à 1) comptent les mots en commun : ils servent à comparer les configurations, pas à juger seuls si une réponse est correcte.",
         "github_btn": "Voir le code source",
-        "api_key_label": "Clé API OpenAI",
+        "api_key_label": "Clé API Mistral",
         "api_key_aide": "Utilisée seulement pendant cette session, jamais enregistrée.",
-        "qa_sans_cle": "Renseigner une clé API OpenAI dans la barre latérale pour obtenir une réponse générée. Passages trouvés :",
+        "qa_sans_cle": "Renseigner une clé API Mistral dans la barre latérale pour obtenir une réponse générée. Passages trouvés :",
         "qa_echec": "Appel au LLM impossible (vérifier la clé API)",
     },
     "English": {
@@ -132,9 +132,9 @@ TRADUCTIONS = {
         "metrics_rag_intro": "For each of the 8 TEST questions, we check whether the top 5 returned passages contain the expected evidence. **Hit@5**: share of questions with at least one piece of evidence in the top 5. **Recall@5**: share of evidence found. BM25 compares words (reduced to their stem); dense retrieval (E5) compares sentence meaning.",
         "metrics_gen_intro": "Generated answers are compared to hand-written reference answers. **Q0**: first BM25 passage copied as is; **Q1**: LLM with a simple instruction; **Q2**: LLM with a strict instruction (rely only on the passages, cite their IDs, say when information is missing). BLEU (0 to 100) and ROUGE (0 to 1) count shared words: they compare configurations but do not, on their own, tell whether an answer is correct.",
         "github_btn": "View Source Code",
-        "api_key_label": "OpenAI API key",
+        "api_key_label": "Mistral API key",
         "api_key_aide": "Used only during this session, never stored.",
-        "qa_sans_cle": "Enter an OpenAI API key in the sidebar to get a generated answer. Retrieved passages:",
+        "qa_sans_cle": "Enter a Mistral API key in the sidebar to get a generated answer. Retrieved passages:",
         "qa_echec": "LLM call failed (check the API key)",
     }
 }
@@ -460,15 +460,17 @@ elif choix_menu == txt["nav_qa"]:
                 try:
                     if not cle_api:
                         raise LookupError
-                    client_llm = ClientLLM(
-                        modele="gpt-4.1-mini-2025-04-14",
+                    client_llm = ClientLLM(   # Mistral, modèle de la comparaison LLM-MIS-v1 (notebook 4.4)
+                        modele="mistral-medium-2604",
                         temperature=0.0,
                         seed=42,
                         max_tokens=500,
-                        chemin_cache=CACHE_LLM_PATH
+                        chemin_cache=CACHE_LLM_PATH,
+                        fournisseur="mistral",
                     )
                     from openai import OpenAI
-                    client_llm._client = OpenAI(api_key=cle_api)   # remplace la lecture du .env
+                    # API Mistral au format OpenAI ; la clé saisie remplace la lecture du .env
+                    client_llm._client = OpenAI(api_key=cle_api, base_url=FOURNISSEURS["mistral"][1])
                     res = client_llm.generer(prompt_systeme)
                     if res.get("echec"):   # generer ne lève pas d'exception : l'échec est dans le résultat
                         raise RuntimeError(res["echec"])
