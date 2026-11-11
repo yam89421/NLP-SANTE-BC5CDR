@@ -1,0 +1,53 @@
+{
+  "version": "DIC-v4",
+  "base": "DIC-v3 (notebook 2.3b), reproduite à l'identique",
+  "config": {
+    "casse": "insensible",
+    "seuil_annotation": 0.3,
+    "regex": true
+  },
+  "lexique": "MeSH 2026 (NLM), descripteurs C, F03, D + concepts supplémentaires classes 1 et 3",
+  "variante": "+ filtre par branche (niveau 2, « D12.776 »)",
+  "options": {
+    "niveau_branches": 2
+  },
+  "termes_mesh_ajoutes": 443740,
+  "termes_mesh_retires": 148,
+  "branches_ecartees": [
+    "C26",
+    "C26.844",
+    "D01.045",
+    "D01.496",
+    "D01.786",
+    "D01.875",
+    "D05.500",
+    "D06.347",
+    "D08.244",
+    "D08.811",
+    "D10",
+    "D10.627",
+    "D12.776",
+    "D13.444",
+    "D20.280",
+    "D23.063",
+    "D23.101",
+    "D23.529",
+    "D26",
+    "D26.255",
+    "D26.776",
+    "D27.505",
+    "D27.720",
+    "D27.888",
+    "E01.370",
+    "E05.041",
+    "G07.100",
+    "N06.230",
+    "N06.850"
+  ],
+  "entrees": 448043,
+  "temps_s": {
+    "extraction_validation": 2.79,
+    "extraction_test": 2.78
+  },
+  "predictions_test": 9550
+}

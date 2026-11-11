@@ -21,3 +21,6 @@ __pycache__/
 # Modèles entraînés (≈ 430 Mo chacun, non joints au rendu)
 /modeles/
 CLAUDE.md
+
+# Lexique MeSH (téléchargé par src/mesh.py, ≈ 70 Mo)
+/data/mesh/

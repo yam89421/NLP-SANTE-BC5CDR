@@ -17,10 +17,13 @@ restituer à la fin des résultats comparatifs. Il est mis à jour à chaque mod
 |---|---|---|---|---|---|---|---|---|---|---|
 | DIC-v1 | Dictionnaire TRAIN + regex manuelles | ≤ 2026-10-11 | 0,8835 | 0,6438 | 0,7449 | 0,7715 | 0,7127 | 1,4 s | — | remplacée |
 | DIC-v2 | DIC-v1 + 5 règles de post-traitement | 2026-10-16 | 0,8889 | 0,7128 | **0,7912** | 0,8289 | 0,7434 | 1,2 s | non évaluée (remplacée avant le test) | remplacée |
-| DIC-v3 | DIC-v2 + filtre corrigé, variantes singulier/pluriel, extension à droite, propagation dans le document | 2026-10-30 | 0,8811 | 0,7314 | **0,7993** | 0,8333 | 0,7569 | 4,0 s | **0,7978** | **figée (actuelle)** |
+| DIC-v3 | DIC-v2 + filtre corrigé, variantes singulier/pluriel, extension à droite, propagation dans le document | 2026-10-30 | 0,8811 | 0,7314 | **0,7993** | 0,8333 | 0,7569 | 4,0 s | 0,7978 | remplacée par DIC-v4 (2026-11-11) |
+| DIC-v4 | DIC-v3 + lexique MeSH 2026, filtré par branche et par terme sur TRAIN | 2026-11-11 | 0,9032 | 0,8669 | **0,8847** | 0,9174 | 0,8424 | 2,8 s (+ 25 s de construction) | **0,8890** | **figée (actuelle)** |
 | APP-v1 | BioBERT fine-tuné (BIO) | ≤ 2026-10-11 | 0,8533 | 0,8558 | **0,8546** | 0,9128 | 0,7813 | 18,0 s (GPU T4) | non évaluée (remplacée avant le test) | remplacée |
 | APP-v2 | BioBERT, 10 époques + warmup, taux 5e-5, 4 époques retenues | 2026-10-30 | 0,8886 | 0,8973 | **0,8929** | 0,9358 | 0,8392 | 18,3 s (GPU T4) | non évaluée (remplacée avant le test) | remplacée |
 | APP-v3 | PubMedBERT, recette d'APP-v2, 7 époques | 2026-10-30 | 0,9042 | 0,9197 | **0,9119** | 0,9532 | 0,8598 | 16,4 s (GPU T4) | **0,8941** | **figée (actuelle)** |
+| HYB-v1 | Combinaison APP-v3 + DIC-v3 (meilleure variante : ajout des mentions DIC sans chevauchement) | 2026-11-10 | 0,8894 | 0,9277 | **0,9081** | — | — | (prédictions existantes) | non évaluée (essai non retenu) | non retenue |
+| HYB-v2 | Combinaison APP-v3 + DIC-v4 (meilleure variante : ajout des mentions DIC sans chevauchement) | 2026-11-11 | 0,8807 | 0,9296 | **0,9045** | — | — | (prédictions existantes) | non évaluée (essai non retenu) | non retenue |
 
 > `resultats/extraction/comparaison_validation.csv` recalculé le 2026-10-23 avec DIC-v2 et APP-v1 (prédictions sauvegardées, sans réentraîner BioBERT). Les sorties affichées dans le notebook 2.4 montrent encore DIC-v1.
 
@@ -30,6 +33,7 @@ restituer à la fin des résultats comparatifs. Il est mis à jour à chaque mod
 |---|---|---|---|---|---|
 | DIC-v2 | 6 836 | 576 | 8 | 2 171 | 270 |
 | DIC-v3 | 7 015 | 627 | 8 | 1 941 | 312 |
+| DIC-v4 | 8 314 | 437 | 8 | 832 | 446 |
 | APP-v1 | 8 208 | 631 | 11 | 741 | 769 |
 | APP-v2 | 8 606 | 489 | 14 | 482 | 576 |
 | APP-v3 | 8 821 | 432 | 4 | 334 | 499 |
@@ -52,6 +56,19 @@ restituer à la fin des résultats comparatifs. Il est mis à jour à chaque mod
 - **Comparaison** : la méthode apprise dépasse le dictionnaire de 9,6 points de F1, essentiellement par le rappel (0,910 contre 0,736) ; leur précision est proche (0,879 contre 0,871). Le dictionnaire est 5 fois plus rapide et tourne sans GPU.
 - `data/predictions_extraction.jsonl` : sorties TEST des deux méthodes au format du guide (2 000 lignes).
 
+**Évaluation TEST de DIC-v4 (2026-11-11, `5_evaluation.ipynb`, tableau 1, évaluée une seule fois)** — DIC-v4 remplace DIC-v3 comme méthode par dictionnaire figée ; `scores_test.csv` et `data/predictions_extraction.jsonl` contiennent désormais DIC-v4 et APP-v3 (lignes APP-v3 inchangées).
+
+| Méthode | Catégorie | VP | FP | FN | P | R | F1 TEST | F1 VALIDATION | Temps TEST |
+|---|---|---|---|---|---|---|---|---|---|
+| DIC-v4 | Chemical | 4 956 | 396 | 429 | 0,9260 | 0,9203 | 0,9232 | 0,9174 | |
+| DIC-v4 | Disease | 3 649 | 549 | 775 | 0,8692 | 0,8248 | 0,8464 | 0,8424 | |
+| DIC-v4 | **global** | 8 605 | 945 | 1 204 | 0,9010 | 0,8773 | **0,8890** | 0,8847 | 2,9 s (CPU) |
+
+- Erreurs TEST DIC-v4 : 471 frontières, 2 types, 731 manquées, 472 parasites (DIC-v3 : 695 / 7 / 1 887 / 368).
+- **Écart VALIDATION → TEST** : +0,0043 (stable, comme DIC-v3) : le choix de la variante sur VALIDATION n'a pas créé d'optimisme visible.
+- **Comparaison** : l'écart avec la méthode apprise passe de 9,6 à **0,5 point** (0,889 contre 0,894). DIC-v4 est plus précise (0,901 contre 0,879) mais rappelle moins (0,877 contre 0,910) ; en Chemical elle fait jeu égal (0,923 contre 0,928), en Disease elle reste 0,6 point sous APP-v3 (0,846 contre 0,853). Elle reste 6 fois plus rapide et sans GPU, mais demande ≈ 1,3 Go de mémoire.
+- **Prudence** : MeSH est la ressource qui sert à normaliser les annotations de BC5CDR, et des fiches supplémentaires de MeSH sont créées lors de l'indexation des articles PubMed qui citent une nouvelle substance ; la version 2026 peut donc contenir des noms introduits à partir des résumés du corpus eux-mêmes (y compris TEST). tmChem et DNorm s'appuyaient aussi sur MeSH (versions de 2013-2015).
+
 ### Comparaison avec l'état de l'art sur BC5CDR (2026-10-30)
 
 **A. Références directement comparables : mesurées avec notre scoreur, sur notre TEST** (`resultats/extraction/scores_test_references_officielles.csv`)
@@ -61,11 +78,13 @@ Le corpus distribué (`CDR_Data/`) contient les prédictions sur TEST des deux o
 | Système (TEST) | P | R | F1 Chemical | F1 Disease | **F1 global** |
 |---|---|---|---|---|---|
 | DIC-v3 (dictionnaire + règles, ce projet) | 0,871 | 0,736 | 0,828 | 0,762 | **0,798** |
+| DIC-v4 (DIC-v3 + lexique MeSH, ce projet, 2026-11-11) | 0,901 | 0,877 | 0,923 | 0,846 | **0,889** |
 | tmChem + DNorm (outils officiels, 2013-2015) | 0,888 | 0,849 | 0,922 | 0,802 | **0,868** |
 | APP-v3 (PubMedBERT, ce projet) | 0,879 | 0,910 | 0,928 | 0,853 | **0,894** |
 
 - Notre dictionnaire reste 7 points sous les outils officiels, surtout en Chemical (0,828 contre 0,922) : tmChem s'appuie sur de grands lexiques chimiques externes et un CRF, alors que notre dictionnaire est limité aux formes de TRAIN (choix imposé par le livret, section 2.3).
 - PubMedBERT dépasse les outils officiels de 2,6 points, surtout en Disease (+5,0) ; en Chemical, l'écart est faible (+0,6), tmChem étant déjà très précis (0,947).
+- **Avec MeSH (DIC-v4, 2026-11-11)**, le dictionnaire dépasse les outils officiels de 2,1 points : à égalité en Chemical (0,923 contre 0,922), +4,4 points en Disease (0,846 contre 0,802), le filtrage appris sur TRAIN adaptant le lexique aux conventions de BC5CDR. L'écart de DIC-v3 venait donc bien du vocabulaire.
 
 **B. Résultats publiés pour les modèles du type de notre méthode apprise** (F1 entité, TEST BC5CDR, autres implémentations)
 
@@ -108,6 +127,8 @@ Le corpus distribué (`CDR_Data/`) contient les prédictions sur TEST des deux o
 Notre projet couvre les deux extrêmes : DIC-v3 reprend le principe « lexique + règles » de 2015 sans CRF ni lexique externe ; APP-v3 suit la recette standard actuelle (BLURB), d'où des scores proches des publications.
 
 **Conclusion** : APP-v3 atteint le niveau publié pour son modèle (à moins d'un point) avec un protocole plus contraint (un seul modèle, une graine, réglage limité) ; DIC-v3 se situe sous les outils officiels de 2015, l'écart venant du vocabulaire (formes absentes de TRAIN), que le livret ne permet pas de compléter par un lexique externe.
+
+**Mise à jour (2026-11-11)** : l'ajout du lexique MeSH ayant été validé par l'enseignant, DIC-v4 (0,889) dépasse les outils officiels (0,868) et arrive à 0,5 point d'APP-v3 (0,894).
 
 **Sources** : [Wei et al. 2016, *Database*, overview BioCreative V CDR](https://academic.oup.com/database/article/doi/10.1093/database/baw032/2630271) ; [Li et al. 2016, corpus BC5CDR](https://academic.oup.com/database/article/doi/10.1093/database/baw068/2630414) ; `CDR_Data/README.txt` (tmChem, DNorm) ; [Lee et al. 2020, BioBERT, *Bioinformatics*](https://pmc.ncbi.nlm.nih.gov/articles/PMC7703786/) ; [Gu et al. 2021, PubMedBERT / BLURB](https://arxiv.org/pdf/2007.15779) ; [classement BLURB](https://microsoft.github.io/BLURB/tasks.html) ; [Beltagy et al. 2019, SciBERT](https://arxiv.org/pdf/1903.10676) ; [Yasunaga et al. 2022, LinkBERT](https://aclanthology.org/2022.acl-long.551.pdf) ; [scispaCy](https://allenai.github.io/scispacy/) ; [OpenMed NER 2025](https://arxiv.org/html/2508.01630v1) ; [Chen et al., benchmark des LLM en TAL biomédical](https://pmc.ncbi.nlm.nih.gov/articles/PMC12478438/) ; [Jahan et al. 2024, *Computers in Biology and Medicine*](https://www.sciencedirect.com/science/article/pii/S0010482524002737).
 
@@ -216,6 +237,48 @@ Cinq règles appliquées après DIC-v1, dans cet ordre (code dans le notebook, `
 - Score VALIDATION légèrement optimiste (réglages de DIC-v2 et choix des ajouts faits sur VALIDATION) : seul TEST juge.
 - Fichiers : `dictionnaire_v3_effet_validation.csv`, `scores_dictionnaire_v3_validation.csv`, `predictions_dictionnaire_v3_validation.jsonl`, `predictions_dictionnaire_v3_test.jsonl` (8 290 prédictions), `dictionnaire_v3_config_gelee.json`. Exécuté sur le serveur (CPU), environnement `~/venvs/nlp` (pandas 3.1, numpy 2.5).
 
+### DIC-v4 — DIC-v3 + lexique MeSH (2026-11-11, notebook `2.3c_dictionnaire_mesh_v4.ipynb`, code `src/mesh.py` et `src/dictionnaire_v4.py`)
+
+- **Motivation** : l'écart de DIC-v3 aux outils officiels (tmChem + DNorm, 0,868 sur TEST) venait surtout du vocabulaire (≈ 1 600 mentions manquées en VALIDATION ont une forme absente de TRAIN), ces outils s'appuyant sur de grands lexiques. L'enseignant a validé l'ajout d'un lexique externe (le choix « pas de MeSH » de DIC-v3 est donc levé pour cette version).
+- **Point de départ** : DIC-v3 reconstruite dans le notebook et vérifiée à l'identique (7 962 prédictions VALIDATION). Le notebook 2.3b n'est pas modifié.
+- **Lexique** : MeSH 2026 (NLM, fichiers XML `desc2026.gz` et `supp2026.zip`, ≈ 64 Mo, téléchargés automatiquement dans `data/mesh/`, non versionnés), réduit à 841 445 termes (`data/mesh/lexique_mesh_2026.tsv.gz`) :
+  - descripteurs des arbres C et F03 → Disease (60 672 termes), D → Chemical (95 061) ;
+  - concepts supplémentaires, classe 1 substances → Chemical (666 305), classe 3 maladies rares → Disease (19 407) ;
+  - tous les synonymes ; un terme inversé (« Infarction, Myocardial ») est aussi ajouté à l'endroit ;
+  - chaque terme garde ses branches (numéro d'arbre coupé au 2e niveau, ex. D12.776 protéines ; un concept supplémentaire prend les branches des descripteurs auxquels il est rattaché).
+- **Intégration au dictionnaire** (tout appris sur TRAIN, seuils repris de DIC-v3, sans nouveau réglage) :
+  1. priorité à TRAIN : une forme annotée dans TRAIN garde la décision de DIC-v3 (type, ou retrait par le filtre) ;
+  2. termes de moins de 3 caractères, plus longs que la plus longue entrée de DIC-v3, ou classés à la fois Chemical et Disease : ignorés (aucun cas ambigu) ;
+  3. **filtre par branche** : tous les termes MeSH sont cherchés dans les textes de TRAIN ; une branche vue ≥ 5 fois et annotée < 30 % du temps est écartée avec tous ses termes → 29 branches sur 275, dont D27.505 classes pharmacologiques (*analgesic, adrenergic* : 17 %), D12.776 protéines (11 %), D26 préparations (*drug, solution* : 0 %), D08.811 enzymes (0 %) ;
+  4. **filtre par terme** : un terme MeSH trouvé dans TRAIN mais annoté < 30 % du temps est retiré (148 termes) ;
+  5. les règles de DIC-v3 s'appliquent ensuite sans changement sur le dictionnaire élargi (443 740 termes MeSH ajoutés, 448 043 entrées au total).
+- **Variantes comparées sur VALIDATION** (`dictionnaire_v4_effet_validation.csv`) ; règle de choix écrite dans le notebook : meilleur F1 VALIDATION.
+
+| Variante | P | R | F1 val | F1 Chemical | F1 Disease | Termes MeSH ajoutés | Frontière | Manquées | Parasites |
+|---|---|---|---|---|---|---|---|---|---|
+| DIC-v3 | 0,8811 | 0,7314 | 0,7993 | 0,8333 | 0,7569 | 0 | 627 | 1 941 | 312 |
+| MeSH sans filtre | 0,7733 | 0,8598 | 0,8142 | 0,8054 | 0,8268 | 824 542 | 643 | 698 | 1 771 |
+| MeSH + filtre par terme | 0,8580 | 0,8633 | 0,8607 | 0,8740 | 0,8426 | 823 925 | 506 | 801 | 860 |
+| + filtre par branche, niveau 1 (« D12 ») | 0,8823 | 0,8627 | 0,8724 | 0,8954 | 0,8421 | 692 858 | 465 | 842 | 629 |
+| **+ filtre par branche, niveau 2 (« D12.776 ») = DIC-v4** | **0,9032** | **0,8669** | **0,8847** | **0,9174** | **0,8424** | 443 740 | 437 | 832 | 446 |
+| niveau 2, descripteurs seuls | 0,9017 | 0,8458 | 0,8729 | 0,8984 | 0,8405 | 93 209 | 462 | 1 009 | 414 |
+
+- **Scores VALIDATION de DIC-v4** (`scores_dictionnaire_v4_validation.csv`) :
+
+| Catégorie | VP | FP | FN | P | R | F1 | DIC-v3 F1 | Gain |
+|---|---|---|---|---|---|---|---|---|
+| Chemical | 4 862 | 391 | 485 | 0,9256 | 0,9093 | **0,9174** | 0,8333 | +8,4 pts |
+| Disease | 3 452 | 500 | 792 | 0,8735 | 0,8134 | **0,8424** | 0,7569 | +8,6 pts |
+| Global (micro) | 8 314 | 891 | 1 277 | 0,9032 | 0,8669 | **0,8847** | 0,7993 | **+8,5 pts** |
+
+- **Erreurs** : manquées 1 941 → 832, frontières 627 → 437, parasites 312 → 446, types 8 → 8. Par rapport à DIC-v3 : 1 345 mentions justes ajoutées (*iohexol, remifentanil, ammonia, torsade de pointes, optic neuropathy, vitamin C, uric acid…*), 270 fausses (*PTH, gellan, glucagon, surface antigen, essential hypertension…*), 46 perdues (*hypertension, seizures* absorbées dans une forme MeSH plus longue).
+- **Lecture** : le filtre sur TRAIN est indispensable (sans lui, *drug, disease, protein* font chuter la précision à 0,77) ; le filtre par branche au 2e niveau fait passer la précision au-dessus de DIC-v3 (0,903 contre 0,881) tout en doublant presque le gain de rappel. Les concepts supplémentaires (noms de molécules rares, codes comme *SM-5887, CB 3717*) apportent +1,2 point par rapport aux descripteurs seuls.
+- **Position** : le F1 VALIDATION de DIC-v4 (0,885) dépasse celui des outils officiels mesurés sur TEST (0,868) et se rapproche d'APP-v2 (0,893) ; il reste 2,7 points sous APP-v3 (0,912). Comparaison indicative à ce stade (TEST : voir ci-dessous).
+- Score VALIDATION légèrement optimiste (choix de la variante sur VALIDATION parmi 5) : seul TEST juge.
+- **TEST (2026-11-11, notebook 5, une seule évaluation)** : F1 **0,8890** (Chemical 0,9232, Disease 0,8464), écart VALIDATION → TEST +0,004 ; DIC-v4 remplace DIC-v3 comme version figée. Détail et précautions : section 1.
+- **Coût** : construction ≈ 25 s (lecture du lexique en cache + filtres sur TRAIN ; première fois : + 1 min de téléchargement et de lecture des XML), extraction 2,8 s par partition (CPU) ; pic mémoire ≈ 1,3 Go à la construction.
+- Fichiers : `dictionnaire_v4_termes_mesh.tsv.gz` (443 740 termes MeSH retenus, 3 Mo : DIC-v4 = DIC-v3 + ces termes, utilisé par l'application ; reconstruction vérifiée à l'identique sur TEST), `dictionnaire_v4_effet_validation.csv`, `scores_dictionnaire_v4_validation.csv`, `predictions_dictionnaire_v4_validation.jsonl`, `predictions_dictionnaire_v4_test.jsonl` (9 550 prédictions), `dictionnaire_v4_config_gelee.json`. Exécuté avec le venv du TD.
+
 ---
 
 ## 4. Méthode apprise (notebook `2.4_methode_apprise.ipynb`)
@@ -298,6 +361,39 @@ F1 VALIDATION global, moyenne des deux graines (`apprise_v3_reglage_validation.c
 - **Prudence** : la graine 42 à 7 époques est un point haut (0,9119 contre 0,9105 pour la graine 43, 0,9090 à 10 époques) ; le score TEST jugera. Seul le taux 5e-5 a été testé pour les nouveaux modèles.
 - **Coût** : entraînement 10 époques ≈ 3 à 4,5 min par run (4 runs), prédiction 16 s par partition.
 - Fichiers : `apprise_v3_config_gelee.json`, `apprise_v3_reglage_validation.csv`, `apprise_v3_historique_entrainement.json`, `scores_apprise_v3_validation.csv`, `apprise_v3_comparaison_v2_validation.csv`, `predictions_apprise_v3_validation.jsonl`, `predictions_apprise_v3_test.jsonl` ; modèle `modeles/apprise_v3` sur le Drive (non rapatrié, non versionné).
+
+### HYB-v1 — essai de combinaison dictionnaire + modèle appris (2026-11-10, script `figures_oral/generer_figures.py`, figure 14) — non retenu
+
+Combinaison des prédictions VALIDATION déjà sauvegardées de DIC-v3 et APP-v3, sans réentraînement ni nouveau réglage.
+
+| VALIDATION (9 591 mentions) | P | R | F1 | VP | FP | FN |
+|---|---|---|---|---|---|---|
+| DIC-v3 | 0,8811 | 0,7314 | 0,7993 | 7 015 | 947 | 2 576 |
+| APP-v3 | 0,9042 | 0,9197 | **0,9119** | 8 821 | 935 | 770 |
+| Intersection (mention gardée si prédite par les deux) | 0,9714 | 0,7060 | 0,8177 | 6 771 | 199 | 2 820 |
+| Union (prédite par l'une ou l'autre) | 0,8434 | 0,9452 | 0,8914 | 9 065 | 1 683 | 526 |
+| APP-v3 + mentions DIC qui ne chevauchent aucune mention APP (249 ajouts, dont 77 justes) | 0,8894 | 0,9277 | 0,9081 | 8 898 | 1 107 | 693 |
+
+- **Complémentarité** des deux méthodes sur les mentions de référence : 6 771 trouvées par les deux (70,6 %), 2 050 par APP-v3 seulement (21,4 %), 244 par DIC-v3 seulement (2,5 %), 526 par aucune (5,5 %).
+- **Conclusion** : aucune combinaison ne dépasse APP-v3 seul. Le dictionnaire n'apporte presque aucune entité que le modèle ne trouve déjà, et chaque ajout coûte plus de faux positifs qu'il n'apporte de vrais. APP-v3 reste la méthode apprise figée ; pas de méthode hybride.
+- Écart mineur : le rappel de l'union vaut ici 0,9452, contre 0,944 dans les erreurs commentées d'APP-v3 (calcul antérieur).
+- Fichiers : aucun fichier de résultats ; scores affichés par `figures_oral/generer_figures.py` et figure `figures_oral/14_pourquoi_pas_hybride_extraction.png`.
+
+### HYB-v2 — combinaison avec DIC-v4 (2026-11-11, script `figures_oral/generer_figures.py`, figure 14) — non retenu
+
+Même essai que HYB-v1 avec la nouvelle version figée du dictionnaire (DIC-v4), sur les prédictions VALIDATION sauvegardées, sans réentraînement ni réglage.
+
+| VALIDATION (9 591 mentions) | P | R | F1 | VP | FP | FN |
+|---|---|---|---|---|---|---|
+| DIC-v4 | 0,9032 | 0,8669 | 0,8847 | 8 314 | 891 | 1 277 |
+| APP-v3 | 0,9042 | 0,9197 | **0,9119** | 8 821 | 935 | 770 |
+| Intersection | 0,9707 | 0,8333 | 0,8968 | 7 992 | 241 | 1 599 |
+| Union | 0,8523 | 0,9533 | 0,8999 | 9 143 | 1 585 | 448 |
+| APP-v3 + mentions DIC sans chevauchement (368 ajouts, dont 95 justes) | 0,8807 | 0,9296 | 0,9045 | 8 916 | 1 208 | 675 |
+
+- **Complémentarité** : 7 992 mentions trouvées par les deux (83,3 %), 829 par APP-v3 seulement (8,6 %), 322 par DIC-v4 seulement (3,4 %), 448 par aucune (4,7 %).
+- **Conclusion** : malgré un dictionnaire bien plus fort (0,885 contre 0,799), aucune combinaison ne dépasse APP-v3 seul ; les deux méthodes trouvent désormais en grande partie les mêmes entités, et les ajouts du dictionnaire apportent plus de faux positifs que de vrais. Pas de méthode hybride.
+- Fichiers : aucun fichier de résultats ; scores affichés par `figures_oral/generer_figures.py`, figure `figures_oral/14_pourquoi_pas_hybride_extraction.png` (désormais calculée avec DIC-v4).
 
 ---
 
@@ -749,3 +845,8 @@ Cadrage : effets indésirables de la chimiothérapie / soins de support, documen
 | 2026-11-08 | Rapport rédigé en trois notebooks (`rapport/1_extraction.ipynb`, `2_negation.ipynb`, `3_question_reponse.ipynb`) : cheminement, résultats et interprétations ; scores recalculés à l'identique des versions figées, aucune méthode modifiée, aucun appel à l'API. |
 | 2026-11-09 | Grille de lecture QA (30 réponses TEST) notée par un juge LLM sans contexte du projet (deux juges indépendants, notes identiques, un seul jeu gardé : colonnes `_juge`) ; exactitude moyenne Q0 1,4, Q1 1,4, Q2 1,7. |
 | 2026-11-09 | Notebooks du rapport rendus autonomes : tout est recalculé depuis `CDR_Data/`, `data/sources_qa/`, les annotations et `src/` (APP-v3 rechargé et reprédit, LLM via le cache) ; résultats identiques aux versions figées (prédictions TEST extraction et QA identiques aux livrables). `src/dictionnaire_v3.py` : options pour retrouver DIC-v1/v2 et chaque ajout ; `src/apprise.py` : fonction `entrainer` ; `src/qa_llm.py` : texte des consignes `PROMPTS`. Aucune méthode modifiée. |
+| 2026-11-10 | Figures de l'oral (`figures_oral/`, 15 PNG, script `generer_figures.py`) à partir des chiffres figés. HYB-v1 (essai) : combinaisons DIC-v3 + APP-v3 sur VALIDATION (intersection 0,818, union 0,891, ajouts sans chevauchement 0,908) ; aucune ne dépasse APP-v3 (0,912), non retenu. Aucune méthode figée modifiée. |
+| 2026-11-11 | DIC-v4 (notebook 2.3c, `src/mesh.py`, `src/dictionnaire_v4.py`) : DIC-v3 + lexique MeSH 2026 (descripteurs + concepts supplémentaires), filtré par branche et par terme sur TRAIN ; F1 VALIDATION 0,7993 → 0,8847 (Chemical 0,917, Disease 0,842). Prédictions TEST écrites, non scorées. DIC-v3 reste la version évaluée sur TEST. |
+| 2026-11-11 | Évaluation TEST de DIC-v4 (notebook 5, tableau 1, une seule fois) : F1 0,8890 (Chemical 0,9232, Disease 0,8464) ; DIC-v4 remplace DIC-v3 comme version figée (`scores_test.csv`, `data/predictions_extraction.jsonl`). Rapport `rapport/1_extraction.ipynb` mis à jour (section 4.4 DIC-v4, comparaisons et conclusion). Lignes APP-v3 inchangées. |
+| 2026-11-11 | Figures de l'oral mises à jour pour DIC-v4 (figures 01, 02, 03, 04, 07, 08, 14 ; nouvelle figure 16 : construction de DIC-v4) et plan `rapport/plan_oral.md`. HYB-v2 (essai) : combinaisons DIC-v4 + APP-v3 sur VALIDATION (intersection 0,897, union 0,900, ajouts sans chevauchement 0,905) ; aucune ne dépasse APP-v3 (0,912), non retenu. Aucune méthode figée modifiée. |
+| 2026-11-11 | Application Streamlit passée à DIC-v4 (`DictionnaireV4Fige` : DIC-v3 + termes MeSH retenus, lus dans `dictionnaire_v4_termes_mesh.tsv.gz` écrit par le notebook 2.3c) ; mêmes 9 550 prédictions TEST que le notebook 2.3c, démarrage ≈ 11 s comme DIC-v3. Notebook 2.3c réexécuté (prédictions identiques). Aucune méthode modifiée. |

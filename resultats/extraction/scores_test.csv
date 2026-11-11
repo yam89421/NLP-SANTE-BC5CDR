@@ -1,7 +1,7 @@
 methode,partition,categorie,VP,FP,FN,precision,rappel,F1,denominateur_nul,temps_s
-dictionnaire (DIC-v3),test,Chemical,4085,401,1300,0.9106,0.7586,0.8277,False,
-dictionnaire (DIC-v3),test,Disease,3135,669,1289,0.8241,0.7086,0.762,False,
-dictionnaire (DIC-v3),test,global (micro),7220,1070,2589,0.8709,0.7361,0.7978,False,3.32
+dictionnaire (DIC-v4),test,Chemical,4956,396,429,0.926,0.9203,0.9232,False,
+dictionnaire (DIC-v4),test,Disease,3649,549,775,0.8692,0.8248,0.8464,False,
+dictionnaire (DIC-v4),test,global (micro),8605,945,1204,0.901,0.8773,0.889,False,2.89
 "apprise (APP-v3, PubMedBERT)",test,Chemical,5085,486,300,0.9128,0.9443,0.9283,False,
 "apprise (APP-v3, PubMedBERT)",test,Disease,3843,749,581,0.8369,0.8687,0.8525,False,
 "apprise (APP-v3, PubMedBERT)",test,global (micro),8928,1235,881,0.8785,0.9102,0.8941,False,16.8

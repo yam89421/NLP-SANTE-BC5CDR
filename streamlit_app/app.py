@@ -11,7 +11,7 @@ sys.path.insert(0, str(RACINE))
 
 # Imports des modules locaux du dossier src
 from src.cdr import charger_jsonl
-from src.dictionnaire_v3 import DictionnaireV3
+from src.dictionnaire_v4 import DictionnaireV4Fige
 from src.negation import detecter
 from src.apprise import construire_fenetres, predire
 from tals import tokeniser_avec_offsets
@@ -51,7 +51,7 @@ TRADUCTIONS = {
         "home_welcome": "Présentation du Projet",
         "home_intro": "Bienvenue sur l'application de démonstration développée dans le cadre du projet Traitement Automatique de la Langue en Santé à ESIEE Paris (binôme AMARA Yanis & TOMAS Alban).",
         "home_ner_title": "1. Extraction d'Entités Nommées (NER)",
-        "home_ner_desc": "* **Objectif** : Identifier et catégoriser les mentions de produits chimiques/médicaments (*Chemical*) et de pathologies/symptômes (*Disease*) dans les résumés biomédicaux PubTator.\n* **Approches** : Méthode par dictionnaire/règles (`DIC-v3`) et modèle PubMedBERT ajusté (`APP-v3`).\n* **Négation** : Module *NegEx* pour qualifier le statut des mentions (affirmé vs nié).",
+        "home_ner_desc": "* **Objectif** : Identifier et catégoriser les mentions de produits chimiques/médicaments (*Chemical*) et de pathologies/symptômes (*Disease*) dans les résumés biomédicaux PubTator.\n* **Approches** : Méthode par dictionnaire/règles + lexique MeSH (`DIC-v4`) et modèle PubMedBERT ajusté (`APP-v3`).\n* **Négation** : Module *NegEx* pour qualifier le statut des mentions (affirmé vs nié).",
         "home_rag_title": "2. Assistant Question-Réponse (RAG)",
         "home_rag_desc": "* **Objectif** : Répondre de manière vérifiable aux questions sur les soins de support en oncologie.\n* **Corpus** : 10 documents INCa découpés en 413 passages.\n* **Méthodes** : Recherche lexicale BM25 (REC-v2) et sémantique dense E5 avec génération sous contrainte par LLM.",
         "qa_title": "Assistant Chatbot (RAG)",
@@ -72,7 +72,7 @@ TRADUCTIONS = {
         "metrics_title": "Évaluation et Métriques du Projet",
         "metrics_subtitle": "Scores sur TEST (BC5CDR : 500 résumés ; QA INCa : 8 questions), versions figées, lus dans `resultats/`.",
         "metrics_ner_f1": "F1 extraction (APP-v3, PubMedBERT)",
-        "metrics_ner_f1_delta": "vs dictionnaire DIC-v3",
+        "metrics_ner_f1_delta": "vs dictionnaire DIC-v4",
         "metrics_rag_hit": "Hit@5 recherche (BM25 REC-v2)",
         "metrics_rag_hit_delta": "avec la recherche dense E5",
         "metrics_bleu": "BLEU (Q2, BM25)",
@@ -99,7 +99,7 @@ TRADUCTIONS = {
         "home_welcome": "Project Overview",
         "home_intro": "Welcome to the demonstration web application developed for the Healthcare Natural Language Processing course at ESIEE Paris (AMARA Yanis & TOMAS Alban).",
         "home_ner_title": "1. Named Entity Recognition (NER)",
-        "home_ner_desc": "* **Goal**: Detect and classify mentions of chemicals/drugs (*Chemical*) and diseases/symptoms (*Disease*) in PubTator abstracts.\n* **Methods**: Rule-based dictionary (`DIC-v3`) and fine-tuned PubMedBERT (`APP-v3`).\n* **Negation**: *NegEx* module to determine entity status (affirmed vs negated).",
+        "home_ner_desc": "* **Goal**: Detect and classify mentions of chemicals/drugs (*Chemical*) and diseases/symptoms (*Disease*) in PubTator abstracts.\n* **Methods**: Rule-based dictionary + MeSH lexicon (`DIC-v4`) and fine-tuned PubMedBERT (`APP-v3`).\n* **Negation**: *NegEx* module to determine entity status (affirmed vs negated).",
         "home_rag_title": "2. Question-Answering Assistant (RAG)",
         "home_rag_desc": "* **Goal**: Provide accurate answers regarding oncological supportive care.\n* **Corpus**: 10 INCa documents split into 413 passages.\n* **Methods**: BM25 lexical and Dense E5 semantic retrieval combined with constrained LLM generation.",
         "qa_title": "Chatbot Assistant (RAG)",
@@ -120,7 +120,7 @@ TRADUCTIONS = {
         "metrics_title": "Project Evaluation & Metrics",
         "metrics_subtitle": "TEST scores (BC5CDR: 500 abstracts; INCa QA: 8 questions), frozen versions, read from `resultats/`.",
         "metrics_ner_f1": "Extraction F1 (APP-v3, PubMedBERT)",
-        "metrics_ner_f1_delta": "vs DIC-v3 dictionary",
+        "metrics_ner_f1_delta": "vs DIC-v4 dictionary",
         "metrics_rag_hit": "Retrieval Hit@5 (BM25 REC-v2)",
         "metrics_rag_hit_delta": "with dense E5 retrieval",
         "metrics_bleu": "BLEU (Q2, BM25)",
@@ -281,9 +281,10 @@ def initialiser_index_dense(_passages):
 
 @st.cache_resource
 def charger_dictionnaire_ner():
-    """DIC-v3 figée, reconstruite sur TRAIN (quelques secondes, une seule fois)."""
+    """DIC-v4 figée : DIC-v3 reconstruite sur TRAIN + termes MeSH retenus par le notebook 2.3c (≈ 10 s, une seule fois)."""
     documents = charger_jsonl(DATA_DIR / "corpus_extraction.jsonl")
-    return DictionnaireV3().construire([d for d in documents if d.partition == "train"])
+    return DictionnaireV4Fige(RESULTATS / "extraction" / "dictionnaire_v4_termes_mesh.tsv.gz").construire(
+        [d for d in documents if d.partition == "train"])
 
 
 @st.cache_resource
@@ -504,7 +505,7 @@ elif choix_menu == txt["nav_ner"]:
     col_input, col_opt = st.columns([3, 1])
     
     with col_opt:
-        modele_ner = st.radio(txt["ner_method"], ["Dictionnaire (DIC-v3)", "PubMedBERT (APP-v3)"])
+        modele_ner = st.radio(txt["ner_method"], ["Dictionnaire (DIC-v4)", "PubMedBERT (APP-v3)"])
         activer_negation = st.checkbox(txt["ner_negation"], value=True)
     
     with col_input:
@@ -564,7 +565,7 @@ elif choix_menu == txt["nav_metrics"]:
     ner = pd.read_csv(RESULTATS / "extraction" / "scores_test.csv")
     ner_global = ner[ner.categorie == "global (micro)"].set_index("methode")
     f1_app = ner_global.filter(like="APP-v3", axis=0)["F1"].iloc[0]
-    f1_dic = ner_global.filter(like="DIC-v3", axis=0)["F1"].iloc[0]
+    f1_dic = ner_global.filter(like="dictionnaire", axis=0)["F1"].iloc[0]
     recherche = pd.read_csv(RESULTATS / "qa" / "recherche_test.csv").groupby("recherche")[["hit@5", "rappel@5"]].mean()
     hit_bm25 = recherche.filter(like="BM25", axis=0)["hit@5"].iloc[0]
     hit_dense = recherche.filter(like="dense", axis=0)["hit@5"].iloc[0]

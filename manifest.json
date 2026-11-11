@@ -20,17 +20,17 @@
       "ratio": "500/500/500 documents",
       "identifiants_sauvegardes_dans": "data/partitions_extraction.csv"
     },
-    "predictions_test": "data/predictions_extraction.jsonl : DIC-v3 et APP-v3, évaluées une seule fois sur TEST (notebook 5)"
+    "predictions_test": "data/predictions_extraction.jsonl : DIC-v4 et APP-v3, évaluées une seule fois sur TEST (notebook 5)"
   },
   "methode_dictionnaire": {
-    "version": "DIC-v3 (notebook 2.3b_dictionnaire_regles_v3.ipynb, 2026-10-30) ; historique DIC-v1 → DIC-v3 dans RAPPORT.md",
-    "description": "dictionnaire des formes annotées de TRAIN (src/dictionnaire.py, adapté de tals.regles.ExtracteurDictionnaire), réglé sur VALIDATION parmi 16 configurations (DIC-v1), puis 5 règles de post-traitement (DIC-v2) et 4 ajouts (DIC-v3)",
+    "version": "DIC-v4 (notebook 2.3c_dictionnaire_mesh_v4.ipynb, 2026-11-11) ; historique DIC-v1 → DIC-v4 dans RAPPORT.md",
+    "description": "dictionnaire des formes annotées de TRAIN (src/dictionnaire.py, adapté de tals.regles.ExtracteurDictionnaire), réglé sur VALIDATION parmi 16 configurations (DIC-v1), puis 5 règles de post-traitement (DIC-v2) et 4 ajouts (DIC-v3) ; DIC-v4 ajoute le lexique MeSH 2026 (src/mesh.py, src/dictionnaire_v4.py), filtré sur TRAIN par branche et par terme (ajout validé par l'enseignant)",
     "config_retenue": {
       "casse": "insensible",
       "seuil_annotation": 0.3,
       "regex": true
     },
-    "nb_entrees": 4303,
+    "nb_entrees": 448043,
     "gestion_casse_variantes": "clés en minuscules NFC (casse insensible), texte original jamais modifié ; formes découpées avec le même tokeniseur que le texte ; type majoritaire pour une forme ambiguë ; 1 928 variantes singulier/pluriel ajoutées (DIC-v3)",
     "priorite": "plus longue correspondance à un même point de départ, rejet des recouvrements ; regex de priorité inférieure",
     "filtre": "forme gardée si son taux d'annotation dans TRAIN >= 0.3, en ignorant les occurrences incluses dans une mention plus longue (filtre corrigé, DIC-v3)",
@@ -47,15 +47,22 @@
       "extension à droite par suites apprises sur TRAIN (DIC-v3)",
       "propagation d'une forme retenue à ses autres occurrences dans le document (DIC-v3)"
     ],
-    "f1_validation": 0.7993,
-    "f1_test": 0.7978,
+    "f1_validation": 0.8847,
+    "f1_test": 0.889,
     "fichiers": [
-      "resultats/extraction/dictionnaire_v3_config_gelee.json",
-      "resultats/extraction/dictionnaire_v3_effet_validation.csv",
-      "resultats/extraction/scores_dictionnaire_v3_validation.csv",
-      "resultats/extraction/predictions_dictionnaire_v3_test.jsonl"
+      "resultats/extraction/dictionnaire_v4_config_gelee.json",
+      "resultats/extraction/dictionnaire_v4_effet_validation.csv",
+      "resultats/extraction/scores_dictionnaire_v4_validation.csv",
+      "resultats/extraction/predictions_dictionnaire_v4_test.jsonl"
     ],
-    "statut": "figée le 2026-10-30 (DIC-v3)"
+    "statut": "figée le 2026-11-11 (DIC-v4, remplace DIC-v3 : F1 val 0.7993, test 0.7978)",
+    "lexique_externe": {
+      "nom": "MeSH 2026 (NLM)",
+      "source_url": "https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/",
+      "parties": "descripteurs C, F03 (Disease) et D (Chemical) ; concepts supplémentaires classes 1 (Chemical) et 3 (Disease)",
+      "filtres": "priorité aux formes annotées dans TRAIN ; branches MeSH (2e niveau) annotées < 30 % dans TRAIN écartées (29 branches) ; termes annotés < 30 % dans TRAIN retirés (148)",
+      "termes_ajoutes": 443740
+    }
   },
   "methode_apprise": {
     "version": "APP-v3 (notebook 2.4c_methode_apprise_v3.ipynb, Colab GPU T4, 2026-10-30) ; historique APP-v1 → APP-v3 dans RAPPORT.md",

@@ -1,0 +1,7 @@
+variante,P,R,F1,F1 Chemical,F1 Disease,termes MeSH ajoutés,correcte,frontiere,type,manquee,parasite
+DIC-v3,0.8811,0.7314,0.7993,0.8333,0.7569,0,7015,627,8,1941,312
+MeSH sans filtre,0.7733,0.8598,0.8142,0.8054,0.8268,824542,8246,643,4,698,1771
+MeSH + filtre par terme,0.858,0.8633,0.8607,0.874,0.8426,823925,8280,506,4,801,860
+"+ filtre par branche (niveau 1, « D12 »)",0.8823,0.8627,0.8724,0.8954,0.8421,692858,8274,465,10,842,629
+"+ filtre par branche (niveau 2, « D12.776 »)",0.9032,0.8669,0.8847,0.9174,0.8424,443740,8314,437,8,832,446
+"niveau 2, descripteurs seuls",0.9017,0.8458,0.8729,0.8984,0.8405,93209,8112,462,8,1009,414

@@ -19,7 +19,7 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 | Catégories retenues | Chemical, Disease | Deux catégories annotées du même corpus, ~5 000 et ~4 200 mentions en TRAIN |
 | Thème QA | Effets indésirables de la chimiothérapie et soins de support ; 10 documents INCa | Sources publiques, fiables, en français, sous licence ouverte |
 | Public visé (QA) | Patients traités par chimiothérapie et leurs proches | Documents INCa écrits pour ce public |
-| Méthode par dictionnaire | Dictionnaire des formes de TRAIN + regex + règles de post-traitement (DIC-v3) | Version figée après trois versions réglées sur VALIDATION |
+| Méthode par dictionnaire | Dictionnaire des formes de TRAIN + lexique MeSH 2026 filtré sur TRAIN + regex + règles de post-traitement (DIC-v4) | Version figée après quatre versions réglées sur VALIDATION ; ajout de MeSH validé par l'enseignant |
 | Modèle méthode apprise | PubMedBERT (`microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext`), 7 époques (APP-v3) | Meilleur F1 VALIDATION (0,912) devant BioLinkBERT (0,906) et BioBERT (0,892), même recette d'entraînement |
 | LLM utilisé pour Q1/Q2 | `gpt-4.1-mini-2025-04-14` (API OpenAI), température 0, graine 42 | Version datée, génération déterministe, coût faible ; clé dans `.env` (non versionné) |
 | Recherche lexicale | BM25 du TD RAG (k1 = 1,5, b = 0,75) avec racinisation Snowball français, texte du passage indexé, top-5 | Méthode du cours ; prétraitement choisi sur DEV (REC-v2) |
@@ -46,13 +46,14 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 │   ├── questions_dev.jsonl            # 20 questions DEV annotées
 │   ├── questions_test.jsonl           # 10 questions TEST annotées
 │   ├── negation.jsonl                 # 20 phrases fictives de négation
-│   ├── predictions_extraction.jsonl   # sorties des 2 méthodes figées (DIC-v3, APP-v3) sur TEST
+│   ├── predictions_extraction.jsonl   # sorties des 2 méthodes figées (DIC-v4, APP-v3) sur TEST
 │   └── predictions_qa.jsonl           # sorties Q0/Q1/Q2 sur TEST
 ├── notebooks/                         # un notebook par section du livret, dans l'ordre d'exécution
 │   ├── 2.1_choisir_explorer_donnees.ipynb
 │   ├── 2.2_partitions_bio.ipynb
 │   ├── 2.3_dictionnaire_regles.ipynb
 │   ├── 2.3b_dictionnaire_regles_v3.ipynb  # DIC-v3 : variantes, filtre corrigé, propagation
+│   ├── 2.3c_dictionnaire_mesh_v4.ipynb    # DIC-v4 : DIC-v3 + lexique MeSH
 │   ├── 2.4_methode_apprise.ipynb
 │   ├── 2.4b_methode_apprise_v2.ipynb  # APP-v2 : BioBERT mieux entraîné (Colab)
 │   ├── 2.4c_methode_apprise_v3.ipynb  # APP-v3 : PubMedBERT / BioLinkBERT, même recette (Colab)
@@ -81,8 +82,10 @@ Les notebooks portent le numéro de la section du livret qu'ils traitent.
    BIO (mentions composites, aller-retour BIO, mentions hors frontière de token).
 3. `2.3_dictionnaire_regles.ipynb` — dictionnaire construit sur TRAIN, réglé sur VALIDATION, figé,
    prédictions TEST (DIC-v1, DIC-v2).
-   `2.3b_dictionnaire_regles_v3.ipynb` — DIC-v3 (version figée) : filtre corrigé, variantes singulier/pluriel,
+   `2.3b_dictionnaire_regles_v3.ipynb` — DIC-v3 : filtre corrigé, variantes singulier/pluriel,
    extension à droite, propagation dans le document ; ne modifie pas le notebook 2.3.
+   `2.3c_dictionnaire_mesh_v4.ipynb` — DIC-v4 (version figée) : DIC-v3 + lexique MeSH 2026 (téléchargé automatiquement dans
+   `data/mesh/`, ≈ 64 Mo, non versionné), filtré par branche et par terme sur TRAIN ; ne modifie pas le notebook 2.3b.
 4. `2.4_methode_apprise.ipynb` — entraînement, réglage sur VALIDATION, comparaison, gel, prédictions TEST.
    `2.4b_methode_apprise_v2.ipynb` — APP-v2 (Colab GPU, ≈ 35 min) : 10 époques, warmup, 2 taux × 2 graines ; ne modifie pas APP-v1.
    `2.4c_methode_apprise_v3.ipynb` — APP-v3 (Colab GPU, ≈ 30 min) : PubMedBERT et BioLinkBERT-base avec la recette d'APP-v2, comparés à BioBERT.
@@ -110,7 +113,7 @@ source venv/bin/activate          # Windows : venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-**Application de démonstration** (`streamlit_app/`) : chatbot RAG, démo d'extraction (DIC-v3, APP-v3) avec
+**Application de démonstration** (`streamlit_app/`) : chatbot RAG, démo d'extraction (DIC-v4, APP-v3) avec
 négation, tableau des scores TEST.
 
 ```bash
@@ -119,8 +122,10 @@ streamlit run streamlit_app/app.py
 
 - Déploiement sur Streamlit Community Cloud : fichier principal `streamlit_app/app.py`, Python 3.12 à 3.14.
   Les dépendances sont lues dans `streamlit_app/requirements.txt` (version réduite, torch CPU).
-- DIC-v3 est reconstruite au démarrage à partir de TRAIN (`src/dictionnaire_v3.py`, mêmes prédictions TEST
-  que le notebook 2.3b).
+- DIC-v4 est reconstruite au démarrage (≈ 10 s) : DIC-v3 construite sur TRAIN + termes MeSH retenus, lus dans
+  `resultats/extraction/dictionnaire_v4_termes_mesh.tsv.gz` (3 Mo, écrit par le notebook 2.3c). MeSH n'est donc pas
+  téléchargé par l'application ; mêmes prédictions TEST que le notebook 2.3c (`src/dictionnaire_v4.py`,
+  `verifier_dic_v4`).
 - Le modèle APP-v3 est lu dans `modeles/apprise_v3` s'il existe (non versionné), sinon téléchargé depuis
   Hugging Face : https://huggingface.co/yam89421/app-v3-pubmedbert-bc5cdr.
 - La clé OpenAI est saisie dans l'application et reste dans la session ; sans clé, le chatbot affiche
@@ -155,7 +160,7 @@ streamlit run streamlit_app/app.py
 
 ## 7. Sorties produites
 
-- `data/predictions_extraction.jsonl` : prédictions des deux méthodes figées (DIC-v3, APP-v3) sur TEST.
+- `data/predictions_extraction.jsonl` : prédictions des deux méthodes figées (DIC-v4, APP-v3) sur TEST.
 - `data/predictions_qa.jsonl` : prédictions Q0/Q1/Q2 sur TEST (réponses brutes conservées) ; prédictions DEV
   dans `resultats/qa/`, variante Q2 avec recherche dense dans `resultats/qa/predictions_llm_test_dense.jsonl`.
 - `resultats/` : tableaux de scores et analyses manuelles (voir section 5 du livret).
@@ -166,7 +171,8 @@ streamlit run streamlit_app/app.py
 
 - Extraction : partitions officielles de BC5CDR (Training / Development / Test = TRAIN / VALIDATION / TEST,
   500 documents chacune), identifiants sauvegardés dans `data/partitions_extraction.csv`. Réglages sur
-  VALIDATION uniquement ; DIC-v3 et APP-v3 figées le 30/10/2026, puis évaluées une seule fois sur TEST.
+  VALIDATION uniquement ; DIC-v3 et APP-v3 figées le 30/10/2026, puis évaluées une seule fois sur TEST ; DIC-v4
+  (DIC-v3 + MeSH) figée le 11/11/2026 sur VALIDATION et évaluée une seule fois sur TEST, elle remplace DIC-v3.
 - QA : DEV (20 questions) sert exclusivement au réglage (découpage, recherche, prompts).
   Configuration gelée le **30/10/2026** (`resultats/qa/qa_config_gelee.json`, résumée dans `manifest.json`),
   puis TEST (10 questions) exécuté une seule fois le 01/11/2026, sans nouveau réglage.

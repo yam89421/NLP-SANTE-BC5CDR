@@ -48,5 +48,95 @@
   "tokens_prompt": 723,
   "tokens_reponse": 161,
   "duree_secondes": 3.276
+ },
+ "3186fa723826843496d00e61d5ba638cacb60fe0a48d355327f73b3188859542": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 804,
+  "tokens_reponse": 10,
+  "duree_secondes": 1.044
+ },
+ "7e3eb333fd47c26582fe94536c9a9088c586143abcf83bbf1970294472fa6492": {
+  "texte": "D'après les passages fournis, voici les solutions proposées contre les nausées pendant la chimiothérapie :\n\n- **Sucer des bonbons mentholés** pour diminuer le goût désagréable parfois déclenché par la chimiothérapie.\n- **Pratiquer des exercices de relaxation** avant et pendant la perfusion de chimiothérapie (conseillé par l’infirmière).\n- **Se distraire** en regardant la télévision, écoutant la radio ou de la musique, jouant à des jeux de société, lisant ou discutant pendant la perfusion.\n- **Adapter son alimentation** :\n  - Privilégier les aliments **froids ou tièdes** (moins odorants que les aliments chauds).\n  - Éviter les aliments **lourds, frits, gras ou épicés**.\n  - Manger ce qui fait plaisir et envie.\n  - Faire **plusieurs petits repas** plutôt que deux repas traditionnels.\n  - Manger **lentement** et **légèrement avant et après le traitement**.\n  - **Boire avant ou après les repas** (pas pendant) ; les boissons gazeuses fraîches (comme le cola) peuvent aider à diminuer les nausées.",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 978,
+  "tokens_reponse": 275,
+  "duree_secondes": 1.873
+ },
+ "24d698c918a29ff0a27be305e314fba45445a9cf39f81b637431b5052e6a1f9f": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 695,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.459
+ },
+ "45f0578a5c37dc347bd78a5beee8879dfde48e459bd56b4128ada0d0bef36493": {
+  "texte": "Les traitements préconisés pour les nausées mentionnés dans les documents sont :\n\n- **Médicaments antiémétiques** (prescrits avant, pendant et après les traitements pour réduire les risques de nausées et de vomissements).\n- **Techniques de relaxation** (pour les nausées anticipatoires liées à l'anxiété).\n- **Conseils alimentaires** :\n  - Privilégier les aliments froids ou tièdes.\n  - Éviter les aliments lourds, frits, gras ou épicés.\n  - Faire plusieurs petits repas plutôt que deux repas traditionnels.\n  - Manger lentement.\n  - Éviter de boire pendant les repas, mais boire avant ou après (les boissons gazeuses fraîches, comme le cola, peuvent aider).\n  - Manger léger avant et après le traitement.\n  - Supprimer le tabac.\n\nSi les nausées persistent malgré le traitement préventif, il est important d'en informer le médecin pour adapter la prise en charge.",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 837,
+  "tokens_reponse": 219,
+  "duree_secondes": 2.576
+ },
+ "8451349604cf3d04b64e7432e7c89e4dd510741b66e33f47b1e9e564e2100e8e": {
+  "texte": "D'après les passages fournis, voici les solutions proposées contre les nausées pendant la chimiothérapie :\n\n- **Sucer des bonbons mentholés** pour diminuer le goût désagréable parfois déclenché par la chimiothérapie.\n- **Pratiquer des exercices de relaxation** avant et pendant la perfusion.\n- **Se distraire** (regarder la télévision, écouter de la radio ou de la musique, jouer à des jeux de société, lire, discuter, etc.) pendant la perfusion.\n- **Conseils alimentaires** :\n  - Privilégier les aliments froids ou tièdes (moins odorants que les aliments chauds).\n  - Éviter les aliments lourds, frits, gras ou épicés.\n  - Préférer plusieurs petits repas plutôt que deux repas traditionnels.\n  - Manger lentement.\n  - Éviter de boire pendant les repas, mais boire avant ou après (les boissons gazeuses fraîches, comme le cola, peuvent aider).\n  - Supprimer le tabac.\n  - Manger léger avant et après le traitement.\n  - La consommation modérée d’alcool n’est pas contre-indiquée, sauf avis contraire du médecin.\n\nSi les **antiémétiques** (médicaments contre les nausées) ne sont pas suffisants, il est conseillé d’en parler à son médecin.",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 847,
+  "tokens_reponse": 298,
+  "duree_secondes": 1.948
+ },
+ "7a4fd83b41207057173dd981790de6f94702375aef512e02c8a6d09de9096ea2": {
+  "texte": "D'après les passages fournis, pour limiter la fatigue pendant la chimiothérapie, il est conseillé de :\n- Demander de l’aide,\n- Faire livrer ses courses,\n- Favoriser les repas faciles à préparer,\n- Faire appel à de l’aide pour les tâches ménagères,\n- Mobiliser toute l’aide disponible,\n- Pratiquer une activité physique régulière, avec des programmes d’activité physique adaptée (APA) qui peuvent être proposés.\n\nSource : [DOC002_P025]",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 824,
+  "tokens_reponse": 118,
+  "duree_secondes": 1.184
+ },
+ "aa79ea731abfafafcc21bcb0bf07e9a7dfc1350739c556905e861be61aad2148": {
+  "texte": "Information insuffisante dans les documents fournis.",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 701,
+  "tokens_reponse": 10,
+  "duree_secondes": 0.42
+ },
+ "21fa8278863919f83304154649a8deadcf321510b3c46048073d5556f50b75b7": {
+  "texte": "D'après les passages fournis, pour prendre soin de sa bouche pendant la chimiothérapie, il est conseillé de suivre des **mesures d’hygiène** (mentionnées dans [DOC001_P151]) et, en cas d'aphtes ou de sécheresse buccale, de se référer au paragraphe dédié (p. 46 du même document).\n\nDe plus, pour atténuer un **mauvais goût dans la bouche** ou des nausées liées aux odeurs, sucer des **bonbons mentholés** peut aider ([DOC001_P087]).\n\n*Réponse synthétique* :\n- Appliquer des **mesures d’hygiène buccale** (conseillées par le médecin).\n- Utiliser des **bonbons mentholés** pour réduire les mauvais goûts.\n- Se reporter aux conseils spécifiques pour les aphtes ou la sécheresse buccale (p. 46 de [DOC001]).",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 868,
+  "tokens_reponse": 220,
+  "duree_secondes": 1.785
+ },
+ "1b4b711853a124480049907297c60cf18518a2fef24556da4d282ef9de8f5a37": {
+  "texte": "D'après les passages fournis, voici les recommandations pour prendre soin de sa bouche pendant la chimiothérapie :\n\n- **Se brosser les dents régulièrement** matin et soir après chaque repas, **sauf si le nombre de plaquettes est trop bas** (risque de saignement des gencives).\n- **Utiliser des brossettes interdentaires** pour nettoyer les espaces entre les dents sans provoquer de saignement.\n- **Faire des bains de bouche** (prescrits par le médecin ou préparés soi-même) après le brossage.\n- **Nettoyer l’appareil dentaire** (si porté) matin et soir après chaque repas, et **l’enlever la nuit**.\n- **Surveiller régulièrement sa bouche** et informer le médecin en cas de :\n  - ulcérations,\n  - aphtes,\n  - plaques blanches persistantes,\n  - douleurs,\n  - difficultés à avaler ou mâcher,\n  - saignements excessifs des gencives.\n- **Éviter les soins dentaires pendant le traitement** si possible (privilégier les soins avant la chimiothérapie). Si nécessaire, **demander au médecin le meilleur moment** et **informer systématiquement le dentiste** du traitement en cours (des antibiotiques peuvent être prescrits pour prévenir les infections).\n- **Maintenir une bonne hygiène buccale** (référence au paragraphe sur les aphtes et la sécheresse de la bouche).\n\n*Remarque* : En cas de sécheresse buccale ou d’ulcérations (effets secondaires possibles de la chimiothérapie), des **bains de bouche anesthésiants** peuvent soulager. La baisse des globules blancs et des plaquettes augmente le risque d’infections buccales.",
+  "echec": null,
+  "modele_reponse": "mistral-medium-2604",
+  "system_fingerprint": null,
+  "fin": "stop",
+  "tokens_prompt": 811,
+  "tokens_reponse": 390,
+  "duree_secondes": 3.183
  }
 }
