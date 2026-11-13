@@ -5,7 +5,7 @@ cache (empreinte SHA-256 de la requête complète), comme dans le TD RAG : une r
 renvoyée au fournisseur et sa sortie reste stable. Le cache ne contient ni la clé ni d'en-têtes.
 
 La clé est lue dans la variable d'environnement OPENAI_API_KEY (fichier `.env` à la racine, ignoré par git).
-Comparaison (notebook 4.4) : le même client interroge Mistral (MISTRAL_API_KEY), dont l'API accepte le format
+Comparaison : le même client interroge Mistral (MISTRAL_API_KEY), dont l'API accepte le format
 OpenAI ; seule la graine change de nom (`random_seed`). Les requêtes OpenAI, et donc leur cache, sont inchangées.
 """
 from __future__ import annotations
@@ -118,7 +118,7 @@ def diagnostiquer(reponse: str, transmis: list[str]) -> dict:
     }
 
 
-# Consignes Q1 / Q2 (notebook 4.2, annexe C du guide) : texte exact, `{question}` et `{passages}` à remplir.
+# Consignes Q1 / Q2 (annexe C du guide) : texte exact, `{question}` et `{passages}` à remplir.
 PROMPTS = {
     ("Q1", "v1"): """Réponds à la question en une à trois phrases, en t'appuyant sur les passages fournis. Cite leurs identifiants.
 

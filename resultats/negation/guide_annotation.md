@@ -35,7 +35,7 @@ Pour chaque phrase, une **mention cible** est donnée avec ses positions. Il fau
 1. Chaque membre remplit **seul** la colonne `label` de sa feuille (`annotation_AMARA.csv` ou
    `annotation_TOMAS.csv`), sans regarder la feuille de l'autre ni le label proposé, avec `nie` ou `non_nie`,
    et une courte justification.
-2. Le notebook `2.5_negation.ipynb` compte les désaccords et calcule l'accord (proportion et kappa de Cohen).
+2. Le notebook `rapport/2_negation.ipynb` compte les désaccords et calcule l'accord (proportion et kappa de Cohen).
 3. Les désaccords sont discutés ensemble ; la décision et sa raison sont notées dans
    `desaccords_annotation.csv` (colonnes `label_final` et `resolution`).
 4. Le label final devient la référence. Une règle de ce guide modifiée après discussion est datée ici.

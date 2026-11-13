@@ -3,7 +3,7 @@
 Lancer depuis la racine du projet :
     ../Extraction/BERT/TD/bin/python figures_oral/generer_figures.py
 
-Les chiffres viennent de RAPPORT.md (versions figées) ; seules les figures 08
+Les chiffres sont ceux des notebooks du rapport (`rapport/`, versions figées) ; seules les figures 08
 (exemple) et 14 (combinaisons dictionnaire + modèle, HYB-v2) sont recalculées
 à partir des prédictions VALIDATION sauvegardées. Aucune méthode n'est relancée.
 """
@@ -86,7 +86,7 @@ def barres_etiquetees(ax, x, valeurs, largeur, couleur, n=2, **kw):
 
 
 # ---------------------------------------------------------------- extraction
-VERSIONS = [  # RAPPORT.md § 1, VALIDATION
+VERSIONS = [  # rapport/1_extraction.ipynb, VALIDATION
     ("DIC-v1", 0.8835, 0.6438, 0.7449), ("DIC-v2", 0.8889, 0.7128, 0.7912), ("DIC-v3", 0.8811, 0.7314, 0.7993),
     ("DIC-v4", 0.9032, 0.8669, 0.8847),
     ("APP-v1", 0.8533, 0.8558, 0.8546), ("APP-v2", 0.8886, 0.8973, 0.8929), ("APP-v3", 0.9042, 0.9197, 0.9119),
@@ -138,7 +138,7 @@ def fig02_test_par_categorie():
 
 
 def fig03_types_erreurs():
-    # RAPPORT.md § 1 et § 3, VALIDATION (9 591 entités de référence) : bornes fausses, type, manquées, fausses détections
+    # rapport/1_extraction.ipynb, VALIDATION (9 591 entités de référence) : bornes fausses, type, manquées, fausses détections
     lignes = [("DIC-v1", 578, 13, 2825, 223), ("DIC-v2", 576, 8, 2171, 270), ("DIC-v3", 627, 8, 1941, 312),
               ("DIC-v4", 437, 8, 832, 446),
               ("APP-v1", 631, 11, 741, 769), ("APP-v2", 489, 14, 482, 576), ("APP-v3", 432, 4, 334, 499)][::-1]
@@ -162,7 +162,7 @@ def fig03_types_erreurs():
 
 
 def fig04_etat_art():
-    # RAPPORT.md « Comparaison avec l'état de l'art » : (nom, Chemical, Disease, genre)
+    # rapport/1_extraction.ipynb, comparaison avec l'état de l'art : (nom, Chemical, Disease, genre)
     sys_ = [
         ("DIC-v3", 82.77, 76.20, "ancien_dic"), ("DIC-v4 (+ MeSH)", 92.32, 84.64, "nous_dic"),
         ("tmChem + DNorm", 92.20, 80.24, "mesure"),
@@ -194,7 +194,7 @@ def fig04_etat_art():
 
 def fig05_epoques():
     ep = np.arange(1, 11)
-    courbes = [  # RAPPORT.md § 4 (F1 VALIDATION moyen sur 2 graines)
+    courbes = [  # rapport/1_extraction.ipynb (F1 VALIDATION moyen sur 2 graines)
         ("BioBERT, taux 3e-5", [0.747, 0.867, 0.878, 0.881, 0.884, 0.882, 0.887, 0.885, 0.889, 0.887], None, GRIS, "--"),
         ("BioBERT, taux 5e-5 (APP-v2)", [0.835, 0.879, 0.883, 0.892, 0.892, 0.890, 0.893, 0.895, 0.895, 0.896], 4, GRIS_FONCE, "-"),
         ("BioLinkBERT-base", [0.793, 0.881, 0.894, 0.901, 0.906, 0.906, 0.902, 0.908, 0.906, 0.907], 5, VIOLET, "-"),
@@ -461,7 +461,7 @@ def fig14_hybride_extraction():
 
 
 def fig15_hybride_qa():
-    lignes = [  # RAPPORT.md, APP-REC et APP-REC-v2 (DEV, 16 questions avec réponse) : rappel@5, couverture@5, temps / question
+    lignes = [  # rapport/3_question_reponse.ipynb, recherche hybride (DEV, 16 questions avec réponse) : rappel@5, couverture@5, temps / question
         ("BM25 + racinisation", 0.781, 0.823, "< 0,01 s", ORANGE),
         ("Recherche dense", 0.875, 0.979, "0,04 s", BLEU),
         ("Hybride RRF, poids égaux", 0.781, 0.802, "", GRIS),
@@ -486,7 +486,7 @@ def fig15_hybride_qa():
 
 
 def fig16_construction_dic_v4():
-    etapes = [  # RAPPORT.md, DIC-v4 : variantes comparées sur VALIDATION (cumulatives)
+    etapes = [  # rapport/1_extraction.ipynb, DIC-v4 : variantes comparées sur VALIDATION (cumulatives)
         ("DIC-v3", 0.8811, 0.7314, 0.7993), ("+ MeSH\nsans filtre", 0.7733, 0.8598, 0.8142),
         ("+ filtre\npar terme", 0.8580, 0.8633, 0.8607), ("+ filtre par\nbranche (niv. 1)", 0.8823, 0.8627, 0.8724),
         ("+ filtre par\nbranche (niv. 2)\n= DIC-v4", 0.9032, 0.8669, 0.8847),

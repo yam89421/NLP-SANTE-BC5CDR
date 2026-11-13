@@ -32,7 +32,7 @@ DATA_DIR = RACINE / "data"
 ASSETS_DIR = RACINE / "assets"
 LOGO_PATH = ASSETS_DIR / "ESIEE_Paris_logo.png"
 PASSAGES_PATH = DATA_DIR / "passages.jsonl"
-MODELE_APP_V3 = RACINE / "modeles" / "apprise_v3"   # copie locale (notebook 2.4c), non versionnée
+MODELE_APP_V3 = RACINE / "modeles" / "apprise_v3"   # copie locale, non versionnée
 DEPOT_HF_APP_V3 = "yam89421/app-v3-pubmedbert-bc5cdr"   # sinon téléchargé depuis Hugging Face (app déployée)
 RESULTATS = RACINE / "resultats"
 # Cache à part : les prompts de l'app diffèrent de ceux des notebooks, on ne mélange pas avec l'évaluation
@@ -220,13 +220,13 @@ def initialiser_index_bm25(_passages):
 
 @st.cache_resource
 def initialiser_index_dense(_passages):
-    # Comme dans 5_evaluation : titre de section + texte
+    # Comme dans le rapport : titre de section + texte
     return IndexDense([f'{p["localisation"]["section"]} {p["texte"]}' for p in _passages])
 
 
 @st.cache_resource
 def charger_dictionnaire_ner():
-    """DIC-v4 figée : DIC-v3 reconstruite sur TRAIN + termes MeSH retenus par le notebook 2.3c (≈ 10 s, une seule fois)."""
+    """DIC-v4 figée : DIC-v3 reconstruite sur TRAIN + termes MeSH retenus (≈ 10 s, une seule fois)."""
     documents = charger_jsonl(DATA_DIR / "corpus_extraction.jsonl")
     return DictionnaireV4Fige(RESULTATS / "extraction" / "dictionnaire_v4_termes_mesh.tsv.gz").construire(
         [d for d in documents if d.partition == "train"])
@@ -414,7 +414,7 @@ elif choix_menu == txt["nav_qa"]:
                 try:
                     if not cle_api:
                         raise LookupError
-                    client_llm = ClientLLM(   # Mistral, modèle de la comparaison LLM-MIS-v1 (notebook 4.4)
+                    client_llm = ClientLLM(   # Mistral, modèle de la comparaison LLM-MIS-v1
                         modele="mistral-medium-2604",
                         temperature=0.0,
                         seed=42,
@@ -514,7 +514,7 @@ elif choix_menu == txt["nav_metrics"]:
     st.caption(txt["metrics_subtitle"])
     st.markdown("---")
     
-    # Scores TEST lus dans les fichiers écrits par 5_evaluation.ipynb (versions figées)
+    # Scores TEST des versions figées, lus dans resultats/
     ner = pd.read_csv(RESULTATS / "extraction" / "scores_test.csv")
     ner_global = ner[ner.categorie == "global (micro)"].set_index("methode")
     f1_app = ner_global.filter(like="APP-v3", axis=0)["F1"].iloc[0]

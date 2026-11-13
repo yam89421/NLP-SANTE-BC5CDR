@@ -1,4 +1,4 @@
-"""Méthode par dictionnaire et règles, version DIC-v4 : DIC-v3 + lexique MeSH (notebook `2.3c_dictionnaire_mesh_v4`).
+"""Méthode par dictionnaire et règles, version DIC-v4 : DIC-v3 + lexique MeSH.
 
 DIC-v3 est construite sans changement (dictionnaire, variantes et règles appris sur TRAIN). On ajoute ensuite au
 dictionnaire les termes MeSH (`src/mesh.py`) :
@@ -13,7 +13,7 @@ dictionnaire les termes MeSH (`src/mesh.py`) :
     annoté (*lead, water…*) est retiré ; un terme jamais rencontré dans TRAIN est gardé.
 Les taux sont calculés comme l'ajout A de DIC-v3 (occurrences incluses dans une mention plus longue ignorées).
 Les règles de DIC-v3 s'appliquent ensuite sur ce dictionnaire élargi, dans le même ordre.
-Le notebook 2.3c écrit les termes MeSH retenus (`sauver_ajouts`) ; `DictionnaireV4Fige` reconstruit DIC-v4 à partir
+`sauver_ajouts` écrit les termes MeSH retenus ; `DictionnaireV4Fige` reconstruit DIC-v4 à partir
 de ce fichier (application Streamlit) et `verifier_dic_v4()` contrôle qu'on retrouve les prédictions TEST.
 """
 from __future__ import annotations
@@ -114,7 +114,7 @@ SEP = "\x1f"   # séparateur des tokens d'une clé (n'apparaît dans aucun token
 
 
 class DictionnaireV4Fige(DictionnaireV3):
-    """DIC-v4 figée, pour l'application : DIC-v3 construite sur TRAIN + termes MeSH retenus par le notebook 2.3c
+    """DIC-v4 figée, pour l'application : DIC-v3 construite sur TRAIN + termes MeSH retenus
     (`resultats/extraction/dictionnaire_v4_termes_mesh.tsv.gz`). Même dictionnaire que `DictionnaireV4`, sans
     télécharger ni filtrer MeSH (≈ 64 Mo et ≈ 1,3 Go de mémoire évités)."""
 
@@ -132,7 +132,7 @@ class DictionnaireV4Fige(DictionnaireV3):
 
 
 def verifier_dic_v4(racine) -> int:
-    """Reconstruit DIC-v4 comme l'application et vérifie qu'on retrouve les prédictions TEST du notebook 2.3c."""
+    """Reconstruit DIC-v4 comme l'application et vérifie qu'on retrouve les prédictions TEST sauvegardées."""
     from .cdr import charger_jsonl
     from .extraction import lire_predictions
     documents = charger_jsonl(racine / "data" / "corpus_extraction.jsonl")

@@ -1,10 +1,8 @@
 """Méthode par dictionnaire et règles, version figée DIC-v3 (section 2.3 du livret).
 
-Reprise sans changement de logique du notebook `2.3b_dictionnaire_regles_v3.ipynb`, regroupée dans une classe
-pour être réutilisée (application Streamlit) : tout est appris sur TRAIN, puis appliqué à n'importe quel texte.
-Configuration figée (`resultats/extraction/dictionnaire_v3_config_gelee.json`) : casse insensible, seuil 0,3,
-regex, ajouts A (filtre corrigé), B (variantes), C (extension à droite) et D (propagation).
-Le notebook reste la référence ; `verifier_dic_v3()` contrôle qu'on retrouve ses prédictions TEST.
+Regroupée dans une classe pour être réutilisée (rapport, application Streamlit) : tout est appris sur TRAIN,
+puis appliqué à n'importe quel texte. Configuration figée : casse insensible, seuil 0,3, regex, ajouts A (filtre
+corrigé), B (variantes), C (extension à droite) et D (propagation).
 
 Ordre des règles : suffixes, modificateurs à gauche, extension à droite, « X-induced », sigles, préfixe anti-,
 propagation.
@@ -176,7 +174,7 @@ class DictionnaireV3:
         self.variantes_ajoutees = len(ajouts)
         return self
 
-    # --- Règles (même code que le notebook 2.3b) ---
+    # --- Règles ---
     def r_suffixes(self, d, P):
         P = set(P)
         for type_, motif in self.regex_suffixes.items():
@@ -276,16 +274,3 @@ class DictionnaireV3:
         for d in documents:
             sortie |= self._document(d)
         return sortie
-
-
-def verifier_dic_v3(racine) -> int:
-    """Reconstruit DIC-v3 sur TRAIN et vérifie qu'on retrouve les prédictions TEST du notebook 2.3b."""
-    from .cdr import charger_jsonl
-    from .extraction import lire_predictions
-    documents = charger_jsonl(racine / "data" / "corpus_extraction.jsonl")
-    train = [d for d in documents if d.partition == "train"]
-    test = [d for d in documents if d.partition == "test"]
-    pred = DictionnaireV3().construire(train).extraire_corpus(test)
-    attendu = lire_predictions(racine / "resultats" / "extraction" / "predictions_dictionnaire_v3_test.jsonl")
-    assert pred == attendu, f"DIC-v3 non reproduite : {len(pred ^ attendu)} différences"
-    return len(pred)

@@ -142,7 +142,7 @@ class WeightedLossTrainer(Trainer):
 
 def entrainer(nom_modele, donnees_train, tokenizer, dossier, *, taux, epoques, graine, poids=1.0, warmup=0.1,
               batch_size=8, weight_decay=0.01):
-    """Ajuste un BERT pré-entraîné sur TRAIN (recette d'APP-v2 / APP-v3, notebooks 2.4b et 2.4c).
+    """Ajuste un BERT pré-entraîné sur TRAIN (recette d'APP-v2 / APP-v3, entraînements sur Colab).
 
     Sauvegarde le modèle à la fin de chaque époque dans `dossier` et renvoie (points de sauvegarde, durée en s).
     Prévu pour un GPU (Google Colab) : environ 3 à 4 min pour 10 époques sur une T4.

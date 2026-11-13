@@ -5,7 +5,7 @@ Binôme : AMARA Yanis, TOMAS Alban
 
 ## 1. Objectif
 
-Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils NLP :
+Ce dépôt contient le rendu du projet de TALS, soit principalement deux outils NLP :
 1. **Extraction d'informations** médicales (2 catégories minimum), avec une méthode par
    dictionnaire/règles et une méthode apprise, plus une étude séparée de la **négation**.
 2. **Question answering (QA)** sur un corpus documentaire constitué par le binôme, comparant
@@ -23,23 +23,27 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 | Modèle méthode apprise | PubMedBERT (`microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract-fulltext`), 7 époques (APP-v3) | Meilleur F1 VALIDATION (0,912) devant BioLinkBERT (0,906) et BioBERT (0,892), même recette d'entraînement |
 | LLM utilisé pour Q1/Q2 | `gpt-4.1-mini-2025-04-14` (API OpenAI), température 0, graine 42 | Version datée, génération déterministe, coût faible ; clé dans `.env` (non versionné) |
 | Recherche lexicale | BM25 du TD RAG (k1 = 1,5, b = 0,75) avec racinisation Snowball français, texte du passage indexé, top-5 | Méthode du cours ; prétraitement choisi sur DEV (REC-v2) |
-| Approfondissement QA | Recherche dense `intfloat/multilingual-e5-small` (titre de section + texte), top-5, comparée au BM25 avec Q2 | Modèle du TD RAG ; meilleur rappel sur DEV, à vérifier sur TEST |
+| Approfondissement QA | Recherche dense `intfloat/multilingual-e5-small` (titre de section + texte), top-5, comparée au BM25 avec Q2 | Modèle du TD RAG ; meilleur rappel sur DEV, résultat TEST dans `rapport/3_question_reponse.ipynb` |
 
 ## 3. Arborescence du dépôt
 
 ```
 .
 ├── README.md                          # ce fichier
-├── RAPPORT.md                         # historique des versions, configurations et scores
 ├── manifest.json                      # versions, modèle, prompts, paramètres, date du gel
 ├── requirements.txt                   # dépendances Python
+├── rapport/                           # LE RAPPORT : trois notebooks exécutés
+│   ├── 1_extraction.ipynb             # BC5CDR, dictionnaire + règles (DIC-v1 → v4), modèle appris (APP-v1 → v3), TEST, erreurs
+│   ├── 2_negation.ipynb               # règles de négation, 20 phrases, double annotation, test, erreurs
+│   ├── 3_question_reponse.ipynb       # corpus INCa, questions, BM25 / recherche dense, Q0/Q1/Q2, TEST, grille manuelle
+│   └── sorties/                       # fichiers réécrits par les notebooks (voir section 7)
 ├── CDR_Data/                          # corpus BC5CDR d'origine (PubTator, BioC), domaine public
-├── src/                               # code du projet (lecteur BC5CDR, dictionnaire, scoreur, corpus QA)
+├── src/                               # code du projet (lecteur BC5CDR, dictionnaires, modèle, négation, QA)
 ├── tals/                              # paquet du cours, copié sans modification
 ├── data/
-│   ├── partitions_extraction.csv      # PMID -> partition (2.2)
-│   ├── corpus_extraction.jsonl/.csv   # corpus BC5CDR relu et vérifié (2.2)
-│   ├── bio_extraction.jsonl/.csv      # tokens, positions, étiquettes BIO (2.2)
+│   ├── partitions_extraction.csv      # PMID -> partition
+│   ├── corpus_extraction.jsonl/.csv   # corpus BC5CDR relu et vérifié
+│   ├── bio_extraction.jsonl/.csv      # tokens, positions, étiquettes BIO
 │   ├── sources_qa/                    # documents QA d'origine (INCa)
 │   ├── corpus.csv                     # catalogue des documents QA
 │   ├── passages.jsonl                 # passages QA découpés
@@ -48,61 +52,38 @@ Ce dépôt contient les rendu du projet de TALS, soit principalement deux outils
 │   ├── negation.jsonl                 # 20 phrases fictives de négation
 │   ├── predictions_extraction.jsonl   # sorties des 2 méthodes figées (DIC-v4, APP-v3) sur TEST
 │   └── predictions_qa.jsonl           # sorties Q0/Q1/Q2 sur TEST
-├── notebooks/                         # un notebook par section du livret, dans l'ordre d'exécution
-│   ├── 2.1_choisir_explorer_donnees.ipynb
-│   ├── 2.2_partitions_bio.ipynb
-│   ├── 2.3_dictionnaire_regles.ipynb
-│   ├── 2.3b_dictionnaire_regles_v3.ipynb  # DIC-v3 : variantes, filtre corrigé, propagation
-│   ├── 2.3c_dictionnaire_mesh_v4.ipynb    # DIC-v4 : DIC-v3 + lexique MeSH
-│   ├── 2.4_methode_apprise.ipynb
-│   ├── 2.4b_methode_apprise_v2.ipynb  # APP-v2 : BioBERT mieux entraîné (Colab)
-│   ├── 2.4c_methode_apprise_v3.ipynb  # APP-v3 : PubMedBERT / BioLinkBERT, même recette (Colab)
-│   ├── 2.5_negation.ipynb
-│   ├── 3_corpus_qa.ipynb
-│   ├── 4.1_recherche_lexicale_q0.ipynb
-│   ├── 4.2_llm_q1_q2.ipynb
-│   ├── 4.3_recherche_hybride.ipynb      # approfondissement : recherche dense / hybride
-│   ├── 4.4_comparaison_mistral.ipynb    # mêmes prompts QA avec Mistral (DEV et TEST)
-│   └── 5_evaluation.ipynb
 ├── resultats/
-│   ├── extraction/                    # tableaux VP/FP/FN, P/R/F1, erreurs commentées
-│   ├── negation/                      # matrice de confusion, P/R/F1, erreurs commentées
-│   └── qa/                            # Hit@5, rappel@5, BLEU/ROUGE, grille manuelle
-├── gabarits/                          # exemples fictifs illustrant chaque format
-└── rapport/                           # rapport en 3 notebooks (1_extraction, 2_negation, 3_question_reponse) + notes de cadrage
+│   ├── extraction/                    # configs figées, courbes d'entraînement, prédictions et scores TEST
+│   ├── negation/                      # guide et feuilles d'annotation, désaccords, règles figées, scores TEST
+│   └── qa/                            # config figée, caches des réponses LLM, grille manuelle, scores TEST
+├── streamlit_app/                     # application de démonstration
+├── figures_oral/                      # figures de la soutenance et leur script
+└── assets/                            # logo de l'application
 ```
 
 ## 4. Ordre d'exécution
 
-Les notebooks portent le numéro de la section du livret qu'ils traitent.
+Le rapport tient en **trois notebooks autonomes**, à exécuter depuis le dossier `rapport/`, dans l'ordre :
 
-1. `2.1_choisir_explorer_donnees.ipynb` — chargement de BC5CDR, 5 exemples, effectifs par catégorie et
-   partition, vérification de 10 mentions de TRAIN, fiche du corpus.
-2. `2.2_partitions_bio.ipynb` — partitions officielles, doublons, sauvegarde des identifiants, convention
-   BIO (mentions composites, aller-retour BIO, mentions hors frontière de token).
-3. `2.3_dictionnaire_regles.ipynb` — dictionnaire construit sur TRAIN, réglé sur VALIDATION, figé,
-   prédictions TEST (DIC-v1, DIC-v2).
-   `2.3b_dictionnaire_regles_v3.ipynb` — DIC-v3 : filtre corrigé, variantes singulier/pluriel,
-   extension à droite, propagation dans le document ; ne modifie pas le notebook 2.3.
-   `2.3c_dictionnaire_mesh_v4.ipynb` — DIC-v4 (version figée) : DIC-v3 + lexique MeSH 2026 (téléchargé automatiquement dans
-   `data/mesh/`, ≈ 64 Mo, non versionné), filtré par branche et par terme sur TRAIN ; ne modifie pas le notebook 2.3b.
-4. `2.4_methode_apprise.ipynb` — entraînement, réglage sur VALIDATION, comparaison, gel, prédictions TEST.
-   `2.4b_methode_apprise_v2.ipynb` — APP-v2 (Colab GPU, ≈ 35 min) : 10 époques, warmup, 2 taux × 2 graines ; ne modifie pas APP-v1.
-   `2.4c_methode_apprise_v3.ipynb` — APP-v3 (Colab GPU, ≈ 30 min) : PubMedBERT et BioLinkBERT-base avec la recette d'APP-v2, comparés à BioBERT.
-5. `2.5_negation.ipynb` — règles de négation (**développées avant** la génération des phrases fictives),
-   génération des 20 phrases, annotation croisée, split dev/test, évaluation.
-6. `3_corpus_qa.ipynb` — thème et public (3.1), documents et passages (3.2), questions (3.3), protocole
-   DEV/TEST (3.4).
-7. `4.1_recherche_lexicale_q0.ipynb` — BM25, top-5 passages, sortie Q0.
-8. `4.2_llm_q1_q2.ipynb` — prompts Q1/Q2, mêmes passages, mêmes paramètres.
-9. `4.3_recherche_hybride.ipynb` — approfondissement sur DEV : recherche dense, hybride (RRF) et reclassement
-   par cross-encoder (non retenu).
-10. `5_evaluation.ipynb` — évaluation unique sur TEST des versions figées : les 4 tableaux de mesures (5.1),
-   interprétation (5.2), analyse d'erreurs (5.3).
-11. `4.4_comparaison_mistral.ipynb` — comparaison OpenAI / Mistral : tous les prompts QA (DEV, TEST, question libre)
-    renvoyés tels quels à `mistral-medium-2604` ; à exécuter après le notebook 5 (il relit ses prédictions TEST).
-    La section « Comparaison avec un second LLM » du notebook 5 relit à son tour les réponses Mistral : la relancer
-    après le notebook 4.4 (aucun nouvel appel, tout vient des fichiers).
+| Notebook | Contenu | Durée (CPU) |
+|---|---|---|
+| `1_extraction.ipynb` | BC5CDR, dictionnaire et règles (DIC-v1 → v4), modèle appris (APP-v1 → v3), évaluation TEST, état de l'art, erreurs | ≈ 20 min |
+| `2_negation.ipynb` | règles de négation figées, 20 phrases, double annotation et kappa, test, erreurs | quelques secondes |
+| `3_question_reponse.ipynb` | corpus INCa, questions, BM25 / recherche dense, Q0/Q1/Q2, évaluation TEST, grille manuelle, essais complémentaires (nombre de passages, question libre, Mistral) | ≈ 6 min |
+
+Tout est recalculé à partir des **données d'origine** (`CDR_Data/`, `data/sources_qa/`, `data/corpus.csv`,
+`data/negation.jsonl`), de **nos annotations** (questions `data/questions_*.jsonl`, feuilles d'annotation de la
+négation, grille de lecture `resultats/qa/grille_manuelle.csv`) et du code `src/` + `tals/`. Ne sont pas recalculés :
+- les **entraînements BERT** (GPU, Google Colab) : le modèle figé APP-v3 est rechargé depuis `modeles/apprise_v3`
+  s'il existe (non versionné), sinon téléchargé depuis Hugging Face
+  ([yam89421/app-v3-pubmedbert-bc5cdr](https://huggingface.co/yam89421/app-v3-pubmedbert-bc5cdr)) ; les courbes de
+  réglage d'APP-v1 à v3 sont celles enregistrées pendant les entraînements (`resultats/extraction/apprise*_reglage_validation.csv`) ;
+  une cellule optionnelle (`REENTRAINER = True`) réentraîne APP-v3 (GPU conseillé) ;
+- les **réponses des LLM**, servies par le cache des requêtes (`resultats/qa/cache_llm.json`, `cache_llm_mistral.json`) :
+  un prompt absent du cache serait envoyé à l'API avec la clé lue dans `.env` (`OPENAI_API_KEY`, `MISTRAL_API_KEY`).
+
+Le lexique MeSH 2026 (≈ 64 Mo) est téléchargé automatiquement dans `data/mesh/` (non versionné) à la première exécution
+du notebook 1.
 
 ## 5. Installation
 
@@ -113,8 +94,8 @@ source venv/bin/activate          # Windows : venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-**Application de démonstration** (`streamlit_app/`) : chatbot RAG, démo d'extraction (DIC-v4, APP-v3) avec
-négation, tableau des scores TEST.
+**Application de démonstration** (`streamlit_app/`, facultative) : chatbot RAG, démo d'extraction (DIC-v4, APP-v3)
+avec négation, tableau des scores TEST.
 
 ```bash
 streamlit run streamlit_app/app.py
@@ -123,9 +104,8 @@ streamlit run streamlit_app/app.py
 - Déploiement sur Streamlit Community Cloud : fichier principal `streamlit_app/app.py`, Python 3.12 à 3.14.
   Les dépendances sont lues dans `streamlit_app/requirements.txt` (version réduite, torch CPU).
 - DIC-v4 est reconstruite au démarrage (≈ 10 s) : DIC-v3 construite sur TRAIN + termes MeSH retenus, lus dans
-  `resultats/extraction/dictionnaire_v4_termes_mesh.tsv.gz` (3 Mo, écrit par le notebook 2.3c). MeSH n'est donc pas
-  téléchargé par l'application ; mêmes prédictions TEST que le notebook 2.3c (`src/dictionnaire_v4.py`,
-  `verifier_dic_v4`).
+  `resultats/extraction/dictionnaire_v4_termes_mesh.tsv.gz` (3 Mo). MeSH n'est donc pas téléchargé par l'application ;
+  mêmes prédictions TEST que la version figée (`src/dictionnaire_v4.py`, `verifier_dic_v4`).
 - Le modèle APP-v3 est lu dans `modeles/apprise_v3` s'il existe (non versionné), sinon téléchargé depuis
   Hugging Face : https://huggingface.co/yam89421/app-v3-pubmedbert-bc5cdr.
 - La clé OpenAI est saisie dans l'application et reste dans la session ; sans clé, le chatbot affiche
@@ -161,11 +141,14 @@ streamlit run streamlit_app/app.py
 ## 7. Sorties produites
 
 - `data/predictions_extraction.jsonl` : prédictions des deux méthodes figées (DIC-v4, APP-v3) sur TEST.
-- `data/predictions_qa.jsonl` : prédictions Q0/Q1/Q2 sur TEST (réponses brutes conservées) ; prédictions DEV
-  dans `resultats/qa/`, variante Q2 avec recherche dense dans `resultats/qa/predictions_llm_test_dense.jsonl`.
-- `resultats/` : tableaux de scores et analyses manuelles (voir section 5 du livret).
+- `data/predictions_qa.jsonl` : prédictions Q0/Q1/Q2 sur TEST au format complet (passages retrouvés et transmis,
+  réponse brute, durée, échec éventuel) ; variante Q2 avec recherche dense dans `resultats/qa/predictions_llm_test_dense.jsonl`.
+- `rapport/sorties/` : fichiers réécrits à chaque exécution des notebooks. `passages.jsonl` et
+  `predictions_extraction.jsonl` sont identiques à ceux de `data/` ; `predictions_qa.jsonl` contient les mêmes
+  réponses et les mêmes passages transmis, sous une forme plus courte.
+- `resultats/` : configurations figées, prédictions et scores TEST, annotations manuelles (voir section 5 du livret).
 - Les calculs coûteux (entraînement du modèle appris, appels LLM) ont leurs sorties sauvegardées
-  dans `resultats/` pour ne pas nécessiter de ré-exécution complète.
+  (modèle sur Hugging Face, caches LLM dans `resultats/qa/`) pour ne pas nécessiter de ré-exécution complète.
 
 ## 8. Partitions et gel
 
@@ -176,4 +159,4 @@ streamlit run streamlit_app/app.py
 - QA : DEV (20 questions) sert exclusivement au réglage (découpage, recherche, prompts).
   Configuration gelée le **30/10/2026** (`resultats/qa/qa_config_gelee.json`, résumée dans `manifest.json`),
   puis TEST (10 questions) exécuté une seule fois le 01/11/2026, sans nouveau réglage.
-- Le détail des versions et des scores est dans `RAPPORT.md`.
+- Le détail des versions et des scores est dans les notebooks de `rapport/`.
