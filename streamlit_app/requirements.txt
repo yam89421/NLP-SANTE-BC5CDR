@@ -6,11 +6,12 @@
 --find-links https://download.pytorch.org/whl/cpu/torch/
 torch==2.9.1
 streamlit==1.67.0
+streamlit-option-menu==0.4.0    # menu de navigation avec icônes dans la barre latérale
 pandas==3.0.6
 numpy>=2.3.1
-jinja2==3.1.6                  # mise en forme des tableaux (pandas Styler)
-transformers==4.57.1           # PubMedBERT (APP-v3) ; même version que pour l'évaluation
-huggingface_hub==0.36.2        # téléchargement du modèle APP-v3
-sentence-transformers==5.1.2   # recherche dense E5
-snowballstemmer==3.1.1         # BM25 REC-v2
-openai==3.40.0                 # génération des réponses (clé saisie dans l'app)
+jinja2==3.1.6                   # mise en forme des tableaux (pandas Styler)
+transformers==4.57.1            # PubMedBERT (APP-v3) ; même version que pour l'évaluation
+huggingface_hub==0.36.2         # téléchargement du modèle APP-v3
+sentence-transformers==5.1.2    # recherche dense E5
+snowballstemmer==3.1.1          # BM25 REC-v2
+openai==3.40.0                  # génération des réponses (clé saisie dans l'app)
