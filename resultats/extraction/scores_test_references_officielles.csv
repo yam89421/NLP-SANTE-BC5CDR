@@ -1,4 +1,0 @@
-methode,partition,categorie,VP,FP,FN,precision,rappel,F1,denominateur_nul,temps_s
-tmChem + DNorm,test,Chemical,4837,270,548,0.9471,0.8982,0.922,False,
-tmChem + DNorm,test,Disease,3491,786,933,0.8162,0.7891,0.8024,False,
-tmChem + DNorm,test,global (micro),8328,1056,1481,0.8875,0.849,0.8678,False,

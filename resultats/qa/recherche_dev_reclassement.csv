@@ -1,6 +1,0 @@
-methode,hit@5,rappel@5,couverture_elements@5,rang_reciproque,temps par question (s)
-BM25 REC-v2,0.875,0.781,0.823,0.674,0.0
-dense (section + texte),0.938,0.875,0.979,0.702,0.04
-reclassement des 20 premiers BM25,0.875,0.75,0.781,0.844,2.06
-reclassement des 20 premiers denses,0.938,0.875,0.958,0.853,2.01
-reclassement de l'union BM25 + dense,0.938,0.875,0.958,0.853,3.52

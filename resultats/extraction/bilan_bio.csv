@@ -1,4 +1,0 @@
-partition,mentions,chevauchements,composites,bornes hors frontière de token,perdues à l'aller-retour BIO,créées à l'aller-retour BIO
-train,9385,0,107,0,0,0
-validation,9591,0,89,10,10,6
-test,9809,0,57,5,5,1

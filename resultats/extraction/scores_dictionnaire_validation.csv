@@ -1,4 +1,0 @@
-methode,partition,categorie,VP,FP,FN,precision,rappel,F1,denominateur_nul,temps_s
-dictionnaire,validation,Chemical,3999,303,1348,0.9296,0.7479,0.8289,False,
-dictionnaire,validation,Disease,2837,551,1407,0.8374,0.6685,0.7434,False,
-dictionnaire,validation,global (micro),6836,854,2755,0.8889,0.7128,0.7912,False,1.43
