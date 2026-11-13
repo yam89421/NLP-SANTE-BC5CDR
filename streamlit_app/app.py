@@ -4,6 +4,7 @@ import base64
 import sys
 import pandas as pd
 import streamlit as st
+from streamlit_option_menu import option_menu
 
 # L'app est dans `streamlit_app/` (dépendances réduites pour Streamlit Cloud) ; le code partagé est à la racine
 RACINE = Path(__file__).resolve().parent.parent   # chemins absolus : l'app marche quel que soit le dossier de lancement
@@ -42,6 +43,7 @@ CACHE_LLM_PATH = RACINE / "resultats" / "qa" / "cache_llm_app.json"
 # -----------------------------------------------------------------------------
 TRADUCTIONS = {
     "Français": {
+        "menu_title": "NLP Médical",
         "nav_accueil": "Accueil",
         "nav_qa": "Assistant Chatbot (RAG)",
         "nav_ner": "Démonstration NER",
@@ -90,6 +92,7 @@ TRADUCTIONS = {
         "qa_echec": "Appel au LLM impossible (vérifier la clé API)",
     },
     "English": {
+        "menu_title": "Medical NLP",
         "nav_accueil": "Home",
         "nav_qa": "Chatbot Assistant (RAG)",
         "nav_ner": "NER Demonstration",
@@ -140,7 +143,7 @@ TRADUCTIONS = {
 }
 
 # -----------------------------------------------------------------------------
-# Style CSS : Positionnement du Logo & Masquage Absolu des Puces Radio
+# Style CSS : Positionnement du Logo & Pied de Barre Latérale
 # -----------------------------------------------------------------------------
 CSS_THEME = """
 <style>
@@ -175,64 +178,6 @@ CSS_THEME = """
     .sidebar-footer {
         margin-top: auto;
         padding-top: 1rem;
-    }
-
-    /* 4. Masquer entièrement les puces/pastilles radio dans TOUTE la sidebar */
-    [data-testid="stSidebar"] [data-testid="stRadio"] label > div:first-child,
-    [data-testid="stSidebar"] [data-testid="stRadio"] label [data-testid="stRadioButtonIcon"],
-    [data-testid="stSidebar"] [data-testid="stRadio"] label svg,
-    [data-testid="stSidebar"] label[data-baseweb="radio"] > div:first-child {
-        display: none !important;
-        width: 0px !important;
-        height: 0px !important;
-        margin: 0px !important;
-        padding: 0px !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
-
-    /* 5. Transformation des options de menu en cartes/pilules */
-    [data-testid="stSidebar"] [data-testid="stRadio"] label {
-        padding: 8px 12px !important;
-        border-radius: 6px !important;
-        cursor: pointer !important;
-        width: 100% !important;
-        margin-bottom: 4px !important;
-        transition: background-color 0.15s ease-in-out !important;
-    }
-    
-    [data-testid="stSidebar"] [data-testid="stRadio"] label [data-testid="stMarkdownContainer"] p {
-        font-size: 0.9rem !important;
-        font-weight: 500 !important;
-        color: #334155;
-        margin: 0 !important;
-    }
-
-    /* Style de l'onglet actif */
-    [data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) {
-        background-color: #e2e8f0 !important;
-    }
-    [data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) [data-testid="stMarkdownContainer"] p {
-        color: #0f172a !important;
-        font-weight: 700 !important;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        [data-testid="stSidebar"] [data-testid="stRadio"] label [data-testid="stMarkdownContainer"] p {
-            color: #94a3b8;
-        }
-        [data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) {
-            background-color: #334155 !important;
-        }
-        [data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) [data-testid="stMarkdownContainer"] p {
-            color: #f8fafc !important;
-        }
-    }
-    [data-theme="dark"] [data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) {
-        background-color: #334155 !important;
-    }
-    [data-theme="dark"] [data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) [data-testid="stMarkdownContainer"] p {
-        color: #f8fafc !important;
     }
 </style>
 """
@@ -328,17 +273,25 @@ txt = TRADUCTIONS[langue]
 # -----------------------------------------------------------------------------
 # Barre Latérale : Navigation principale & Options
 # -----------------------------------------------------------------------------
-choix_menu = st.sidebar.radio(
-    "Navigation",
-    [
-        txt["nav_accueil"],
-        txt["nav_qa"],
-        txt["nav_ner"],
-        txt["nav_metrics"]
-    ],
-    index=0,
-    label_visibility="collapsed",   # libellé requis par Streamlit, mais masqué
-)
+if "nav_index" not in st.session_state:
+    st.session_state.nav_index = 0
+
+options_nav = [
+    txt["nav_accueil"],
+    txt["nav_qa"],
+    txt["nav_ner"],
+    txt["nav_metrics"],
+]
+
+with st.sidebar:
+    choix_menu = option_menu(
+        menu_title=txt["menu_title"],
+        options=options_nav,
+        icons=["house", "chat-dots", "tags", "bar-chart-fill"],
+        menu_icon="heart-pulse",
+        default_index=st.session_state.nav_index,
+    )
+    st.session_state.nav_index = options_nav.index(choix_menu)
 
 st.sidebar.markdown("---")
 
